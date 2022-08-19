@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "workspaces": [
+    "inner-image-zoom"
+  ],
+  "scripts": {
+    "build:vanilla": "webpack --mode=production --config ./webpack.config.vanilla.js",
+    "start:vanilla": "webpack serve --mode=development --config ./webpack.config.vanilla.js"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.10.0"
+  }
+}
