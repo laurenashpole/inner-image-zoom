@@ -1,4 +1,7 @@
 const path = require('path');
+const postcss = require('postcss');
+const cssnano = require('cssnano');
+const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = (env, argv) => {
@@ -13,7 +16,29 @@ module.exports = (env, argv) => {
           library: 'InnerImageZoom',
           libraryTarget: 'umd',
           clean: true
-        }
+        },
+        plugins: [
+          new CopyPlugin({
+            patterns: [
+              {
+                from: path.resolve(__dirname, 'src/styles.css'),
+                to: path.resolve(__dirname, 'src/vanilla/umd/styles.css')
+              },
+              {
+                from: path.resolve(__dirname, 'src/styles.css'),
+                to: path.resolve(__dirname, 'src/vanilla/umd/styles.min.css'),
+                transform: (content, path) => {
+                  return postcss([cssnano]).process(content, {
+                    from: path,
+                  })
+                  .then((result) => {
+                    return result.css;
+                  });
+                }
+              }
+            ]
+          })
+        ]
       },
       {
         mode: 'production',
@@ -24,7 +49,29 @@ module.exports = (env, argv) => {
           library: 'InnerImageZoom',
           libraryTarget: 'var',
           clean: true
-        }
+        },
+        plugins: [
+          new CopyPlugin({
+            patterns: [
+              {
+                from: path.resolve(__dirname, 'src/styles.css'),
+                to: path.resolve(__dirname, 'src/vanilla/lib/styles.css')
+              },
+              {
+                from: path.resolve(__dirname, 'src/styles.css'),
+                to: path.resolve(__dirname, 'src/vanilla/lib/styles.min.css'),
+                transform: (content, path) => {
+                  return postcss([cssnano]).process(content, {
+                    from: path,
+                  })
+                  .then((result) => {
+                    return result.css;
+                  });
+                }
+              }
+            ]
+          })
+        ]
       }
     ];
   }
@@ -38,6 +85,11 @@ module.exports = (env, argv) => {
         },
         host: process.env.HOST || 'localhost',
         port: 3000
+      },
+      module: {
+        rules: [
+          { test: /\.css$/, use: ['style-loader' , 'css-loader'] }
+        ],
       },
       plugins: [
         new HtmlWebpackPlugin({
