@@ -89,7 +89,7 @@ module.exports = (env, argv) => {
       module: {
         rules: [
           { test: /\.css$/, use: ['style-loader' , 'css-loader'] }
-        ],
+        ]
       },
       plugins: [
         new HtmlWebpackPlugin({
@@ -97,7 +97,7 @@ module.exports = (env, argv) => {
           template: path.resolve(__dirname, 'sandbox/vanilla/index.html')
         })
       ],
-      stats: 'minimal'      
+      stats: 'minimal'
     };
   }
 };

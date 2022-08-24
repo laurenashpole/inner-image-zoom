@@ -10,8 +10,21 @@
 
     <div id="root"></div>
 
-    <figure class="iiz">
-      <img class="iiz__img" src="https://images.unsplash.com/photo-1609074405294-355851aead3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" />
-    </figure>
+    <div style="max-width: 640px; margin-bottom: 30px;">
+      <img class="iiz" src="https://images.unsplash.com/photo-1488740304459-45c4277e7daf?fit=crop&w=1280&q=80" />
+    </div>
+
+    <div style="max-width: 640px; margin-bottom: 30px;">
+      <figure class="iiz" data-hide-hint="true">
+        <img src="https://images.unsplash.com/photo-1609074405294-355851aead3e?fit=crop&w=1280&q=80" />
+      </figure>
+    </div>
+
+    <div style="max-width: 640px; margin-bottom: 30px;">
+      <picture class="iiz">
+        <source srcset="https://images.unsplash.com/photo-1542736705-53f0131d1e98?fit=crop&w=640&q=80, https://images.unsplash.com/photo-1542736705-53f0131d1e98?fit=crop&w=1280&q=80 2x" media="(min-width: 500px)" />
+        <img srcset="https://images.unsplash.com/photo-1542736705-53f0131d1e98?fit=crop&w=460&q=80, https://images.unsplash.com/photo-1542736705-53f0131d1e98?fit=crop&w=920&q=80 2x" src="https://images.unsplash.com/photo-1542736705-53f0131d1e98?fit=crop&w=460&q=80">
+      </picture>
+    </div>
   </body>
 </html>

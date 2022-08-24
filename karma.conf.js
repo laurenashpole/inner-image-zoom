@@ -22,17 +22,13 @@ module.exports = (config) => {
       '*.spec.js': ['webpack']
     },
     webpack: {
-      // module: {
-      //   rules: [
-      //     {
-      //       test: /\.(js)$/,
-      //       exclude: /node_modules/,
-      //       use: 'babel-loader'
-      //     }
-      //   ]
-      // }
+      module: {
+        rules: [
+          { test: /\.css$/, use: ['style-loader' , 'css-loader'] }
+        ]
+      }
     },
-    reporters: ['progress'],
+    reporters: ['mocha'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
