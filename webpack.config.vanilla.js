@@ -28,12 +28,13 @@ module.exports = (env, argv) => {
                 from: path.resolve(__dirname, 'src/styles.css'),
                 to: path.resolve(__dirname, 'src/vanilla/umd/styles.min.css'),
                 transform: (content, path) => {
-                  return postcss([cssnano]).process(content, {
-                    from: path,
-                  })
-                  .then((result) => {
-                    return result.css;
-                  });
+                  return postcss([cssnano])
+                    .process(content, {
+                      from: path
+                    })
+                    .then((result) => {
+                      return result.css;
+                    });
                 }
               }
             ]
@@ -61,12 +62,13 @@ module.exports = (env, argv) => {
                 from: path.resolve(__dirname, 'src/styles.css'),
                 to: path.resolve(__dirname, 'src/vanilla/lib/styles.min.css'),
                 transform: (content, path) => {
-                  return postcss([cssnano]).process(content, {
-                    from: path,
-                  })
-                  .then((result) => {
-                    return result.css;
-                  });
+                  return postcss([cssnano])
+                    .process(content, {
+                      from: path
+                    })
+                    .then((result) => {
+                      return result.css;
+                    });
                 }
               }
             ]
@@ -81,15 +83,13 @@ module.exports = (env, argv) => {
       entry: path.resolve(__dirname, 'sandbox/vanilla'),
       devServer: {
         static: {
-          directory: path.resolve(__dirname, 'sandbox/vanilla'),
+          directory: path.resolve(__dirname, 'sandbox/vanilla')
         },
         host: process.env.HOST || 'localhost',
         port: 3000
       },
       module: {
-        rules: [
-          { test: /\.css$/, use: ['style-loader' , 'css-loader'] }
-        ]
+        rules: [{ test: /\.css$/, use: ['style-loader', 'css-loader'] }]
       },
       plugins: [
         new HtmlWebpackPlugin({

@@ -3,11 +3,7 @@ const path = require('path');
 module.exports = (config) => {
   config.set({
     basePath: path.resolve(__dirname, 'tests'),
-    frameworks: [
-      'mocha',
-      'webpack',
-      'chai'
-    ],
+    frameworks: ['mocha', 'webpack', 'chai'],
     plugins: [
       'karma-chai',
       'karma-chrome-launcher',
@@ -23,9 +19,7 @@ module.exports = (config) => {
     },
     webpack: {
       module: {
-        rules: [
-          { test: /\.css$/, use: ['style-loader' , 'css-loader'] }
-        ]
+        rules: [{ test: /\.css$/, use: ['style-loader', 'css-loader'] }]
       }
     },
     reporters: ['mocha'],
@@ -33,10 +27,7 @@ module.exports = (config) => {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: false,
-    browsers: [
-      'ChromeHeadless',
-      'Firefox'
-    ],
+    browsers: ['ChromeHeadless', 'Firefox'],
     singleRun: true,
     concurrency: Infinity
   });

@@ -17,12 +17,13 @@ describe('InnerImageZoom', () => {
 
   const createImg = (attrs) => {
     attrs = { src: DATA.src, ...(attrs || {}) };
-    return `<img ${Object.keys(attrs).map((key) => `${key}="${attrs[key]}"`).join(' ')} />`;
+    return `<img ${Object.keys(attrs)
+      .map((key) => `${key}="${attrs[key]}"`)
+      .join(' ')} />`;
   };
 
-  const createSources = () => (
-    DATA.sources.map((src) => `<source srcset="${src.srcSet}" media="${src.media}" />`).join('')
-  );
+  const createSources = () =>
+    DATA.sources.map((src) => `<source srcset="${src.srcSet}" media="${src.media}" />`).join('');
 
   describe('mount', () => {
     describe('container', () => {

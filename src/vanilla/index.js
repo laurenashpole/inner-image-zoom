@@ -1,15 +1,7 @@
-import {
-  getBounds,
-  getFullscreenStatus,
-  getImgPropsDefaults,
-  getOffsets,
-  getRatios,
-  getScaledDimensions
-} from './utils';
-
+import { getImgPropsDefaults } from './utils';
 
 const InnerImageZoom = (() => {
-  function innerImageZoom (selector = '.iiz', options = {}) {
+  function innerImageZoom(selector = '.iiz', options = {}) {
     if (options.$el) {
       return this.init(options.$el, options);
     }
@@ -77,10 +69,7 @@ const InnerImageZoom = (() => {
         $figure.appendChild($el);
       }
 
-      $figure.classList.add(...[
-        'iiz',
-        ...(options.moveType === 'drag' ? ['iiz--drag'] : [])
-      ]);
+      $figure.classList.add(...['iiz', ...(options.moveType === 'drag' ? ['iiz--drag'] : [])]);
 
       return $figure;
     },
@@ -130,7 +119,7 @@ const InnerImageZoom = (() => {
       $figure.appendChild($closeButton);
 
       return $closeButton;
-    },
+    }
   };
 
   return innerImageZoom;

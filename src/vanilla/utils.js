@@ -1,4 +1,4 @@
-export function getBounds (img, isFullscreen) {
+export function getBounds(img, isFullscreen) {
   if (isFullscreen) {
     return {
       width: window.innerWidth,
@@ -11,11 +11,11 @@ export function getBounds (img, isFullscreen) {
   return img.getBoundingClientRect();
 }
 
-export function getFullscreenStatus (fullscreenOnMobile, mobileBreakpoint) {
+export function getFullscreenStatus(fullscreenOnMobile, mobileBreakpoint) {
   return fullscreenOnMobile && window.matchMedia && window.matchMedia(`(max-width: ${mobileBreakpoint}px)`).matches;
 }
 
-export function getImgPropsDefaults () {
+export function getImgPropsDefaults() {
   return {
     onLoadCallback: null,
     bounds: {},
@@ -24,23 +24,23 @@ export function getImgPropsDefaults () {
     eventPosition: {},
     scaledDimensions: {}
   };
-};
+}
 
-export function getOffsets (pageX, pageY, left, top) {
+export function getOffsets(pageX, pageY, left, top) {
   return {
     x: pageX - left,
     y: pageY - top
   };
 }
 
-export function getRatios (bounds, dimensions) {
+export function getRatios(bounds, dimensions) {
   return {
     x: (dimensions.width - bounds.width) / bounds.width,
     y: (dimensions.height - bounds.height) / bounds.height
   };
 }
 
-export function getScaledDimensions (zoomImg, zoomScale) {
+export function getScaledDimensions(zoomImg, zoomScale) {
   return {
     width: zoomImg.naturalWidth * zoomScale,
     height: zoomImg.naturalHeight * zoomScale
