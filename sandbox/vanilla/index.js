@@ -1,4 +1,4 @@
 import InnerImageZoom from '../../src/vanilla';
 import '../../src/styles.css';
 
-new InnerImageZoom();
+new InnerImageZoom('.iiz', { fullscreenOnMobile: true });

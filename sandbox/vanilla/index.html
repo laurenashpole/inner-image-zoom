@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content= "width=device-width, initial-scale=1.0">
     <title>inner-image-zoom Sandbox</title>
   </head>
 
@@ -10,20 +11,20 @@
 
     <div id="root"></div>
 
-    <div style="max-width: 640px; margin-bottom: 30px;">
-      <img class="iiz" src="https://images.unsplash.com/photo-1488740304459-45c4277e7daf?fit=crop&w=1280&q=80" />
+    <div style="max-width: 750px; margin-bottom: 30px;">
+      <img class="iiz" src="https://images.unsplash.com/photo-1488740304459-45c4277e7daf?fit=crop&w=1500&q=80" data-zoom-scale="0.5" />
     </div>
 
-    <div style="max-width: 640px; margin-bottom: 30px;">
-      <figure class="iiz" data-hide-hint="true">
-        <img src="https://images.unsplash.com/photo-1609074405294-355851aead3e?fit=crop&w=1280&q=80" />
+    <div style="max-width: 750px; margin-bottom: 30px;">
+      <figure class="iiz" data-move-type="drag" data-zoom-src="https://images.unsplash.com/photo-1609074405294-355851aead3e?fit=crop&w=1500&q=80">
+        <img src="https://images.unsplash.com/photo-1609074405294-355851aead3e?fit=crop&w=750&q=80" />
       </figure>
     </div>
 
-    <div style="max-width: 640px; margin-bottom: 30px;">
-      <picture class="iiz">
-        <source srcset="https://images.unsplash.com/photo-1542736705-53f0131d1e98?fit=crop&w=640&q=80, https://images.unsplash.com/photo-1542736705-53f0131d1e98?fit=crop&w=1280&q=80 2x" media="(min-width: 500px)" />
-        <img srcset="https://images.unsplash.com/photo-1542736705-53f0131d1e98?fit=crop&w=460&q=80, https://images.unsplash.com/photo-1542736705-53f0131d1e98?fit=crop&w=920&q=80 2x" src="https://images.unsplash.com/photo-1542736705-53f0131d1e98?fit=crop&w=460&q=80">
+    <div style="max-width: 750px; margin-bottom: 30px;">
+      <picture class="iiz" data-zoom-src="https://images.unsplash.com/photo-1542736705-53f0131d1e98?fit=crop&w=1500&q=80">
+        <source srcset="https://images.unsplash.com/photo-1542736705-53f0131d1e98?fit=crop&w=750&q=80, https://images.unsplash.com/photo-1542736705-53f0131d1e98?fit=crop&w=1500&q=80 2x" media="(min-width: 500px)" />
+        <img srcset="https://images.unsplash.com/photo-1542736705-53f0131d1e98?fit=crop&w=460&q=80, https://images.unsplash.com/photo-1542736705-53f0131d1e98?fit=crop&w=1000&q=80 2x" src="https://images.unsplash.com/photo-1542736705-53f0131d1e98?fit=crop&w=500&q=80">
       </picture>
     </div>
   </body>

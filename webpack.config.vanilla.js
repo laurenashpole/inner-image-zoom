@@ -97,6 +97,7 @@ module.exports = (env, argv) => {
           template: path.resolve(__dirname, 'sandbox/vanilla/index.html')
         })
       ],
+      devtool: 'inline-source-map',
       stats: 'minimal'
     };
   }
