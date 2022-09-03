@@ -9,9 +9,9 @@ module.exports = (env, argv) => {
     return [
       {
         mode: 'production',
-        entry: path.resolve(__dirname, 'src/vanilla'),
+        entry: path.resolve(__dirname, 'packages/vanilla/src'),
         output: {
-          path: path.resolve(__dirname, 'src/vanilla/umd'),
+          path: path.resolve(__dirname, 'packages/vanilla/umd'),
           filename: 'index.js',
           library: 'InnerImageZoom',
           libraryTarget: 'umd',
@@ -21,12 +21,12 @@ module.exports = (env, argv) => {
           new CopyPlugin({
             patterns: [
               {
-                from: path.resolve(__dirname, 'src/styles.css'),
-                to: path.resolve(__dirname, 'src/vanilla/umd/styles.css')
+                from: path.resolve(__dirname, 'packages/styles.css'),
+                to: path.resolve(__dirname, 'packages/vanilla/umd/styles.css')
               },
               {
-                from: path.resolve(__dirname, 'src/styles.css'),
-                to: path.resolve(__dirname, 'src/vanilla/umd/styles.min.css'),
+                from: path.resolve(__dirname, 'packages/styles.css'),
+                to: path.resolve(__dirname, 'packages/vanilla/umd/styles.min.css'),
                 transform: (content, path) => {
                   return postcss([cssnano])
                     .process(content, {
@@ -43,9 +43,9 @@ module.exports = (env, argv) => {
       },
       {
         mode: 'production',
-        entry: path.resolve(__dirname, 'src/vanilla'),
+        entry: path.resolve(__dirname, 'packages/vanilla/src'),
         output: {
-          path: path.resolve(__dirname, 'src/vanilla/lib'),
+          path: path.resolve(__dirname, 'packages/vanilla/lib'),
           filename: 'index.js',
           library: 'InnerImageZoom',
           libraryTarget: 'var',
@@ -55,12 +55,12 @@ module.exports = (env, argv) => {
           new CopyPlugin({
             patterns: [
               {
-                from: path.resolve(__dirname, 'src/styles.css'),
-                to: path.resolve(__dirname, 'src/vanilla/lib/styles.css')
+                from: path.resolve(__dirname, 'packages/styles.css'),
+                to: path.resolve(__dirname, 'packages/vanilla/lib/styles.css')
               },
               {
-                from: path.resolve(__dirname, 'src/styles.css'),
-                to: path.resolve(__dirname, 'src/vanilla/lib/styles.min.css'),
+                from: path.resolve(__dirname, 'packages/styles.css'),
+                to: path.resolve(__dirname, 'packages/vanilla/lib/styles.min.css'),
                 transform: (content, path) => {
                   return postcss([cssnano])
                     .process(content, {
