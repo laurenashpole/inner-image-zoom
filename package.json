@@ -1,7 +1,7 @@
 {
   "private": true,
   "workspaces": [
-    "inner-image-zoom"
+    "packages/*"
   ],
   "scripts": {
     "build:vanilla": "webpack --mode=production --config ./webpack.config.vanilla.js",
