@@ -27,10 +27,7 @@
           <source
             v-for="(source, i) in validSources"
             v-bind:key="i"
-            v-bind:srcSet="source.srcSet"
-            v-bind:sizes="source.sizes"
-            v-bind:media="source.media"
-            v-bind:type="source.type"
+            v-bind="source"
           />
           <img
             class="iiz__img"

@@ -4,7 +4,7 @@ import { DATA } from './constants';
 import InnerImageZoom from '../packages/vanilla/src';
 import '../packages/styles.css';
 
-describe('InnerImageZoom', () => {
+describe('inner-image-zoom', () => {
   let app;
 
   beforeEach(() => {

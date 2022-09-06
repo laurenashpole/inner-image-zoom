@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -21,6 +22,10 @@ module.exports = (env, argv) => {
       },
       plugins: [
         new VueLoaderPlugin(),
+        new webpack.DefinePlugin({
+          __VUE_OPTIONS_API__: false,
+          __VUE_PROD_DEVTOOLS__: false
+        }),
         new HtmlWebpackPlugin({
           inject: true,
           template: path.resolve(__dirname, 'sandbox/vue/index.html')

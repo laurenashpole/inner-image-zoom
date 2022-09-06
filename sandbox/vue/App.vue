@@ -6,6 +6,16 @@
       <inner-image-zoom
         src="https://images.unsplash.com/photo-1525253086316-d0c936c814f8?fit=crop&w=750&q=80"
         zoomSrc="https://images.unsplash.com/photo-1525253086316-d0c936c814f8?fit=crop&w=1500&q=80"
+        :sources="[
+          {
+            srcSet: `https://images.unsplash.com/photo-1525253086316-d0c936c814f8?fit=crop&w=750, https://images.unsplash.com/photo-1525253086316-d0c936c814f8?fit=crop&w=1500 2x`,
+            media: '(min-width: 768px)'
+          },
+          {
+            srcSet: `https://images.unsplash.com/photo-1525253086316-d0c936c814f8?fit=crop&w=1000, https://images.unsplash.com/photo-1525253086316-d0c936c814f8?fit=crop&w=2000 2x`,
+            media: '(min-width: 1024px)'
+          }
+        ]"
         :fullscreenOnMobile="true"
         :hideCloseButton="true"
         :hideHint="true"
