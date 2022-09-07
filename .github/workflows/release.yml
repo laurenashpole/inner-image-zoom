@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+
+jobs:
+  release:
+    name: Release
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node-version: [12.x, 14.x, 16.x]
+        include:
+          - os: ubuntu-latest
+            node-version: 16.x
+            publish: true
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Cache modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: npm-deps-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: npm-deps-
+      - name: Install modules
+        run: yarn install
+      - name: Run tests
+        run: yarn test
