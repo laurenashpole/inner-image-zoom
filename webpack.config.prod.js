@@ -1,7 +1,6 @@
 const path = require('path');
-const postcss = require('postcss');
-const cssnano = require('cssnano');
-const CopyPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = ({ framework = 'vanilla' }) => {
   return ['lib', 'umd'].map((target) => {
@@ -10,7 +9,7 @@ module.exports = ({ framework = 'vanilla' }) => {
 
     return {
       mode: 'production',
-      entry: `${directory}/src`,
+      entry: [`${directory}/src`, styles],
       output: {
         path: `${directory}/${target}`,
         filename: 'index.js',
@@ -18,29 +17,25 @@ module.exports = ({ framework = 'vanilla' }) => {
         libraryTarget: target === 'lib' ? 'var' : target,
         clean: true
       },
+      module: {
+        rules: [{ test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader'] }]
+      },
       plugins: [
-        new CopyPlugin({
-          patterns: [
-            {
-              from: styles,
-              to: `${directory}/${target}/styles.css`
-            },
-            {
-              from: styles,
-              to: `${directory}/${target}/styles.min.css`,
-              transform: (content, path) => {
-                return postcss([cssnano])
-                  .process(content, {
-                    from: path
-                  })
-                  .then((result) => {
-                    return result.css;
-                  });
-              }
-            }
-          ]
+        new MiniCssExtractPlugin({
+          filename: 'styles.css'
+        }),
+        new MiniCssExtractPlugin({
+          filename: 'styles.min.css'
         })
-      ]
+      ],
+      optimization: {
+        minimizer: [
+          `...`,
+          new CssMinimizerPlugin({
+            test: /\.min.css$/
+          })
+        ]
+      }
     };
   });
 };
