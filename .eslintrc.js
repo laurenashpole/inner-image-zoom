@@ -21,7 +21,7 @@ module.exports = {
       }
     ]
   },
-  ignorePatterns: ['**/es/**', '**/lib/**', '**/umd/**'],
+  ignorePatterns: ['**/lib/**', '**/umd/**'],
   overrides: [
     {
       files: ['*.spec.js'],

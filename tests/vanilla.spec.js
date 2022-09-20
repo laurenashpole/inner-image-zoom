@@ -139,7 +139,7 @@ describe('inner-image-zoom', () => {
         const zoomImg = app.querySelector('.iiz__zoom-img');
 
         await waitFor(() => {
-          expect(zoomImg.width).to.equal(320);
+          expect(zoomImg.width).to.equal(375);
         });
       });
     });
