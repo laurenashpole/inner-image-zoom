@@ -33,26 +33,5 @@
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.10.0"
-  },
-  "author": "Lauren Ashpole",
-  "description": "A lightweight package for magnifying an image within its parent container 🔎",
-  "homepage": "https://github.com/laurenashpole/inner-image-zoom#readme",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/laurenashpole/inner-image-zoom.git"
-  },
-  "bugs": {
-    "url": "https://github.com/laurenashpole/inner-image-zoom/issues"
-  },
-  "keywords": [
-    "magnify",
-    "zoom",
-    "enlarge",
-    "image",
-    "responsive",
-    "photo",
-    "pdp",
-    "ecommerce"
-  ]
+  }
 }
