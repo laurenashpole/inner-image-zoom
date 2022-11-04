@@ -1,5 +1,7 @@
 # inner-image-zoom
 
+Demos | [Changelog](https://github.com/laurenashpole/inner-image-zoom/blob/main/packages/vanilla/CHANGELOG.md).
+
 A lightweight Vanilla JavaScript package for magnifying an image within its original container. Features include click or hover to zoom, drag or pan on hover to move, fullscreen zoom on mobile devices, and optional hint, close button, and transitions. 
 
 ## Installation
@@ -13,8 +15,6 @@ npm install inner-image-zoom
 ```
 yarn add inner-image-zoom
 ```
-
-### CDN
 
 ### Styling
 
@@ -50,10 +50,20 @@ fullscreenOnMobile | Boolean | false | Enables fullscreen zoomed image on touch 
 mobileBreakpoint | Number | 640 | The maximum breakpoint for fullscreen zoom image when fullscreenOnMobile is true.
 hideCloseButton | Boolean | false | Hides the close button on touch devices. If set to true, zoom out is triggered by tap.
 hideHint | Boolean | false | Hides the magnifying glass hint.
-className | String | | Custom classname for styling the component.
 afterZoomIn | Function | | Function to be called after zoom in.
 afterZoomOut | Function | | Function to be called after zoom out.
 
+## Issues
+
+Please submit issues or requests [here](https://github.com/laurenashpole/inner-image-zoom/issues) and make sure to use the `vanilla` label.
+
+If you're interested in contributing, check out the guidelines [here](https://github.com/laurenashpole/inner-image-zoom/blob/master/CONTRIBUTING.md).
+
 ## License
 
-[MIT](https://github.com/laurenashpole/inner-image-zoom/blob/master/LICENSE)
+[MIT](https://github.com/laurenashpole/inner-image-zoom/blob/main/LICENSE)
+
+[npm-badge]: http://img.shields.io/npm/v/inner-image-zoom.svg?style=flat
+[npm]: https://www.npmjs.com/package/inner-image-zoom
+
+[types-badge]: https://badgen.net/npm/types/inner-image-zoom

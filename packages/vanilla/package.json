@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "main": "lib/index.js",
   "module": "src/index.js",
+  "types:": "src/index.d.ts",
   "browser": "umd/index.js",
   "files": [
     "lib",
