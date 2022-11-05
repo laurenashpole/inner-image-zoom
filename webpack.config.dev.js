@@ -14,6 +14,9 @@ module.exports = ({ framework = 'vanilla' }) => {
       host: process.env.HOST || 'localhost',
       port: 3000
     },
+    resolve: {
+      extensions: ['.ts', '.js']
+    },
     module: {
       rules: [{ test: /\.css$/, use: ['style-loader', 'css-loader'] }]
     },

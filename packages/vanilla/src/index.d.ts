@@ -1,23 +1,28 @@
 export as namespace InnerImageZoom;
 
-export = InnerImageZoom
+export = InnerImageZoom;
+
+interface InnerImageZoomOptions {
+  zoomSrc?: string;
+  zoomScale?: number;
+  zoomPreload?: boolean;
+  moveType?: 'pan' | 'drag';
+  zoomType?: 'click' | 'hover';
+  fadeDuration?: number;
+  fullscreenOnMobile?: boolean;
+  mobileBreakpoint?: number;
+  hideCloseButton?: boolean;
+  hideHint?: boolean;
+  afterZoomIn?: () => void;
+  afterZoomOut?: () => void;
+}
 
 declare class InnerImageZoom {
   constructor(
-    selector?: string | undefined,
-    options?: {
-      moveType?: 'pan' | 'drag' | undefined;
-      zoomType?: 'click' | 'hover' | undefined;
-      zoomSrc?: string | undefined;
-      zoomScale?: number | undefined;
-      zoomPreload?: boolean | undefined;
-      fadeDuration?: number | undefined;
-      fullscreenOnMobile?: boolean | undefined;
-      mobileBreakpoint?: number | undefined;
-      hideCloseButton?: boolean | undefined;
-      hideHint?: boolean | undefined;
-      afterZoomIn?: (() => void) | undefined;
-      afterZoomOut?: (() => void) | undefined;
-    }
-  );
+    selector?: string,
+    options?: InnerImageZoomOptions
+  )
+
+  reinit(options?: InnerImageZoomOptions): void;
+  uninit(): void;
 }

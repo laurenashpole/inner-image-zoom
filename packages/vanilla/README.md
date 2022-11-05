@@ -1,6 +1,8 @@
 # inner-image-zoom
 
-Demos | [Changelog](https://github.com/laurenashpole/inner-image-zoom/blob/main/packages/vanilla/CHANGELOG.md).
+[![GitHub Actions][build-badge]][build]
+
+Demos | [Changelog](https://github.com/laurenashpole/inner-image-zoom/blob/main/packages/vanilla/CHANGELOG.md)
 
 A lightweight Vanilla JavaScript package for magnifying an image within its original container. Features include click or hover to zoom, drag or pan on hover to move, fullscreen zoom on mobile devices, and optional hint, close button, and transitions. 
 
@@ -30,11 +32,13 @@ or:
 import 'inner-image-zoom/lib/styles.min.css';
 ```
 
-You can also download the raw [styles.css](https://raw.githubusercontent.com/laurenashpole/inner-image-zoom/master/packages/vanilla/src/styles.css) file or [styles.min.css](https://raw.githubusercontent.com/laurenashpole/inner-image-zoom/master/packages/vanilla/src/styles.min.css).
+You can also download the raw [styles.css](https://raw.githubusercontent.com/laurenashpole/inner-image-zoom/main/packages/vanilla/src/styles.css) file or [styles.min.css](https://raw.githubusercontent.com/laurenashpole/inner-image-zoom/main/packages/vanilla/src/styles.min.css).
 
 ## Usage
 
 ### HTML
+
+### JS
 
 ## Options
 
@@ -57,7 +61,7 @@ afterZoomOut | Function | | Function to be called after zoom out.
 
 Please submit issues or requests [here](https://github.com/laurenashpole/inner-image-zoom/issues) and make sure to use the `vanilla` label.
 
-If you're interested in contributing, check out the guidelines [here](https://github.com/laurenashpole/inner-image-zoom/blob/master/CONTRIBUTING.md).
+If you're interested in contributing, check out the guidelines [here](https://github.com/laurenashpole/inner-image-zoom/blob/main/CONTRIBUTING.md).
 
 ## License
 
@@ -65,5 +69,8 @@ If you're interested in contributing, check out the guidelines [here](https://gi
 
 [npm-badge]: http://img.shields.io/npm/v/inner-image-zoom.svg?style=flat
 [npm]: https://www.npmjs.com/package/inner-image-zoom
+
+[build-badge]: https://github.com/laurenashpole/inner-image-zoom/actions/workflows/release.yml/badge.svg
+[build]: https://github.com/laurenashpole/inner-image-zoom/actions
 
 [types-badge]: https://badgen.net/npm/types/inner-image-zoom

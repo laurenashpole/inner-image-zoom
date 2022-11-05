@@ -46,6 +46,14 @@ const InnerImageZoom = (() => {
       this.setSelectors($el);
       this.setListeners();
     },
+    reinit: function (options) {
+      this.uninit();
+      this.init(this.$el, options);
+    },
+    uninit: function () {
+      this.$figure.parentNode && this.$figure.parentNode.replaceChild(this.$el, this.$figure);
+      this.$portal && document.body.removeChild(this.$portal);
+    },
     setData: function ($el, options) {
       this.options = {
         moveType: 'pan',
@@ -64,11 +72,12 @@ const InnerImageZoom = (() => {
       this.isTouch = false;
       this.isZoomed = false;
       this.isValidDrag = false;
-      this.isFading = false;
+      this.isClosing = false;
       this.currentMoveType = this.options.moveType;
       this.imgProps = getImgPropsDefaults();
     },
     setSelectors: function ($el) {
+      this.$el = $el.cloneNode(true);
       this.$figure = this.createFigure($el, this.options);
       this.$img = this.createImg(this.$figure);
       this.$zoomImg = this.createZoomImg(this.$figure, this.options);
@@ -181,7 +190,7 @@ const InnerImageZoom = (() => {
 
       console.log('MOUSE ENTER');
 
-      this.isFading = false;
+      this.isClosing = false;
       this.$figure.appendChild(this.$zoomImg);
       this.$zoomImg.src !== this.options.zoomSrc && this.$zoomImg.setAttribute('src', this.options.zoomSrc);
       this.$closeButton && this.$figure.appendChild(this.$closeButton);
@@ -299,38 +308,18 @@ const InnerImageZoom = (() => {
 
       if (!(e.target.classList.contains('iiz__close') && !this.isTouch)) {
         if (!this.isZoomed || this.isFullscreen || !this.options.fadeDuration) {
-          this.onTransitionEnd({}, true);
+          this.cleanup();
         } else {
-          this.isFading = true;
+          this.isClosing = true;
         }
       }
 
-      this.zoomOut();
+      this.isZoomed && this.zoomOut();
     },
-    onTransitionEnd: function (e, noTransition) {
-      if (!noTransition && !this.isFading) {
-        return;
-      }
+    onTransitionEnd: function (e) {
+      this.isClosing && e.propertyName === 'opacity' && e.target === this.$zoomImg && console.log('TRANSITION END');
 
-      if (noTransition || (e.propertyName === 'opacity' && e.target === this.$zoomImg)) {
-        console.log('TRANSITION END');
-
-        if ((this.options.zoomPreload && this.isTouch) || !this.options.zoomPreload) {
-          if (this.isFullscreen) {
-            document.body.removeChild(this.$portal);
-          } else {
-            this.$figure.removeChild(this.$zoomImg);
-            this.$closeButton && this.$figure.removeChild(this.$closeButton);
-          }
-
-          this.imgProps.current = getImgPropsDefaults();
-        }
-
-        this.isTouch = false;
-        this.isFullscreen = false;
-        this.currentMoveType = this.options.moveType;
-        this.isFading = false;
-      }
+      this.isClosing && e.propertyName === 'opacity' && e.target === this.$zoomImg && this.cleanup();
     },
     initialMove: function (e) {
       console.log('INITIAL MOVE');
@@ -382,6 +371,25 @@ const InnerImageZoom = (() => {
       this.$img.style.transitionDelay = '0ms';
       this.$closeButton && this.$closeButton.classList.remove('iiz__close--visible');
       this.options.afterZoomOut && this.options.afterZoomOut();
+    },
+    cleanup: function () {
+      console.log('CLEANUP');
+
+      if ((this.options.zoomPreload && this.isTouch) || !this.options.zoomPreload) {
+        if (this.isFullscreen) {
+          document.body.removeChild(this.$portal);
+        } else {
+          this.$figure.removeChild(this.$zoomImg);
+          this.$closeButton && this.$figure.removeChild(this.$closeButton);
+        }
+
+        this.imgProps.current = getImgPropsDefaults();
+      }
+
+      this.isTouch = false;
+      this.isFullscreen = false;
+      this.currentMoveType = this.options.moveType;
+      this.isClosing = false;
     }
   };
 
