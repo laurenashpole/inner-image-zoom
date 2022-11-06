@@ -38,7 +38,42 @@ You can also download the raw [styles.css](https://raw.githubusercontent.com/lau
 
 ### HTML
 
+```html
+<img class="iiz" src="/path/to/image2x.jpg" />
+```
+
+```html
+<div class="iiz">
+  <img src="/path/to/image.jpg" />
+</div>
+```
+
+```html
+<img class="iiz" src="/path/to/image.jpg" />
+```
+
+```html
+<picture class="iiz" data-zoom-src="/path/to/zoom-image.jpg">
+  <source srcset="/path/to/large-image.jpg, /path/to/large-image.jpg 2x" media="(min-width: 500px)" />
+  <img srcset="/path/to/small-image.jpg, /path/to/small-image.jpg 2x" src="/path/to/image.jpg">
+</picture>
+```
+
 ### JS
+
+```js
+import InnerImageZoom from 'inner-image-zoom';
+
+...
+
+new InnerImageZoom();
+```
+
+```js
+new InnerImageZoom('.selector', {
+  moveType: 'drag'
+});
+```
 
 ## Options
 
@@ -57,11 +92,14 @@ hideHint | Boolean | false | Hides the magnifying glass hint.
 afterZoomIn | Function | | Function to be called after zoom in.
 afterZoomOut | Function | | Function to be called after zoom out.
 
+## Methods
+
+`reinit` - Reinitialize an InnerImageZoom instance with new options.
+`uninit` - Unitialize an InnerImageZoom instance.
+
 ## Issues
 
 Please submit issues or requests [here](https://github.com/laurenashpole/inner-image-zoom/issues) and make sure to use the `vanilla` label.
-
-If you're interested in contributing, check out the guidelines [here](https://github.com/laurenashpole/inner-image-zoom/blob/main/CONTRIBUTING.md).
 
 ## License
 
