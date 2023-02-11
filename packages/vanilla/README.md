@@ -4,7 +4,7 @@
 
 Demos | [Changelog](https://github.com/laurenashpole/inner-image-zoom/blob/main/packages/vanilla/CHANGELOG.md)
 
-A lightweight Vanilla JavaScript package for magnifying an image within its original container. Features include click or hover to zoom, drag or pan on hover to move, fullscreen zoom on mobile devices, and optional hint, close button, and transitions. 
+A lightweight Vanilla JavaScript package for magnifying an image within its original container. Features include click or hover to zoom, drag or pan on hover to move, fullscreen zoom on mobile devices, and optional hint icon, close button, and transitions.
 
 ## Installation
 
@@ -39,7 +39,7 @@ You can also download the raw [styles.css](https://raw.githubusercontent.com/lau
 ### HTML
 
 ```html
-<img class="iiz" src="/path/to/image2x.jpg" />
+<img class="iiz" src="/path/to/image-2x.jpg" />
 ```
 
 ```html
@@ -48,14 +48,12 @@ You can also download the raw [styles.css](https://raw.githubusercontent.com/lau
 </div>
 ```
 
-```html
-<img class="iiz" src="/path/to/image.jpg" />
-```
+When InnerImageZoom is initialized, any content within the container will be preserved.
 
 ```html
 <picture class="iiz" data-zoom-src="/path/to/zoom-image.jpg">
-  <source srcset="/path/to/large-image.jpg, /path/to/large-image.jpg 2x" media="(min-width: 500px)" />
-  <img srcset="/path/to/small-image.jpg, /path/to/small-image.jpg 2x" src="/path/to/image.jpg">
+  <source srcset="/path/to/large-image.jpg, /path/to/large-image-2x.jpg 2x" media="(min-width: 500px)" />
+  <img srcset="/path/to/small-image.jpg, /path/to/small-image-2x.jpg 2x" src="/path/to/image.jpg">
 </picture>
 ```
 
