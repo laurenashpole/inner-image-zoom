@@ -1,21 +1,18 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = ({ framework = 'vanilla' }) => {
-  return ['lib', 'umd'].map((target) => {
-    const directory = path.resolve(__dirname, `packages/${framework}`);
-    const styles = path.resolve(__dirname, 'packages/styles.css');
+  const directory = path.resolve(__dirname, `packages/${framework}`);
 
-    return {
+  return [
+    {
       mode: 'production',
-      entry: [`${directory}/src`, styles],
+      entry: path.resolve(__dirname, 'packages/styles.css'),
       output: {
-        path: `${directory}/${target}`,
-        filename: 'index.js',
-        library: 'InnerImageZoom',
-        libraryTarget: target === 'lib' ? 'var' : target,
-        clean: true
+        path: `${directory}/src`
       },
       module: {
         rules: [{ test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader'] }]
@@ -31,11 +28,28 @@ module.exports = ({ framework = 'vanilla' }) => {
       optimization: {
         minimizer: [
           `...`,
+          new RemoveEmptyScriptsPlugin(),
           new CssMinimizerPlugin({
             test: /\.min.css$/
           })
         ]
       }
-    };
-  });
+    },
+    ...['lib', 'umd'].map((target) => ({
+      mode: 'production',
+      entry: `${directory}/src`,
+      output: {
+        path: `${directory}/${target}`,
+        filename: 'index.js',
+        library: 'InnerImageZoom',
+        libraryTarget: target === 'lib' ? 'var' : target,
+        clean: true
+      },
+      plugins: [
+        new CopyPlugin({
+          patterns: [{ from: `/${directory}/src/*.css`, to: '[name][ext]' }]
+        })
+      ]
+    }))
+  ];
 };
