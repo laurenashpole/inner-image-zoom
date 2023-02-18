@@ -1,5 +1,5 @@
 import InnerImageZoom from '../../packages/vanilla/src';
-import '../../packages/styles.css';
+import '../../packages/vanilla/src/styles.css';
 
 new InnerImageZoom('.iiz', { fullscreenOnMobile: true });
 
