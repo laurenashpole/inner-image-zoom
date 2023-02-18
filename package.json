@@ -7,6 +7,7 @@
     "start": "webpack serve --config ./webpack.config.dev.js",
     "start:vue": "webpack serve --config ./webpack.config.dev.js --env=framework=vue",
     "build": "webpack --config ./webpack.config.prod.js",
+    "build:vue": "webpack --config ./webpack.config.prod.js --env=framework=vue",
     "test": "karma start karma.conf.js && eslint .",
     "lint": "eslint --fix ."
   },
@@ -14,7 +15,6 @@
     "@testing-library/dom": "^8.17.1",
     "@vue/test-utils": "^2.0.2",
     "chai": "^4.3.6",
-    "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^4.0.0",
     "eslint": "^8.22.0",

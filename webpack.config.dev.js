@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = ({ framework = 'vanilla' }) => {
-  console.log(framework);
   const directory = path.resolve(__dirname, `sandbox/${framework}`);
 
   return {
