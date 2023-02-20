@@ -27,11 +27,21 @@ describe('vue-inner-image-zoom', () => {
         expect(app.find('.iiz__img')).to.exist;
       });
 
-      it('renders the original image with custom attributes if imgAttributes is set', () => {});
+      it('renders the original image with custom attributes if imgAttributes is set', () => {
+        const app = innerImageZoom({ imgAttributes: { 'data-key': 'value' } });
+        expect(app.find('.iiz__img').element.getAttribute('data-key')).to.equal('value');
+      });
 
-      it('combines image classes if imgAttributes contains className', () => {});
+      it('combines image classes if imgAttributes contains className', () => {
+        const app = innerImageZoom({ imgAttributes: { className: 'class' } });
+        expect(app.find('.iiz__img').element.classList.contains('class')).to.be.true;
+      });
 
-      it('ignores style properties in imgAttributes prop', () => {});
+      it('ignores style transition properties in imgAttributes prop', () => {
+        const app = innerImageZoom({ imgAttributes: { style: { transition: 'none' } } });
+        console.log(app.find('.iiz__img').style);
+        expect(app.find('.iiz__img').element.style.transition).to.not.equal('none');
+      });
 
       it('renders the original image with source tags', () => {
         const app = innerImageZoom({ sources: DATA.sources });

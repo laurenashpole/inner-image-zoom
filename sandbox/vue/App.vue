@@ -20,6 +20,11 @@
         :hideCloseButton="true"
         :hideHint="true"
         :zoomPreload="true"
+        :imgAttributes="{
+          style: {
+            transition: 'none'
+          }
+        }"
       />
     </div>
 

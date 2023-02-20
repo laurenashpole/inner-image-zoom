@@ -30,34 +30,34 @@
             v-bind="source"
           />
           <img
+            v-bind="imgAttributes"
             class="iiz__img"
-            v-bind:class="{ 'iiz__img--hidden': isZoomed, 'iiz__img--abs': createSpacer }"
+            v-bind:class="[imgAttributes.className || '', { 'iiz__img--hidden': isZoomed, 'iiz__img--abs': createSpacer }]"
             v-bind:style="{
               transition: `linear 0ms opacity ${isZoomed ? fadeDuration : 0}ms, linear 0ms visibility ${
                 isZoomed ? fadeDuration : 0
               }ms`
             }"
             v-bind:src="src"
-            v-bind:srcSet="srcSet"
-            v-bind:sizes="sizes"
-            v-bind:alt="alt"
+            v-bind:width="width"
+            v-bind:height="height"
           />
         </picture>
       </template>
 
       <template v-else>
         <img
+          v-bind="imgAttributes"
           class="iiz__img"
-          v-bind:class="{ 'iiz__img--hidden': isZoomed, 'iiz__img--abs': createSpacer }"
+          v-bind:class="[imgAttributes.className || '', { 'iiz__img--hidden': isZoomed, 'iiz__img--abs': createSpacer }]"
           v-bind:style="{
             transition: `linear 0ms opacity ${isZoomed ? fadeDuration : 0}ms, linear 0ms visibility ${
               isZoomed ? fadeDuration : 0
             }ms`
           }"
           v-bind:src="src"
-          v-bind:srcSet="srcSet"
-          v-bind:sizes="sizes"
-          v-bind:alt="alt"
+          v-bind:width="width"
+          v-bind:height="height"
         />
       </template>
     </div>
@@ -182,8 +182,10 @@ export default {
       type: String,
       required: true
     },
-    srcSet: String,
-    sizes: String,
+    imgAttributes: {
+      type: Object,
+      default: {}
+    },
     sources: Array,
     width: Number,
     height: Number,
@@ -194,7 +196,6 @@ export default {
       default: 1
     },
     zoomPreload: Boolean,
-    alt: String,
     fadeDuration: {
       type: Number,
       default: 150
