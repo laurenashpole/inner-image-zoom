@@ -90,7 +90,7 @@
             />
 
             <button
-              v-if="isTouch && !hideCloseButton"
+              v-if="!hideCloseButton && currentMoveType === 'drag'"
               type="button"
               class="iiz__btn iiz__close"
               aria-label="Zoom Out"
@@ -130,7 +130,7 @@
         />
 
         <button
-          v-if="isTouch && !hideCloseButton"
+          v-if="!hideCloseButton && currentMoveType === 'drag'"
           class="iiz__btn iiz__close"
           type="button"
           aria-label="Zoom Out"

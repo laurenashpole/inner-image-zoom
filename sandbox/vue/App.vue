@@ -17,9 +17,8 @@
           }
         ]"
         :fullscreenOnMobile="true"
-        :hideCloseButton="true"
         :hideHint="true"
-        :zoomPreload="true"
+        :fadeDuration="0"
         :imgAttributes="{
           style: {
             transition: 'none'

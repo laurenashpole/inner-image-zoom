@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import { fireEvent, getByLabelText, getByText, waitFor } from '@testing-library/dom';
 import { DATA } from './constants';
+
 import InnerImageZoom from '../packages/vanilla/src';
 import '../packages/vanilla/src/styles.css';
 
