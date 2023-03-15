@@ -4,7 +4,7 @@
 
 Demos | [Changelog](https://github.com/laurenashpole/inner-image-zoom/blob/main/packages/vanilla/CHANGELOG.md)
 
-A lightweight Vanilla JavaScript package for magnifying an image within its original container. Features include click or hover to zoom, drag or pan on hover to move, fullscreen zoom on mobile devices, and optional hint icon, close button, and transitions.
+A lightweight Vanilla JavaScript package for magnifying an image within its original container.
 
 ## Installation
 
@@ -97,7 +97,7 @@ afterZoomOut | Function | | Function to be called after zoom out.
 
 ## Issues
 
-Please submit issues or requests [here](https://github.com/laurenashpole/inner-image-zoom/issues) and make sure to use the `vanilla` label.
+Please submit bugs or requests on the [GitHub issues page](https://github.com/laurenashpole/inner-image-zoom/issues) and make sure to use the `vanilla` label.
 
 ## License
 
