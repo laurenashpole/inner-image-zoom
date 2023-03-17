@@ -41,9 +41,10 @@ Tests are run on Chrome and Firefox headless browsers using [Karma](https://karm
 The following commands are available for testing:
 
 - `yarn test` - Run the tests once.
-- TKTK: `yarn test:coverage` - Run the tests and generate a coverage report in `coverage/`.
+- `yarn test:watch` - Watch files and run the tests on every change.
+- `yarn test:coverage` - Run the tests on Chrome and generate a coverage report in `coverage/`.
 
-Each command will also run [ESLint](https://github.com/eslint/eslint) on the component source files.
+Each command will also run [ESLint](https://github.com/eslint/eslint) on the component source files. To fix linting errors, use `yarn lint`.
 
 If you can, try to include new tests with your changes. Otherwise, make sure to run `yarn test` to check that the existing tests still pass before opening a pull request.
 

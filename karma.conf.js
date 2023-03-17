@@ -4,14 +4,6 @@ module.exports = (config) => {
   config.set({
     basePath: path.resolve(__dirname, 'tests'),
     frameworks: ['mocha', 'webpack', 'chai'],
-    plugins: [
-      'karma-chai',
-      'karma-chrome-launcher',
-      'karma-firefox-launcher',
-      'karma-mocha',
-      'karma-mocha-reporter',
-      'karma-webpack'
-    ],
     files: ['*.spec.js'],
     exclude: [],
     preprocessors: {
@@ -19,16 +11,34 @@ module.exports = (config) => {
     },
     webpack: {
       module: {
-        rules: [{ test: /\.css$/, use: ['style-loader', 'css-loader'] }]
+        rules: [
+          ...[{ test: /\.css$/, use: ['style-loader', 'css-loader'] }],
+          ...(config.coverage
+            ? [
+                {
+                  test: /\.js/,
+                  include: /src/,
+                  exclude: /node_modules|tests/,
+                  use: '@jsdevtools/coverage-istanbul-loader'
+                }
+              ]
+            : [])
+        ]
       }
     },
-    reporters: ['mocha'],
+    reporters: [...['mocha'], ...(config.coverage ? ['coverage-istanbul'] : [])],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: false,
-    browsers: ['ChromeHeadless', 'FirefoxHeadless'],
+    browsers: [...['ChromeHeadless'], ...(!config.coverage ? ['FirefoxHeadless'] : [])],
     singleRun: true,
-    concurrency: Infinity
+    concurrency: Infinity,
+    ...(config.coverage && {
+      coverageIstanbulReporter: {
+        dir: 'coverage/',
+        reports: ['text-summary', 'html']
+      }
+    })
   });
 };
