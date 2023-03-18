@@ -23,6 +23,13 @@ declare class InnerImageZoom {
     options?: InnerImageZoomOptions
   )
 
+  $closeButton: HTMLElement | null;
+  $container: HTMLElement;
+  $el: HTMLElement;
+  $hint: HTMLElement | null;
+  $img: HTMLElement;
+  $portal: HTMLElement | null;
+  $zoomImg: HTMLElement;
   reinit(options?: InnerImageZoomOptions): void;
   uninit(): void;
 }

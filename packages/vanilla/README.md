@@ -9,24 +9,22 @@ Demos | [Changelog](https://github.com/laurenashpole/inner-image-zoom/blob/main/
 ## Installation
 
 ### NPM
-```
+```js
 npm install inner-image-zoom
 ```
 
 ### Yarn
-```
+```js
 yarn add inner-image-zoom
 ```
 
 ### Styling
 
-If your setup supports it, you can import the stylesheet directly from your `node_modules` using:
+You can download the raw [styles.css](https://raw.githubusercontent.com/laurenashpole/inner-image-zoom/main/packages/vanilla/src/styles.css) file or, if your setup supports it, import the stylesheet directly from `node_modules` using:
 
-```javascript
+```js
 import 'inner-image-zoom/lib/styles.min.css';
 ```
-
-Or you can download the raw [styles.css](https://raw.githubusercontent.com/laurenashpole/inner-image-zoom/main/packages/vanilla/src/styles.css) file.
 
 ## Usage
 
@@ -52,6 +50,7 @@ Options may be applied to specific instances using data attributes:
 <div class="iiz" data-move-type="drag">
   <img src="/path/to/image.jpg" />
 </div>
+```
 
 Any content within the container will be preserved. This is useful for responsive images or adding custom image spacers or loading states:
 
@@ -86,6 +85,7 @@ You can also initialize with a custom selector or options object:
 new InnerImageZoom('.selector', {
   zoomScale: 0.9,
   moveType: 'drag',
+  hideCloseButton: true,
   hideHint: true
 });
 ```
