@@ -8,10 +8,13 @@
     "start:vue": "webpack serve --config ./webpack.config.dev.js --env=framework=vue",
     "build": "webpack --config ./webpack.config.prod.js",
     "build:vue": "webpack --config ./webpack.config.prod.js --env=framework=vue",
-    "test": "karma start karma.conf.js && eslint .",
+    "test": "eslint . && karma start karma.conf.js",
+    "test:watch": "yarn run test --auto-watch --single-run false",
+    "test:coverage": "yarn run test --coverage",
     "lint": "eslint --fix ."
   },
   "devDependencies": {
+    "@jsdevtools/coverage-istanbul-loader": "^3.0.5",
     "@testing-library/dom": "^8.17.1",
     "chai": "^4.3.6",
     "css-loader": "^6.7.1",
@@ -24,6 +27,7 @@
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^3.1.1",
     "karma-cli": "^2.0.0",
+    "karma-coverage-istanbul-reporter": "^3.0.3",
     "karma-firefox-launcher": "^2.1.2",
     "karma-mocha": "^2.0.1",
     "karma-mocha-reporter": "^2.2.5",

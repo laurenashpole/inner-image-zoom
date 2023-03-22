@@ -32,7 +32,7 @@
     "ecommerce"
   ],
   "dependencies": {
-    "inner-image-zoom": "0.0.0"
+    "inner-image-zoom": "1.0.0"
   },
   "peerDependencies": {
     "vue": "^3.0.0"

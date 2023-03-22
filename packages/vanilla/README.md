@@ -2,45 +2,41 @@
 
 [![GitHub Actions][build-badge]][build]
 
-Demos | [Changelog](https://github.com/laurenashpole/inner-image-zoom/blob/main/packages/vanilla/CHANGELOG.md)
+A lightweight Vanilla JavaScript package for magnifying an image within its original container.
 
-A lightweight Vanilla JavaScript package for magnifying an image within its original container. Features include click or hover to zoom, drag or pan on hover to move, fullscreen zoom on mobile devices, and optional hint icon, close button, and transitions.
+Demos | [Changelog](https://github.com/laurenashpole/inner-image-zoom/blob/main/packages/vanilla/CHANGELOG.md)
 
 ## Installation
 
 ### NPM
-```
+```js
 npm install inner-image-zoom
 ```
 
 ### Yarn
-```
+```js
 yarn add inner-image-zoom
 ```
 
 ### Styling
 
-If your setup supports it, you can import the stylesheet directly from your `node_modules` using:
+You can download the raw [styles.css](https://raw.githubusercontent.com/laurenashpole/inner-image-zoom/main/packages/vanilla/src/styles.css) file or, if your setup supports it, import the stylesheet directly from `node_modules` using:
 
-```javascript
-import 'inner-image-zoom/lib/styles.css';
-```
-
-or:
-
-```javascript
+```js
 import 'inner-image-zoom/lib/styles.min.css';
 ```
-
-You can also download the raw [styles.css](https://raw.githubusercontent.com/laurenashpole/inner-image-zoom/main/packages/vanilla/src/styles.css) file or [styles.min.css](https://raw.githubusercontent.com/laurenashpole/inner-image-zoom/main/packages/vanilla/src/styles.min.css).
 
 ## Usage
 
 ### HTML
 
+To initialize properly, Inner Image Zoom requires an `img` tag. This can be the image itself:
+
 ```html
 <img class="iiz" src="/path/to/image-2x.jpg" />
 ```
+
+Or a container:
 
 ```html
 <div class="iiz">
@@ -48,16 +44,32 @@ You can also download the raw [styles.css](https://raw.githubusercontent.com/lau
 </div>
 ```
 
-When InnerImageZoom is initialized, any content within the container will be preserved.
+Options may be applied to specific instances using data attributes:
+
+```html
+<div class="iiz" data-move-type="drag">
+  <img src="/path/to/image.jpg" />
+</div>
+```
+
+Any content within the container will be preserved. This is useful for responsive images or adding custom image spacers or loading states:
 
 ```html
 <picture class="iiz" data-zoom-src="/path/to/zoom-image.jpg">
-  <source srcset="/path/to/large-image.jpg, /path/to/large-image-2x.jpg 2x" media="(min-width: 500px)" />
-  <img srcset="/path/to/small-image.jpg, /path/to/small-image-2x.jpg 2x" src="/path/to/image.jpg">
+  <source
+    srcset="/path/to/large-image.jpg, /path/to/large-image-2x.jpg 2x"
+    media="(min-width: 500px)"
+  />
+  <img
+    srcset="/path/to/small-image.jpg, /path/to/small-image-2x.jpg 2x"
+    src="/path/to/image.jpg"
+  />
 </picture>
 ```
 
 ### JS
+
+Start by importing and initializing:
 
 ```js
 import InnerImageZoom from 'inner-image-zoom';
@@ -67,9 +79,14 @@ import InnerImageZoom from 'inner-image-zoom';
 new InnerImageZoom();
 ```
 
+You can also initialize with a custom selector or options object:
+
 ```js
 new InnerImageZoom('.selector', {
-  moveType: 'drag'
+  zoomScale: 0.9,
+  moveType: 'drag',
+  hideCloseButton: true,
+  hideHint: true
 });
 ```
 
@@ -92,12 +109,12 @@ afterZoomOut | Function | | Function to be called after zoom out.
 
 ## Methods
 
-`reinit` - Reinitialize an InnerImageZoom instance with new options.
-`uninit` - Unitialize an InnerImageZoom instance.
+- `reinit` - Reinitialize an InnerImageZoom instance with new options.
+- `uninit` - Unitialize an InnerImageZoom instance.
 
 ## Issues
 
-Please submit issues or requests [here](https://github.com/laurenashpole/inner-image-zoom/issues) and make sure to use the `vanilla` label.
+Please submit bugs or requests on the [GitHub issues page](https://github.com/laurenashpole/inner-image-zoom/issues) and make sure to use the `vanilla` label.
 
 ## License
 

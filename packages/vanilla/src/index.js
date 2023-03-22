@@ -51,7 +51,7 @@ const InnerImageZoom = (() => {
       this.init(this.$el, options);
     },
     uninit: function () {
-      this.$figure.parentNode && this.$figure.parentNode.replaceChild(this.$el, this.$figure);
+      this.$container.parentNode && this.$container.parentNode.replaceChild(this.$el, this.$container);
       this.$portal && document.body.removeChild(this.$portal);
     },
     setData: function ($el, options) {
@@ -78,19 +78,19 @@ const InnerImageZoom = (() => {
     },
     setSelectors: function ($el) {
       this.$el = $el.cloneNode(true);
-      this.$figure = this.createFigure($el, this.options);
-      this.$img = this.createImg(this.$figure);
-      this.$zoomImg = this.createZoomImg(this.$figure, this.options);
-      this.$hint = this.createHint(this.$figure, this.options);
-      this.$closeButton = this.createCloseButton(this.$figure, this.options);
+      this.$container = this.createFigure($el, this.options);
+      this.$img = this.createImg(this.$container);
+      this.$zoomImg = this.createZoomImg(this.$container, this.options);
+      this.$hint = this.createHint(this.$container, this.options);
+      this.$closeButton = this.createCloseButton(this.$container, this.options);
       this.$portal = this.createPortal(this.options, this.$zoomImg, this.$closeButton);
     },
     setListeners: function () {
-      this.$figure.addEventListener('touchstart', () => this.onTouchStart(), { passive: true });
-      this.$figure.addEventListener('mouseenter', (e) => this.onMouseEnter(e));
-      this.$figure.addEventListener('click', (e) => this.onClick(e));
-      this.$figure.addEventListener('mousemove', (e) => this.onMouseMove(e), { passive: true });
-      this.$figure.addEventListener('mouseleave', (e) => this.onMouseLeave(e));
+      this.$container.addEventListener('touchstart', () => this.onTouchStart(), { passive: true });
+      this.$container.addEventListener('mouseenter', (e) => this.onMouseEnter(e));
+      this.$container.addEventListener('click', (e) => this.onClick(e));
+      this.$container.addEventListener('mousemove', (e) => this.onMouseMove(e), { passive: true });
+      this.$container.addEventListener('mouseleave', (e) => this.onMouseLeave(e));
       this.$zoomImg.addEventListener('touchstart', (e) => this.onDragStart(e), { passive: true });
       this.$zoomImg.addEventListener('touchend', (e) => this.onDragEnd(e), { passive: true });
       this.$zoomImg.addEventListener('mousedown', (e) => this.onDragStart(e));
@@ -101,27 +101,27 @@ const InnerImageZoom = (() => {
       this.dragMove = (e) => this.onDragMove(e);
     },
     createFigure: function ($el, options) {
-      let $figure = $el;
+      let $container = $el;
 
       if ($el.tagName === 'IMG' || $el.tagName === 'PICTURE') {
-        $figure = document.createElement('figure');
-        $el.parentNode.insertBefore($figure, $el);
+        $container = document.createElement('figure');
+        $el.parentNode.insertBefore($container, $el);
         $el.classList.remove('iiz');
-        $figure.appendChild($el);
+        $container.appendChild($el);
       }
 
-      $figure.classList.add(...['iiz', ...(options.moveType === 'drag' ? ['iiz--drag'] : [])]);
+      $container.classList.add(...['iiz', ...(options.moveType === 'drag' ? ['iiz--drag'] : [])]);
 
-      return $figure;
+      return $container;
     },
-    createImg: function ($figure) {
-      const $img = $figure.querySelector('img');
+    createImg: function ($container) {
+      const $img = $container.querySelector('img');
       $img.classList.add('iiz__img');
       $img.style.transition = 'opacity 0ms linear, visibility 0ms linear';
 
       return $img;
     },
-    createZoomImg: function ($figure, options) {
+    createZoomImg: function ($container, options) {
       const $zoomImg = document.createElement('img');
       $zoomImg.classList.add('iiz__zoom-img');
       $zoomImg.alt = '';
@@ -132,23 +132,23 @@ const InnerImageZoom = (() => {
 
       if (options.zoomPreload) {
         $zoomImg.setAttribute('src', options.zoomSrc);
-        $figure.appendChild($zoomImg);
+        $container.appendChild($zoomImg);
       }
 
       return $zoomImg;
     },
-    createHint: function ($figure, options) {
+    createHint: function ($container, options) {
       if (options.hideHint) {
         return null;
       }
 
       const $hint = document.createElement('span');
       $hint.classList.add('iiz__btn', 'iiz__hint');
-      $figure.appendChild($hint);
+      $container.appendChild($hint);
 
       return $hint;
     },
-    createCloseButton: function ($figure, options) {
+    createCloseButton: function ($container, options) {
       if (options.hideCloseButton) {
         return null;
       }
@@ -191,9 +191,9 @@ const InnerImageZoom = (() => {
       console.log('MOUSE ENTER');
 
       this.isClosing = false;
-      this.$figure.appendChild(this.$zoomImg);
+      this.$container.appendChild(this.$zoomImg);
       this.$zoomImg.src !== this.options.zoomSrc && this.$zoomImg.setAttribute('src', this.options.zoomSrc);
-      this.$closeButton && this.$figure.appendChild(this.$closeButton);
+      this.$closeButton && this.$container.appendChild(this.$closeButton);
       this.options.zoomType === 'hover' && !this.isZoomed && this.onClick(e);
     },
     onClick: function (e) {
@@ -213,8 +213,8 @@ const InnerImageZoom = (() => {
         if (this.isFullscreen) {
           document.body.appendChild(this.$portal);
         } else {
-          this.$figure.appendChild(this.$zoomImg).setAttribute('src', this.options.zoomSrc);
-          this.$closeButton && this.$figure.appendChild(this.$closeButton);
+          this.$container.appendChild(this.$zoomImg).setAttribute('src', this.options.zoomSrc);
+          this.$closeButton && this.$container.appendChild(this.$closeButton);
         }
       }
 
@@ -379,8 +379,8 @@ const InnerImageZoom = (() => {
         if (this.isFullscreen) {
           document.body.removeChild(this.$portal);
         } else {
-          this.$figure.removeChild(this.$zoomImg);
-          this.$closeButton && this.$figure.removeChild(this.$closeButton);
+          this.$container.removeChild(this.$zoomImg);
+          this.$closeButton && this.$container.removeChild(this.$closeButton);
         }
 
         this.imgProps.current = getImgPropsDefaults();

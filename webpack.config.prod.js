@@ -8,7 +8,10 @@ module.exports = ({ framework = 'vanilla' }) => {
 
   return ['lib', 'umd'].map((target) => ({
     mode: 'production',
-    entry: [...[`${directory}/src`], ...(framework !== 'vue' ? [`${directory}/src/styles.css`] : [])],
+    entry: [
+      ...[`${directory}/src`, `${directory}/src/styles.css`],
+      ...(framework !== 'vue' ? [`${directory}/src/styles.css`] : [])
+    ],
     output: {
       path: `${directory}/${target}`,
       filename: 'index.js',
