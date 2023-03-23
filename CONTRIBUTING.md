@@ -20,6 +20,14 @@ To start your demo app at [http://localhost:3000](http://localhost:3000), run:
 yarn start
 ```
 
+By default, this will run the Vanilla app. To work on a specific framework, follow the pattern:
+
+```js
+yarn start:vue
+```
+
+Replacing `vue` with your desired name.
+
 ## Development
 
 The basic file structure in your new repo will be:

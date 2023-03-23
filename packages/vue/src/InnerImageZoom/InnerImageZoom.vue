@@ -3,7 +3,9 @@
     class="iiz"
     ref="img"
     v-bind:class="{
-      [className]: className,
+      ...(
+        className && { [className]: className }
+      ),
       'iiz--drag': currentMoveType === 'drag'
     }"
     v-bind:style="{
@@ -19,7 +21,7 @@
   >
     <div
       v-bind:style="{
-        paddingTop: createSpacer ? `${(height / width) * 100}%` : null
+        paddingTop: createSpacer ? `${((height || 0) / (width || 0)) * 100}%` : undefined
       }"
     >
       <template v-if="validSources">
@@ -149,7 +151,9 @@
   </figure>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
+
 import {
   getBounds,
   getFullscreenStatus,
@@ -167,7 +171,7 @@ import {
   getMouseMovePositions
 } from 'inner-image-zoom/src/utils/events';
 
-export default {
+export default defineComponent({
   name: 'InnerImageZoom',
   props: {
     moveType: {
@@ -373,7 +377,7 @@ export default {
       callback && callback();
     }
   }
-};
+});
 </script>
 
 <style scoped>
