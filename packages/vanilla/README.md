@@ -9,12 +9,12 @@ Demos | [Changelog](https://github.com/laurenashpole/inner-image-zoom/blob/main/
 ## Installation
 
 ### NPM
-```js
+```javascript
 npm install inner-image-zoom
 ```
 
 ### Yarn
-```js
+```javascript
 yarn add inner-image-zoom
 ```
 
@@ -22,7 +22,7 @@ yarn add inner-image-zoom
 
 You can download the raw [styles.css](https://raw.githubusercontent.com/laurenashpole/inner-image-zoom/main/packages/vanilla/src/styles.css) file or, if your setup supports it, import the stylesheet directly from `node_modules` using:
 
-```js
+```javascript
 import 'inner-image-zoom/lib/styles.min.css';
 ```
 
@@ -71,7 +71,7 @@ Any content within the container will be preserved. This is useful for responsiv
 
 Start by importing and initializing:
 
-```js
+```javascript
 import InnerImageZoom from 'inner-image-zoom';
 
 ...
@@ -81,7 +81,7 @@ new InnerImageZoom();
 
 You can also initialize with a custom selector or options object:
 
-```js
+```javascript
 new InnerImageZoom('.selector', {
   zoomScale: 0.9,
   moveType: 'drag',

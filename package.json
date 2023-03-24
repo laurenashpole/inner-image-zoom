@@ -11,11 +11,13 @@
     "test": "eslint . && yarn run test:types && karma start karma.conf.js",
     "test:watch": "yarn run test --auto-watch --single-run false",
     "test:coverage": "yarn run test --coverage",
-    "test:types": "yarn run tsd -t ./packages/vanilla/src/index.d.ts",
-    "lint": "eslint --fix ."
+    "test:types": "tsd -t ./packages/vanilla/src/index.d.ts",
+    "lint": "eslint --fix .",
+    "release": "release-it --dry-run"
   },
   "devDependencies": {
     "@jsdevtools/coverage-istanbul-loader": "^3.0.5",
+    "@release-it-plugins/workspaces": "^3.2.0",
     "@testing-library/dom": "^8.17.1",
     "chai": "^4.3.6",
     "css-loader": "^6.7.1",
@@ -36,6 +38,7 @@
     "mini-css-extract-plugin": "^2.6.1",
     "mocha": "^10.0.0",
     "prettier": "^2.7.1",
+    "release-it": "^15.9.3",
     "style-loader": "^3.3.1",
     "vue": "^3.2.38",
     "vue-loader": "^17.0.0",
@@ -47,5 +50,11 @@
   },
   "tsd": {
     "directory": "tests"
+  },
+  "release-it": {
+    "plugins": {
+      "@release-it-plugins/workspaces": true
+    },
+    "npm": false
   }
 }
