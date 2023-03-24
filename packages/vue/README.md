@@ -11,19 +11,19 @@ Demos | [Changelog](https://github.com/laurenashpole/inner-image-zoom/blob/main/
 **Note:** Version 2.0.0 upgrades the component to support Vue 3. To use this package with older versions of Vue, install using `npm install vue-inner-image-zoom@1.1.1` or `yarn add vue-inner-image-zoom@1.1.1` instead of the instructions below.
 
 ### NPM
-```js
+```javascript
 npm install vue-inner-image-zoom
 ```
 
 ### Yarn
-```js
+```javascript
 yarn add vue-inner-image-zoom
 ```
 
 ## Usage
 
 Import the component and include in your template:
-```js
+```jsx
 import InnerImageZoom from 'vue-inner-image-zoom';
 
 ...
