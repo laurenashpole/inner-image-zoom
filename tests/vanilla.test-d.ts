@@ -15,5 +15,5 @@ new InnerImageZoom('.iiz', {
   hideCloseButton: false,
   hideHint: false,
   afterZoomIn,
-  afterZoomOut,
+  afterZoomOut
 });
