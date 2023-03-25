@@ -1,6 +1,6 @@
 {
   "name": "vue-inner-image-zoom",
-  "version": "3.0.0",
+  "version": "2.0.0",
   "main": "lib/index.js",
   "module": "src/index.js",
   "files": [
@@ -32,7 +32,7 @@
     "ecommerce"
   ],
   "dependencies": {
-    "inner-image-zoom": "1.0.0"
+    "inner-image-zoom": "0.0.0"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
@@ -41,10 +41,12 @@
     "release": "release-it --dry-run"
   },
   "release-it": {
-    "npm": false,
+    "npm": {
+      "skipChecks":  true
+    },
     "git": {
-      "tagName": "vue-inner-image-zoom@${version}",
-      "tagAnnotation": "Release vue-inner-image-zoom@${version}"
+      "tagName": "${npm.name}@${version}",
+      "tagAnnotation": "Release ${npm.name}@${version}"
     }
   }
 }

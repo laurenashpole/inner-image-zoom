@@ -1,6 +1,6 @@
 {
   "name": "inner-image-zoom",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "main": "lib/index.js",
   "module": "src/index.js",
   "types:": "src/index.d.ts",
@@ -36,10 +36,12 @@
     "release": "release-it --dry-run"
   },
   "release-it": {
-    "npm": false,
+    "npm": {
+      "skipChecks":  true
+    },
     "git": {
-      "tagName": "inner-image-zoom@${version}",
-      "tagAnnotation": "Release inner-image-zoom@${version}"
+      "tagName": "${npm.name}@${version}",
+      "tagAnnotation": "Release ${npm.name}@${version}"
     }
   }
 }
