@@ -55,6 +55,10 @@
     "plugins": {
       "@release-it-plugins/workspaces": true
     },
-    "npm": false
+    "npm": false,
+    "git": {
+      "tagName": "${npm.name || 'inner-image-zoom'}@${version}",
+      "tagAnnotation": "Release ${npm.name || 'inner-image-zoom'}@${version}"
+    }
   }
 }
