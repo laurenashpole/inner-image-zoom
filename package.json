@@ -53,7 +53,8 @@
     },
     "npm": false,
     "git": {
-      "tagName": "${npm.name || 'inner-image-zoom'}@${version}"
+      "tagName": "${npm.name || 'inner-image-zoom'}@${version}",
+      "tagAnnotation": "Release ${npm.name || 'inner-image-zoom'}@${version}"
     }
   }
 }
