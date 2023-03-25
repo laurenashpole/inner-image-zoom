@@ -38,7 +38,7 @@ The basic file structure in your new repo will be:
 
 Changes to a framework's `src` directory inside `packages` will be reflected in its published package.
 
-TKTK: Add release info after choosing helper library.
+Initial releases were made using the [release-it](https://github.com/release-it/release-it) CLI tool but hopefully that'll move to a GitHub Actions CI/CD pipeline before too long. To get ready for that, when you've written your code and feel ready to commit, please use [Angular Commit Message Conventions](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines) when writing your commit messages (feel free to just use `*` for scope).
 
 If you're adding a new option or prop, don't forget to add it to the package's type definition file and include a short description in the `README.md` table.
 
@@ -52,7 +52,7 @@ The following commands are available for testing:
 - `yarn test:watch` - Watch files and run the tests on every change.
 - `yarn test:coverage` - Run the tests on Chrome and generate a coverage report in `coverage/`.
 
-Each command will also run [ESLint](https://github.com/eslint/eslint) on the component source files. To fix linting errors, use `yarn lint`.
+Each command will also run [tsd](https://github.com/SamVerschueren/tsd) to test type definitions and [ESLint](https://github.com/eslint/eslint) with [Prettier](https://prettier.io/). To auto-fix any linting errors, use `yarn lint`.
 
 If you can, try to include new tests with your changes. Otherwise, make sure to run `yarn test` to check that the existing tests still pass before opening a pull request.
 
