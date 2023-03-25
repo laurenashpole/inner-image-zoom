@@ -10,12 +10,10 @@
     "test:watch": "yarn run test --auto-watch --single-run false",
     "test:coverage": "yarn run test --coverage",
     "test:types": "tsd -t ./packages/vanilla/src/index.d.ts",
-    "lint": "eslint --fix .",
-    "release": "release-it --dry-run"
+    "lint": "eslint --fix ."
   },
   "devDependencies": {
     "@jsdevtools/coverage-istanbul-loader": "^3.0.5",
-    "@release-it-plugins/workspaces": "^3.2.0",
     "@testing-library/dom": "^8.17.1",
     "chai": "^4.3.6",
     "css-loader": "^6.7.1",
@@ -48,13 +46,6 @@
     "directory": "tests"
   },
   "release-it": {
-    "plugins": {
-      "@release-it-plugins/workspaces": true
-    },
-    "npm": false,
-    "git": {
-      "tagName": "${npm.name || 'inner-image-zoom'}@${version}",
-      "tagAnnotation": "Release ${npm.name || 'inner-image-zoom'}@${version}"
-    }
+    "npm": false
   }
 }

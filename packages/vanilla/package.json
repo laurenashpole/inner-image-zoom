@@ -1,6 +1,6 @@
 {
   "name": "inner-image-zoom",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "main": "lib/index.js",
   "module": "src/index.js",
   "types:": "src/index.d.ts",
@@ -31,5 +31,14 @@
     "photo",
     "pdp",
     "ecommerce"
-  ]
+  ],
+  "release-it": {
+    "npm": {
+      "skipChecks":  true
+    },
+    "git": {
+      "tagName": "${npm.name}@${version}",
+      "tagAnnotation": "Release ${npm.name}@${version}"
+    }
+  }
 }
