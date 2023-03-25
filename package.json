@@ -53,7 +53,7 @@
     },
     "npm": false,
     "git": {
-      "tagName": "${npm.name}@${version}"
+      "tagName": "${npm.name || 'inner-image-zoom'}@${version}"
     }
   }
 }
