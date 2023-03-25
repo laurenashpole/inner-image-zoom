@@ -34,5 +34,12 @@
   ],
   "scripts": {
     "release": "release-it --dry-run"
+  },
+  "release-it": {
+    "npm": false,
+    "git": {
+      "tagName": "inner-image-zoom@${version}",
+      "tagAnnotation": "Release inner-image-zoom@${version}"
+    }
   }
 }

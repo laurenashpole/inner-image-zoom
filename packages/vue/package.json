@@ -31,13 +31,20 @@
     "pdp",
     "ecommerce"
   ],
-  "scripts": {
-    "release": "release-it --dry-run"
-  },
   "dependencies": {
     "inner-image-zoom": "1.0.0"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
+  },
+  "scripts": {
+    "release": "release-it --dry-run"
+  },
+  "release-it": {
+    "npm": false,
+    "git": {
+      "tagName": "vue-inner-image-zoom@${version}",
+      "tagAnnotation": "Release vue-inner-image-zoom@${version}"
+    }
   }
 }
