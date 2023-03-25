@@ -12,12 +12,10 @@
     "test:watch": "yarn run test --auto-watch --single-run false",
     "test:coverage": "yarn run test --coverage",
     "test:types": "tsd -t ./packages/vanilla/src/index.d.ts",
-    "lint": "eslint --fix .",
-    "release": "release-it --dry-run"
+    "lint": "eslint --fix ."
   },
   "devDependencies": {
     "@jsdevtools/coverage-istanbul-loader": "^3.0.5",
-    "@release-it-plugins/workspaces": "^3.2.0",
     "@testing-library/dom": "^8.17.1",
     "chai": "^4.3.6",
     "css-loader": "^6.7.1",
@@ -40,9 +38,9 @@
     "prettier": "^2.7.1",
     "release-it": "^15.9.3",
     "style-loader": "^3.3.1",
+    "tsd": "^0.28.0",
     "vue": "^3.2.38",
     "vue-loader": "^17.0.0",
-    "tsd": "^0.28.0",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.10.0",
@@ -52,9 +50,6 @@
     "directory": "tests"
   },
   "release-it": {
-    "plugins": {
-      "@release-it-plugins/workspaces": true
-    },
     "npm": false,
     "git": {
       "tagName": "${npm.name || 'inner-image-zoom'}@${version}",

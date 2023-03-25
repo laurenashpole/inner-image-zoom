@@ -31,6 +31,9 @@
     "pdp",
     "ecommerce"
   ],
+  "scripts": {
+    "release": "release-it --dry-run"
+  },
   "dependencies": {
     "inner-image-zoom": "1.0.0"
   },

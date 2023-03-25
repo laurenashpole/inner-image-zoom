@@ -31,5 +31,8 @@
     "photo",
     "pdp",
     "ecommerce"
-  ]
+  ],
+  "scripts": {
+    "release": "release-it --dry-run"
+  }
 }
