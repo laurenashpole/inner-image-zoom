@@ -51,6 +51,9 @@
     "plugins": {
       "@release-it-plugins/workspaces": true
     },
-    "npm": false
+    "npm": false,
+    "git": {
+      "tagName": "${npm.name}@${version}"
+    }
   }
 }
