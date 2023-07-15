@@ -128,9 +128,11 @@
   background-image:
     -webkit-gradient(linear, left top, left bottom, from(#222), to(#222)),
     -webkit-gradient(linear, left top, left bottom, from(#222), to(#222));
+  background-image: -o-linear-gradient(#222, #222), -o-linear-gradient(#222, #222);
   background-image: linear-gradient(#222, #222), linear-gradient(#222, #222);
   background-size: 100% 1px, 1px 100%;
+  margin: 0 auto;
   -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-
