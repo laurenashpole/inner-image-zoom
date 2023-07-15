@@ -8,13 +8,16 @@ module.exports = ({ framework = 'vanilla' }) => {
 
   return ['lib', 'umd'].map((target) => ({
     mode: 'production',
-    entry: [`${directory}/src`, `${directory}/src/styles.css`],
+    entry: [`${directory}/src/styles.css`, `${directory}/src`],
     output: {
       path: `${directory}/${target}`,
       filename: 'index.js',
       library: 'InnerImageZoom',
       libraryTarget: target === 'lib' ? 'var' : target,
-      clean: true
+      clean: true,
+      ...(target === 'umd' && {
+        libraryExport: 'default'
+      })
     },
     module: {
       rules: [{ test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader'] }]
