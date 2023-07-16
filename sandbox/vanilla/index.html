@@ -14,9 +14,13 @@
         margin-bottom: 1em;
       }
 
-      div {
+      section {
         max-width: 750px;
         margin-bottom: 4em;
+      }
+
+      div + div {
+        margin-top: 0.5rem;
       }
 
       figure {
@@ -33,42 +37,63 @@
   <body>
     <h1>inner-image-zoom Sandbox</h1>
 
-    <div>
+    <section>
       <h2>Image Tag</h2>
-      <img class="iiz" src="https://images.unsplash.com/photo-1488740304459-45c4277e7daf?fit=crop&w=1500&q=80" data-zoom-scale="0.9" />
-    </div>
+      <img class="iiz" src="https://images.unsplash.com/photo-1488740304459-45c4277e7daf?fit=crop&w=1500&q=80" />
+    </section>
 
-    <div>
+    <section>
       <h2>Figure Tag</h2>
       <figure id="iizFigure">
         <img src="https://images.unsplash.com/photo-1609074405294-355851aead3e?fit=crop&w=750&q=80" />
       </figure>
-    </div>
+    </section>
 
-    <div>
+    <section>
       <h2>Picture Tag</h2>
       <picture class="iiz" data-zoom-src="https://images.unsplash.com/photo-1542736705-53f0131d1e98?fit=crop&w=1500&q=80">
         <source srcset="https://images.unsplash.com/photo-1542736705-53f0131d1e98?fit=crop&w=750&q=80, https://images.unsplash.com/photo-1542736705-53f0131d1e98?fit=crop&w=1500&q=80 2x" media="(min-width: 500px)" />
-        <img srcset="https://images.unsplash.com/photo-1542736705-53f0131d1e98?fit=crop&w=460&q=80, https://images.unsplash.com/photo-1542736705-53f0131d1e98?fit=crop&w=1000&q=80 2x" src="https://images.unsplash.com/photo-1542736705-53f0131d1e98?fit=crop&w=500&q=80">
+        <img srcset="https://images.unsplash.com/photo-1542736705-53f0131d1e98?fit=crop&w=460&q=80, https://images.unsplash.com/photo-1542736705-53f0131d1e98?fit=crop&w=920&q=80 2x" src="https://images.unsplash.com/photo-1542736705-53f0131d1e98?fit=crop&w=460&q=80" />
       </picture>
-    </div>
+    </section>
 
-    <div>
-      <h2>Multiples</h2>
-      <figure class="iiz-multi">
-        <img src="https://images.unsplash.com/photo-1517331156700-3c241d2b4d83?fit=crop&w=1500&q=80" />
-      </figure>
+    <section>
+      <h2>Zoom Type Hover</h2>
+      <div><img class="iiz-hover" src="https://images.unsplash.com/photo-1517331156700-3c241d2b4d83?fit=crop&w=1500&q=80" /></div>
+      <div><img class="iiz" src="https://images.unsplash.com/photo-1532386236358-a33d8a9434e3?fit=crop&w=1500&q=80" data-zoom-type="hover" data-zoom-preload="true" /></div>
+    </section>
 
-      <figure class="iiz-multi" data-zoom-src="https://images.unsplash.com/photo-1532386236358-a33d8a9434e3?fit=crop&w=1500&q=80">
-        <img src="https://images.unsplash.com/photo-1532386236358-a33d8a9434e3?fit=crop&w=750&q=80" />
-      </figure>
-    </div>
+    <section>
+      <h2>Move Type Drag</h2>
+      <div><img class="iiz-drag" src="https://images.unsplash.com/photo-1600357077527-930ccbaf7773?fit=crop&w=1500&q=80" /></div>
+      <div><img class="iiz" src="https://images.unsplash.com/photo-1559564207-09c99dc78a70?fit=crop&w=1500&q=80" data-move-type="drag" /></div>
+    </section>
 
-    <div>
+    <section>
+      <h2>Fullscreen on Mobile</h2>
+      <div><img class="iiz-fullscreen" src="https://images.unsplash.com/photo-1557166983-5939644443a0?fit=crop&w=1500&q=80" /></div>
+      <div><img class="iiz" src="https://images.unsplash.com/photo-1584102029658-7de0c3da0faf?fit=crop&w=1500&q=80" data-fullscreen-on-mobile="true" data-mobile-breakpoint="600" /></div>
+      <div><img class="iiz" src="https://images.unsplash.com/photo-1636014436444-f660718b02fe?fit=crop&w=1500&q=80" data-fullscreen-on-mobile="true" data-mobile-breakpoint="600" data-hide-close-button="true" /></div>
+    </section>
+
+    <section>
+      <h2>Hiding Elements</h2>
+      <div><img class="iiz-hide" src="https://images.unsplash.com/photo-1516750105099-4b8a83e217ee?fit=crop&w=1500&q=80" />
+      </div>
+      <div><img class="iiz" src="https://images.unsplash.com/photo-1610343952595-ec1ae135c562?fit=crop&w=1500&q=80" data-hide-close-button="true" data-hide-hint="true" /></div>
+    </section>
+
+    <section>
+      <h2 class="iiz-callbacks-heading">Callbacks</h2>
+      <img class="iiz" src="https://images.unsplash.com/photo-1560114928-40f1f1eb26a0?fit=crop&w=1500&q=80"
+        data-move-type="drag" />
+    </section>    
+
+    <section>
       <h2>Reinit & Uninit</h2>
-      <img class="iiz-inits" src="https://images.unsplash.com/photo-1503844281047-cf42eade5ca5?fit=crop&w=1500&q=80" data-hide-hint="true" />
+      <img class="iiz-inits" src="https://images.unsplash.com/photo-1503844281047-cf42eade5ca5?fit=crop&w=1500&q=80" />
       <button type="button" id="uninit">Uninit</button>
       <button type="button" id="reinit">Reinit</button>
-    </div>
+    </section>
   </body>
 </html>
