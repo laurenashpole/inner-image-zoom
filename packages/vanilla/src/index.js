@@ -170,6 +170,15 @@ const InnerImageZoom = (() => {
       $portal.appendChild($zoomImg).setAttribute('src', this.options.zoomSrc);
       $closeButton && $portal.appendChild($closeButton);
 
+      if ($closeButton) {
+        $portal.appendChild($closeButton);
+      } else {
+        $zoomImg.addEventListener('click', (e) => {
+          console.log('ZOOM IMG CLICK');
+          this.onClick(e);
+        });
+      }
+
       return $portal;
     },
     onTouchStart: function () {
