@@ -43,6 +43,7 @@
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
+  -webkit-touch-callout: none;
   display: block;
 }
 
