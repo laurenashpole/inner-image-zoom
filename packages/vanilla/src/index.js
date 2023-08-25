@@ -170,14 +170,18 @@ const InnerImageZoom = (() => {
       $portal.appendChild($zoomImg).setAttribute('src', this.options.zoomSrc);
       $closeButton && $portal.appendChild($closeButton);
 
+      if ($closeButton) {
+        $portal.appendChild($closeButton);
+      } else {
+        $zoomImg.addEventListener('click', (e) => this.onClick(e));
+      }
+
       return $portal;
     },
     onTouchStart: function () {
       if (this.isZoomed) {
         return;
       }
-
-      console.log('TOUCH START');
 
       this.isTouch = true;
       this.isFullscreen = getFullscreenStatus(this.options.fullscreenOnMobile, this.options.mobileBreakpoint);
@@ -187,8 +191,6 @@ const InnerImageZoom = (() => {
       if (this.isTouch) {
         return;
       }
-
-      console.log('MOUSE ENTER');
 
       this.isClosing = false;
       this.$container.appendChild(this.$zoomImg);
@@ -207,8 +209,6 @@ const InnerImageZoom = (() => {
         return;
       }
 
-      console.log('CLICK');
-
       if (this.isTouch) {
         if (this.isFullscreen) {
           document.body.appendChild(this.$portal);
@@ -226,8 +226,6 @@ const InnerImageZoom = (() => {
       }
     },
     onLoad: function () {
-      console.log('LOAD');
-
       const scaledDimensions = getScaledDimensions(this.$zoomImg, this.options.zoomScale);
       this.$zoomImg.setAttribute('width', scaledDimensions.width);
       this.$zoomImg.setAttribute('height', scaledDimensions.height);
@@ -245,8 +243,6 @@ const InnerImageZoom = (() => {
         return;
       }
 
-      console.log('MOUSE MOVE');
-
       const positions = getMouseMovePositions(e, this.imgProps);
       this.$zoomImg.style.left = `${positions.left}px`;
       this.$zoomImg.style.top = `${positions.top}px`;
@@ -256,16 +252,12 @@ const InnerImageZoom = (() => {
         return;
       }
 
-      console.log('MOUSE LEAVE');
-
       this.currentMoveType === 'drag' && this.isZoomed ? this.onDragEnd(e) : this.onClose(e);
     },
     onDragStart: function (e) {
       if (this.currentMoveType !== 'drag') {
         return;
       }
-
-      console.log('DRAG START');
 
       const coords = getEventCoords(e);
       this.imgProps.offsets = getOffsets(coords.x, coords.y, this.$zoomImg.offsetLeft, this.$zoomImg.offsetTop);
@@ -282,8 +274,6 @@ const InnerImageZoom = (() => {
         return;
       }
 
-      console.log('DRAG MOVE');
-
       const positions = getDragMovePositions(e, this.imgProps);
       this.$zoomImg.style.left = `${positions.left}px`;
       this.$zoomImg.style.top = `${positions.top}px`;
@@ -293,8 +283,6 @@ const InnerImageZoom = (() => {
         return;
       }
 
-      console.log('DRAG END');
-
       this.$zoomImg.removeEventListener(this.isTouch ? 'touchmove' : 'mousemove', this.dragMove);
 
       if (!this.isTouch) {
@@ -302,8 +290,6 @@ const InnerImageZoom = (() => {
       }
     },
     onClose: function (e) {
-      console.log('CLOSE');
-
       e.stopPropagation();
 
       if (!(e.target.classList.contains('iiz__close') && !this.isTouch)) {
@@ -317,13 +303,9 @@ const InnerImageZoom = (() => {
       this.isZoomed && this.zoomOut();
     },
     onTransitionEnd: function (e) {
-      this.isClosing && e.propertyName === 'opacity' && e.target === this.$zoomImg && console.log('TRANSITION END');
-
       this.isClosing && e.propertyName === 'opacity' && e.target === this.$zoomImg && this.cleanup();
     },
     initialMove: function (e) {
-      console.log('INITIAL MOVE');
-
       this.imgProps.offsets = getOffsets(
         window.pageXOffset,
         window.pageYOffset,
@@ -334,8 +316,6 @@ const InnerImageZoom = (() => {
       this.onMouseMove(e);
     },
     initialDrag: function (e) {
-      console.log('INITIAL DRAG');
-
       const initialDragCoords = getInitialDragCoords(e, this.imgProps, this.isFullscreen);
       this.imgProps.bounds = getBounds(this.$img, this.isFullscreen);
       this.imgProps.offsets = getOffsets(0, 0, 0, 0);
@@ -346,8 +326,6 @@ const InnerImageZoom = (() => {
       });
     },
     zoomIn: function (e) {
-      console.log('ZOOM IN');
-
       this.isZoomed = true;
       this.$zoomImg.classList.add('iiz__zoom-img--visible');
       this.$zoomImg.style.transitionDuration = `${this.isFullscreen ? 0 : this.options.fadeDuration}ms`;
@@ -363,8 +341,6 @@ const InnerImageZoom = (() => {
       this.options.afterZoomIn && this.options.afterZoomIn();
     },
     zoomOut: function () {
-      console.log('ZOOM OUT');
-
       this.isZoomed = false;
       this.$zoomImg.classList.remove('iiz__zoom-img--visible');
       this.$img.classList.remove('iiz__img--hidden');
@@ -373,8 +349,6 @@ const InnerImageZoom = (() => {
       this.options.afterZoomOut && this.options.afterZoomOut();
     },
     cleanup: function () {
-      console.log('CLEANUP');
-
       if ((this.options.zoomPreload && this.isTouch) || !this.options.zoomPreload) {
         if (this.isFullscreen) {
           document.body.removeChild(this.$portal);

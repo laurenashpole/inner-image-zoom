@@ -8,19 +8,31 @@ module.exports = ({ framework = 'vanilla' }) => {
 
   return ['lib', 'umd'].map((target) => ({
     mode: 'production',
-    entry: [
-      ...[`${directory}/src`, `${directory}/src/styles.css`],
-      ...(framework !== 'vue' ? [`${directory}/src/styles.css`] : [])
-    ],
+    entry: [...(framework !== 'vue' ? [`${directory}/src/styles.css`] : []), `${directory}/src`],
     output: {
       path: `${directory}/${target}`,
       filename: 'index.js',
       library: 'InnerImageZoom',
       libraryTarget: target === 'lib' ? 'var' : target,
-      clean: true
+      clean: true,
+      ...(target === 'umd' && {
+        libraryExport: 'default'
+      })
     },
     module: {
-      rules: [{ test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader'] }]
+      rules: [
+        { test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader'] },
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env']
+            }
+          }
+        }
+      ]
     },
     plugins: [
       new MiniCssExtractPlugin({

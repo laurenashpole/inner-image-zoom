@@ -267,7 +267,7 @@ describe('inner-image-zoom', () => {
       fireEvent.click(figure);
       const zoomImg = app.querySelector('.iiz__zoom-img');
       expect(zoomImg.classList.contains('iiz__zoom-img--visible')).to.be.true;
-      fireEvent.click(figure);
+      fireEvent.click(zoomImg);
       expect(zoomImg.classList.contains('iiz__zoom-img--visible')).to.be.false;
     });
 
