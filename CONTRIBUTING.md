@@ -30,7 +30,7 @@ The basic file structure in your new repo will be:
 
 Changes to a framework's `src` directory inside `packages` will be reflected in its published package.
 
-Initial releases were made using the [release-it](https://github.com/release-it/release-it) CLI tool but hopefully that'll move to a GitHub Actions CI/CD pipeline before too long. To get ready for that, when you've written your code and feel ready to commit, please use [Angular Commit Message Conventions](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines) when writing your commit messages (feel free to just use `*` for scope).
+Initial releases were made using the [release-it](https://github.com/release-it/release-it) CLI tool but hopefully that'll move to a GitHub Actions CI/CD pipeline before too long. To get ready for that, when you've written your code and feel ready to commit, please use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) when writing your commit messages.
 
 If you're adding a new option or prop, don't forget to add it to the package's type definition file and include a short description in the `README.md` table.
 
