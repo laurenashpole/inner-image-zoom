@@ -18,6 +18,9 @@ npm install inner-image-zoom
 yarn add inner-image-zoom
 ```
 
+### TypeScript
+[Type declarations](https://github.com/laurenashpole/inner-image-zoom/blob/main/packages/vanilla/src/index.d.ts) were added with version 1.0.0.
+
 ### Styling
 
 You can download the raw [styles.css](https://raw.githubusercontent.com/laurenashpole/inner-image-zoom/main/packages/vanilla/src/styles.css) file or, if your setup supports it, import the stylesheet directly from `node_modules` using:
