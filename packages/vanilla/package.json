@@ -33,11 +33,12 @@
     "ecommerce"
   ],
   "scripts": {
-    "release": "release-it --dry-run"
+    "release": "release-it"
   },
   "release-it": {
-    "npm": {
-      "skipChecks":  true
+    "hooks": {
+      "before:init": "yarn test",
+      "after:bump": "yarn build"
     },
     "git": {
       "tagName": "${npm.name}@${version}",
