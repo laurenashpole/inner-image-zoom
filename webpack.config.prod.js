@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
@@ -38,6 +39,9 @@ module.exports = ({ framework = 'vanilla' }) => {
       ]
     },
     plugins: [
+      new CopyPlugin({
+        patterns: [`${directory}/src/index.d.ts`]
+      }),
       new MiniCssExtractPlugin({
         filename: 'styles.min.css'
       }),
