@@ -24,7 +24,7 @@ module.exports = {
   ignorePatterns: ['**/lib/**', '**/umd/**'],
   overrides: [
     {
-      files: ['*.spec.js'],
+      files: ['*.test.js'],
       env: {
         mocha: true
       }

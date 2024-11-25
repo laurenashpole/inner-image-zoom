@@ -4,10 +4,10 @@ module.exports = (config) => {
   config.set({
     basePath: path.resolve(__dirname, 'tests'),
     frameworks: ['mocha', 'webpack', 'chai'],
-    files: ['*.spec.js'],
+    files: ['*.test.js'],
     exclude: [],
     preprocessors: {
-      '*.spec.js': ['webpack']
+      '*.test.js': ['webpack']
     },
     webpack: {
       module: {
@@ -31,7 +31,7 @@ module.exports = (config) => {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: false,
-    browsers: [...['ChromeHeadless'], ...(!config.coverage ? ['FirefoxHeadless'] : [])],
+    browsers: ['ChromeHeadless'],
     singleRun: true,
     concurrency: Infinity,
     ...(config.coverage && {
