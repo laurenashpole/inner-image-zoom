@@ -1,6 +1,10 @@
 # Changelog
 
-## [3.0.0] ()
+## 3.0.0 (2024-11-25)
+
+### Added
+
+- Type declaration file.
 
 ### Changed
 

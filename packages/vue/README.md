@@ -20,6 +20,9 @@ npm install vue-inner-image-zoom
 yarn add vue-inner-image-zoom
 ```
 
+### TypeScript
+[Type declarations](https://github.com/laurenashpole/inner-image-zoom/blob/main/packages/vue/src/index.d.ts) were added with version 3.0.0.
+
 ## Usage
 
 Import the component and include in your template:
