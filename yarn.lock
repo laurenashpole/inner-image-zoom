@@ -4877,14 +4877,6 @@ karma-coverage-istanbul-reporter@^3.0.3:
     istanbul-reports "^3.0.2"
     minimatch "^3.0.4"
 
-karma-firefox-launcher@^2.1.2:
-  version "2.1.2"
-  resolved "https://registry.npmjs.org/karma-firefox-launcher/-/karma-firefox-launcher-2.1.2.tgz"
-  integrity sha512-VV9xDQU1QIboTrjtGVD4NCfzIH7n01ZXqy/qpBhnOeGVOkG5JYPEm8kuSd7psHE6WouZaQ9Ool92g8LFweSNMA==
-  dependencies:
-    is-wsl "^2.2.0"
-    which "^2.0.1"
-
 karma-mocha-reporter@^2.2.5:
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/karma-mocha-reporter/-/karma-mocha-reporter-2.2.5.tgz#15120095e8ed819186e47a0b012f3cd741895560"
