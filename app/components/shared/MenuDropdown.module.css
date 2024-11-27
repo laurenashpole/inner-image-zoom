@@ -1,0 +1,7 @@
+:where([data-mantine-color-scheme='light']) .root {
+  border-color: var(--mantine-color-light-2);
+}
+
+.root {
+  border-radius: 8px;
+}

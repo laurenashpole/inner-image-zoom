@@ -1,0 +1,23 @@
+.root > span {
+  pointer-events: none;
+}
+
+.root *[data-icon-position="before"]:hover:before,
+.root *[data-icon-position="before"][data-active="true"]:before,
+.root *[data-icon-position="before"][aria-expanded="true"]:before {
+  content: "+";
+  margin-right: 0.25rem;
+  position: absolute;
+  right: 100%;
+  bottom: 0.0625rem;
+}
+
+.root *[data-icon-position="after"]:hover:after,
+.root *[data-icon-position="after"][data-active="true"]:after,
+.root *[data-icon-position="after"][aria-expanded="true"]:after {
+  content: "+";
+  margin-left: 0.5rem;
+  position: absolute;
+  left: 100%;
+  bottom: 0.0625rem;
+}
