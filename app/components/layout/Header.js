@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { FaGithub } from "react-icons/fa";
-import { IoLogoJavascript, IoLogoVue } from "react-icons/io5";
-import { PiMoonStarsFill, PiSunFill } from "react-icons/pi";
+import { FaGithub } from 'react-icons/fa';
+import { IoLogoJavascript, IoLogoVue } from 'react-icons/io5';
+import { PiMoonStarsFill, PiSunFill } from 'react-icons/pi';
 
 import {
   ActionIcon,
@@ -14,7 +14,7 @@ import {
   Text,
   Title,
   useComputedColorScheme,
-  useMantineColorScheme
+  useMantineColorScheme,
 } from '@mantine/core';
 
 import MenuDivider from '../shared/MenuDivider';
@@ -28,7 +28,7 @@ const Header = ({ activeLink, ...burgerProps }) => {
   const { toggleColorScheme } = useMantineColorScheme();
 
   const colorScheme = useComputedColorScheme('light', {
-    getInitialValueInEffect: true
+    getInitialValueInEffect: true,
   });
 
   return (
@@ -36,9 +36,7 @@ const Header = ({ activeLink, ...burgerProps }) => {
       <Group>
         {activeLink !== 'home' && (
           <Title order={1} size="xl" fs="italic">
-            <Link href="/">
-              Inner Image Zoom
-            </Link>
+            <Link href="/">Inner Image Zoom</Link>
           </Title>
         )}
 
@@ -46,11 +44,16 @@ const Header = ({ activeLink, ...burgerProps }) => {
           <Group
             gap="40"
             pr="lg"
-            visibleFrom="sm" 
+            visibleFrom="sm"
             component="nav"
             aria-label="Main desktop"
           >
-            <Menu width={200} trigger="click-hover" openDelay={100} closeDelay={100}>
+            <Menu
+              width={200}
+              trigger="click-hover"
+              openDelay={100}
+              closeDelay={100}
+            >
               <MenuTarget>
                 <NavAnchor
                   label="Docs"
@@ -66,8 +69,12 @@ const Header = ({ activeLink, ...burgerProps }) => {
                   leftSection={<IoLogoJavascript size="1.5rem" />}
                 >
                   <Stack gap={0} pl={4}>
-                    <Text size="md" lh="normal">Vanilla</Text>
-                    <Text size="sm" fw={700} lh="normal">1.0.0</Text>
+                    <Text size="md" lh="normal">
+                      Vanilla
+                    </Text>
+                    <Text size="sm" fw={700} lh="normal">
+                      1.0.0
+                    </Text>
                   </Stack>
                 </MenuItem>
 
@@ -79,15 +86,23 @@ const Header = ({ activeLink, ...burgerProps }) => {
                   leftSection={<IoLogoVue size="1.5rem" />}
                 >
                   <Stack gap={0} pl={4}>
-                    <Text size="md" lh="normal">Vue</Text>
-                    <Text size="sm" fw={700} lh="normal">3.0.0</Text>
+                    <Text size="md" lh="normal">
+                      Vue
+                    </Text>
+                    <Text size="sm" fw={700} lh="normal">
+                      3.0.0
+                    </Text>
                   </Stack>
                 </MenuItem>
               </MenuDropdown>
             </Menu>
 
             <NavAnchor label="Demos" href="/demos" activeLink={activeLink} />
-            <NavAnchor label="Support" href="/support" activeLink={activeLink} />
+            <NavAnchor
+              label="Support"
+              href="/support"
+              activeLink={activeLink}
+            />
           </Group>
 
           <ActionIcon
@@ -109,7 +124,11 @@ const Header = ({ activeLink, ...burgerProps }) => {
               onClick={() => toggleColorScheme()}
               aria-label={`Switch to ${colorScheme === 'light' ? 'dark' : 'light'} mode`}
             >
-              {colorScheme === 'light' ? <PiMoonStarsFill size="1.5rem" /> : <PiSunFill size="1.5rem" />}
+              {colorScheme === 'light' ? (
+                <PiMoonStarsFill size="1.5rem" />
+              ) : (
+                <PiSunFill size="1.5rem" />
+              )}
             </ActionIcon>
           )}
 

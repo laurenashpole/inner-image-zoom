@@ -1,9 +1,7 @@
-import Shell from "@/app/components/layout/Shell";
+import Shell from '@/app/components/layout/Shell';
 
 const Vue = () => {
-  return (
-    <Shell activeLink="docs">Docs Vue Current</Shell>
-  );
+  return <Shell activeLink="docs">Docs Vue Current</Shell>;
 };
 
 export default Vue;

@@ -11,7 +11,7 @@ export const theme = createTheme({
     fontStyle: 'italic',
   },
   colors: {
-    'dark': [
+    dark: [
       '#6a6f8b',
       '#5e6482',
       '#53597a',
@@ -23,17 +23,17 @@ export const theme = createTheme({
       '#141b3e',
       '#121836',
     ],
-    'light': [
+    light: [
       '#f2f9ff',
-      "#e6f2fe",
-      "#d9ecfe",
-      "#cde5fd",
-      "#c0dffd",
-      "#b3d8fc",
-      "#a7d2fc",
-      "#9acbfb",
-      "#8ec5fb",
-      "#81befa",
+      '#e6f2fe',
+      '#d9ecfe',
+      '#cde5fd',
+      '#c0dffd',
+      '#b3d8fc',
+      '#a7d2fc',
+      '#9acbfb',
+      '#8ec5fb',
+      '#81befa',
     ],
   },
   components: {

@@ -1,6 +1,11 @@
 'use client';
 
-import { AppShell, AppShellHeader, AppShellMain, AppShellNavbar } from '@mantine/core';
+import {
+  AppShell,
+  AppShellHeader,
+  AppShellMain,
+  AppShellNavbar,
+} from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
 import Header from './Header';
@@ -15,7 +20,7 @@ const Shell = ({ children, activeLink }) => {
     <AppShell
       header={{ height: 76 }}
       navbar={{
-        width: "100%",
+        width: '100%',
         breakpoint: 'sm',
         collapsed: { mobile: !opened, desktop: true },
       }}
@@ -29,9 +34,7 @@ const Shell = ({ children, activeLink }) => {
         <Navbar activeLink={activeLink} />
       </AppShellNavbar>
 
-      <AppShellMain>
-        {children}
-      </AppShellMain>
+      <AppShellMain>{children}</AppShellMain>
     </AppShell>
   );
 };

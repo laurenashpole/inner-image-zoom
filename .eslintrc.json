@@ -2,6 +2,12 @@
   "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
   "plugins": ["simple-import-sort"],
   "rules": {
+    "prettier/prettier": [
+      "error", {
+        "singleQuote": true,
+        "jsxSingleQuote": false
+      }
+    ],
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error"
   },
