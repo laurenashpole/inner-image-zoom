@@ -1,6 +1,7 @@
 import Image from "next/image";
-import Shell from "./components/layout/Shell";
+
 import Hero from "./components/home/Hero";
+import Shell from "./components/layout/Shell";
 // import styles from "./page.module.css";
 // import { IconBrandMantine } from '@tabler/icons-react';
 

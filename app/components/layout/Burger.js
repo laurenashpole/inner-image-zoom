@@ -1,4 +1,5 @@
 import { Burger as MantineBurger } from '@mantine/core';
+
 import styles from './Burger.module.css';
 
 const Burger = ({ opened, toggle }) => (

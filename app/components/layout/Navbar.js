@@ -2,6 +2,7 @@ import {
   List,
   ListItem,
 } from '@mantine/core';
+
 import NavAnchor from './NavAnchor';
 
 const Navbar = ({ activeLink }) => (

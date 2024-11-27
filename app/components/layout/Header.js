@@ -1,4 +1,8 @@
 import Link from 'next/link';
+import { FaGithub } from "react-icons/fa";
+import { IoLogoJavascript, IoLogoVue } from "react-icons/io5";
+import { PiMoonStarsFill, PiSunFill } from "react-icons/pi";
+
 import {
   ActionIcon,
   Container,
@@ -12,14 +16,13 @@ import {
   useComputedColorScheme,
   useMantineColorScheme
 } from '@mantine/core';
-import { PiMoonStarsFill, PiSunFill } from "react-icons/pi";
-import { IoLogoJavascript, IoLogoVue } from "react-icons/io5";
-import { FaGithub } from "react-icons/fa";
-import NextLink from '../shared/NextLink';
-import NavAnchor from './NavAnchor';
+
 import MenuDivider from '../shared/MenuDivider';
 import MenuDropdown from '../shared/MenuDropdown';
+import NextLink from '../shared/NextLink';
+
 import Burger from './Burger';
+import NavAnchor from './NavAnchor';
 
 const Header = ({ activeLink, ...burgerProps }) => {
   const { toggleColorScheme } = useMantineColorScheme();

@@ -2,8 +2,10 @@
 
 import { AppShell, AppShellHeader, AppShellMain, AppShellNavbar } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
+
 import Header from './Header';
 import Navbar from './Navbar';
+
 import styles from './Shell.module.css';
 
 const Shell = ({ children, activeLink }) => {

@@ -1,8 +1,10 @@
-import { Anchor } from '@mantine/core';
-import NextLink from '../shared/NextLink';
-import styles from './NavAnchor.module.css';
-
 import { forwardRef } from 'react';
+
+import { Anchor } from '@mantine/core';
+
+import NextLink from '../shared/NextLink';
+
+import styles from './NavAnchor.module.css';
 
 const NavAnchor = forwardRef(({ label, activeLink, iconPosition, component, ...props }, ref) => (
   <span className={styles.root}>
