@@ -20,9 +20,11 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.18",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "postcss": "^8.4.49",
     "postcss-preset-mantine": "^1.17.0",
-    "postcss-simple-vars": "^7.0.1"
+    "postcss-simple-vars": "^7.0.1",
+    "prettier": "^3.4.1"
   }
 }
