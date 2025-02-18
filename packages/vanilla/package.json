@@ -43,6 +43,9 @@
     "git": {
       "tagName": "${npm.name}@${version}",
       "tagAnnotation": "Release ${npm.name}@${version}"
+    },
+    "npm": {
+      "skipChecks": true
     }
   }
 }
