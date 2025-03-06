@@ -32,7 +32,7 @@
     "ecommerce"
   ],
   "dependencies": {
-    "inner-image-zoom": "0.0.0"
+    "inner-image-zoom": "1.0.0"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
@@ -40,22 +40,21 @@
   "scripts": {
     "release": "release-it"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "release-it": {
     "hooks": {
-      "before:init": "yarn test",
-      "after:bump": "yarn build"
+      "before:init": "yarn --cwd='../..' test",
+      "after:bump": "yarn --cwd='../..' build"
     },
     "git": {
+      "commitMessage": "chore: release v${version}",
       "tagName": "${npm.name}@${version}",
       "tagAnnotation": "Release ${npm.name}@${version}"
     },
-    "plugins": {
-      "@release-it/bumper": {
-        "out": {
-          "file": "package.json",
-          "path": ["dependencies.inner-image-zoom"]
-        }
-      }
+    "npm": {
+      "skipChecks": true
     }
   }
 }
