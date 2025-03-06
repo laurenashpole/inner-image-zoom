@@ -35,6 +35,9 @@
   "scripts": {
     "release": "release-it"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "release-it": {
     "hooks": {
       "before:init": "yarn --cwd='../..' test",
