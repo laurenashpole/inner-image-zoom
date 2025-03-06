@@ -50,9 +50,6 @@
     "webpack-dev-server": "^4.10.0",
     "webpack-remove-empty-scripts": "^1.0.1"
   },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
-  },
   "release-it": {
     "npm": false
   },
