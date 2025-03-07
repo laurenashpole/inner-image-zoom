@@ -1,6 +1,6 @@
 # inner-image-zoom
 
-[![GitHub Actions][build-badge]][build]
+[![GitHub Actions][build-badge]][build] [![NPM][npm-badge]][npm]
 
 A lightweight Vanilla JavaScript package for magnifying an image within its original container.
 

@@ -1,6 +1,6 @@
 # vue-inner-image-zoom
 
-[![GitHub Actions][build-badge]][build]
+[![GitHub Actions][build-badge]][build] [![NPM][npm-badge]][npm]
 
 A lightweight Vue component for magnifying an image within its original container.
 
@@ -85,8 +85,8 @@ Please submit bugs or requests on the [GitHub issues page](https://github.com/la
 
 [MIT](https://github.com/laurenashpole/inner-image-zoom/blob/main/LICENSE)
 
-[npm-badge]: http://img.shields.io/npm/v/inner-image-zoom.svg?style=flat
-[npm]: https://www.npmjs.com/package/inner-image-zoom
+[npm-badge]: http://img.shields.io/npm/v/vue-inner-image-zoom.svg?style=flat
+[npm]: https://www.npmjs.com/package/vue-inner-image-zoom
 
 [build-badge]: https://github.com/laurenashpole/inner-image-zoom/actions/workflows/release.yml/badge.svg
 [build]: https://github.com/laurenashpole/inner-image-zoom/actions

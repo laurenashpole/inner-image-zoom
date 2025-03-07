@@ -49,7 +49,7 @@
       "after:bump": "yarn --cwd='../..' build:vue"
     },
     "git": {
-      "commitMessage": "chore: release v${version}",
+      "commitMessage": "chore: release ${npm.name} v${version}",
       "tagName": "${npm.name}@${version}",
       "tagAnnotation": "Release ${npm.name}@${version}"
     },
