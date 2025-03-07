@@ -46,7 +46,7 @@
   "release-it": {
     "hooks": {
       "before:init": "yarn --cwd='../..' test",
-      "after:bump": "yarn --cwd='../..' build"
+      "after:bump": "yarn --cwd='../..' build:vue"
     },
     "git": {
       "commitMessage": "chore: release v${version}",

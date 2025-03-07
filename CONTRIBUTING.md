@@ -26,7 +26,7 @@ By default, this will run the Vanilla app. To work on a specific framework, foll
 yarn start:vue
 ```
 
-Replacing `vue` with your desired name.
+Replacing `vue` with the appropriate name.
 
 ## Development
 
