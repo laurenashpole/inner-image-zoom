@@ -2,9 +2,9 @@
 
 [![GitHub Actions][build-badge]][build]
 
-A collection of lightweight packages for magnifying an image within its original container. Available in:
+A collection of lightweight packages for magnifying an image within its original container. Available for:
 
-[Vanilla](https://github.com/laurenashpole/inner-image-zoom/tree/main/packages/vanilla)
+[Vanilla](https://github.com/laurenashpole/inner-image-zoom/tree/main/packages/vanilla) | [Vue](https://github.com/laurenashpole/inner-image-zoom/tree/main/packages/vue)
 
 Features include:
 
@@ -12,6 +12,7 @@ Features include:
 - Drag or pan on hover to move
 - Fullscreen zoom on mobile devices
 - Optional hint icon, close button, and transitions
+- Support for responsive images
 - TypeScript type definitions
 
 Click on a framework above for information on installation, usage, and options/props.

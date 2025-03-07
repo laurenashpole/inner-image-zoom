@@ -1,4 +1,6 @@
+const webpack = require('webpack');
 const path = require('path');
+const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = (config) => {
   config.set({
@@ -12,7 +14,10 @@ module.exports = (config) => {
     webpack: {
       module: {
         rules: [
-          ...[{ test: /\.css$/, use: ['style-loader', 'css-loader'] }],
+          ...[
+            { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+            { test: /\.vue$/, loader: 'vue-loader' }
+          ],
           ...(config.coverage
             ? [
                 {
@@ -24,7 +29,14 @@ module.exports = (config) => {
               ]
             : [])
         ]
-      }
+      },
+      plugins: [
+        new VueLoaderPlugin(),
+        new webpack.DefinePlugin({
+          __VUE_OPTIONS_API__: true,
+          __VUE_PROD_DEVTOOLS__: false
+        })
+      ]
     },
     reporters: [...['mocha'], ...(config.coverage ? ['coverage-istanbul'] : [])],
     port: 9876,

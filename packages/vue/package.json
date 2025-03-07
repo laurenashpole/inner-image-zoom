@@ -1,0 +1,60 @@
+{
+  "name": "vue-inner-image-zoom",
+  "version": "2.0.0",
+  "main": "lib/index.js",
+  "module": "src/index.js",
+  "files": [
+    "lib",
+    "umd",
+    "src"
+  ],
+  "author": "Lauren Ashpole",
+  "description": "A Vue.js component for magnifying an image within its parent container 🔎",
+  "homepage": "https://github.com/laurenashpole/inner-image-zoom/packages/vue#readme",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/laurenashpole/inner-image-zoom.git"
+  },
+  "bugs": {
+    "url": "https://github.com/laurenashpole/inner-image-zoom/issues"
+  },
+  "keywords": [
+    "vue",
+    "vue-component",
+    "magnify",
+    "zoom",
+    "enlarge",
+    "image",
+    "responsive",
+    "photo",
+    "pdp",
+    "ecommerce"
+  ],
+  "dependencies": {
+    "inner-image-zoom": "1.0.0"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "scripts": {
+    "release": "release-it"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "release-it": {
+    "hooks": {
+      "before:init": "yarn --cwd='../..' test",
+      "after:bump": "yarn --cwd='../..' build:vue"
+    },
+    "git": {
+      "commitMessage": "chore: release v${version}",
+      "tagName": "${npm.name}@${version}",
+      "tagAnnotation": "Release ${npm.name}@${version}"
+    },
+    "npm": {
+      "skipChecks": true
+    }
+  }
+}

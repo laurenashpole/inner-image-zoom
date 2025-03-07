@@ -5,7 +5,9 @@
   ],
   "scripts": {
     "dev": "webpack serve --config ./webpack.config.dev.js",
+    "dev:vue": "yarn run dev --env=framework=vue",
     "build": "webpack --config ./webpack.config.prod.js",
+    "build:vue": "yarn run build --env=framework=vue",
     "test": "eslint . && yarn run test:types && karma start karma.conf.js",
     "test:watch": "yarn run test --auto-watch --single-run false",
     "test:coverage": "yarn run test --coverage",
@@ -40,6 +42,8 @@
     "release-it": "^15.9.3",
     "style-loader": "^3.3.1",
     "tsd": "^0.28.0",
+    "vue": "^3.2.38",
+    "vue-loader": "^17.0.0",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.10.0",
