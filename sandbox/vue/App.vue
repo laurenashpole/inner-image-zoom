@@ -58,6 +58,5 @@ export default {
   components: {
     InnerImageZoom
   },
-  // props: ['srcs']
 };
 </script>
