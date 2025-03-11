@@ -1,0 +1,17 @@
+.root {
+  border-radius: 0.5rem;
+}
+
+:where([data-mantine-color-scheme='light']) .root {
+  border: 1px solid var(--mantine-color-gray-3);
+}
+
+:where([data-mantine-color-scheme='dark']) .root {
+  --code-text-color: var(--mantine-color-gray-5);
+  border: 1px solid var(--mantine-color-dark-5);
+}
+
+:where([data-mantine-color-scheme='dark']) .root button,
+:where([data-mantine-color-scheme='dark']) .root button:hover {
+  color: var(--mantine-color-gray-4);
+}

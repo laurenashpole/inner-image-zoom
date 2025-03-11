@@ -1,0 +1,8 @@
+:where([data-mantine-color-scheme='light']) .root {
+  border: 1px solid var(--mantine-color-gray-2);
+}
+
+:where([data-mantine-color-scheme='dark']) .root {
+  background: var(--mantine-color-dark-4);
+  border: 1px solid var(--mantine-color-dark-3);
+}
