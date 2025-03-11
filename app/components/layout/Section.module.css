@@ -1,0 +1,9 @@
+:where([data-mantine-color-scheme='light']) .root {
+  --mantine-color-body: var(--mantine-color-white);
+  background: var(--mantine-color-body);
+}
+
+:where([data-mantine-color-scheme='dark']) .root {
+  --mantine-color-body: var(--mantine-color-default);
+  background: var(--mantine-color-body);
+}

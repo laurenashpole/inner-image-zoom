@@ -1,0 +1,8 @@
+:where([data-mantine-color-scheme='light']) .root {
+  --table-border-color: var(--mantine-color-gray-3);
+}
+
+.root th:first-of-type,
+.root td:first-of-type {
+  padding-left: 0;
+}

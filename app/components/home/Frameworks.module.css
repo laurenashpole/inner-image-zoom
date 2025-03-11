@@ -1,0 +1,20 @@
+.root {
+  background: var(--mantine-color-text);
+  color: var(--mantine-color-body);
+}
+
+:where([data-mantine-color-scheme='dark']) .root {
+  background: var(--mantine-color-default);
+}
+
+.root a {
+  border: 1px solid var(--mantine-color-light-0);
+  color: var(--mantine-color-light-0);
+  border-radius: 0.5rem;
+  transition: all 0.15s linear;
+}
+
+.root a:hover {
+  background: var(--mantine-color-light-0);
+  color: var(--mantine-color-dark-6);
+}

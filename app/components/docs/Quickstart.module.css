@@ -1,0 +1,25 @@
+:where([data-mantine-color-scheme='light']) .blockquote {
+  background-color: var(--mantine-color-gray-0);
+  border-color: var(--mantine-color-dark-5);
+}
+
+:where([data-mantine-color-scheme='dark']) .blockquote {
+  background-color: var(--mantine-color-dark-5);
+  border-color: var(--mantine-color-light-2);
+}
+
+:where([data-mantine-color-scheme='light']) .blockquote > span {
+  color: var(--mantine-color-dark-5);
+}
+
+:where([data-mantine-color-scheme='dark']) .blockquote > span {
+  color: var(--mantine-color-light-2);
+}
+
+.item:before {
+  border-inline-start-style: dashed;
+}
+
+.item:where(:not(:first-of-type)) {
+  margin-top: 1.5rem;
+}

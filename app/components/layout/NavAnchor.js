@@ -11,8 +11,10 @@ const NavAnchor = forwardRef(
     <span className={styles.root}>
       <Anchor
         fw={700}
+        size="sm"
         lh="normal"
         tt="uppercase"
+        lts="0.02em"
         underline="never"
         pos="relative"
         component={component || NextLink}

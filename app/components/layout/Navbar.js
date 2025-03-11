@@ -31,6 +31,7 @@ const Navbar = ({ activeLink }) => (
       />
     </ListItem>
 
+    {/* Create demos page
     <ListItem>
       <NavAnchor
         label="Demos"
@@ -38,13 +39,13 @@ const Navbar = ({ activeLink }) => (
         activeLink={activeLink}
         iconPosition="after"
       />
-    </ListItem>
+    </ListItem> */}
 
+    {/* TODO: Create support page */}
     <ListItem>
       <NavAnchor
         label="Support"
-        href="/support"
-        activeLink={activeLink}
+        href="https://github.com/laurenashpole/inner-image-zoom/issues"
         iconPosition="after"
       />
     </ListItem>

@@ -1,0 +1,41 @@
+
+.root {
+  --nl-bg: transparent;
+  --nl-hover: transparent;
+  border-left: 1px solid var(--app-shell-border-color);
+  position: relative;
+}
+
+:where([data-mantine-color-scheme='light']) .root {
+  border-color: var(--mantine-color-gray-3);
+}
+
+.root[data-active="true"],
+.root:hover {
+  background: transparent;
+  color: var(--mantine-color-text);
+}
+
+.root div {
+  opacity: 0.65;
+  transform: translateY(-2px);
+}
+
+.root div {
+  opacity: 0.65;
+}
+
+.root[data-active="true"] div,
+.root:hover div {
+  opacity: 1;
+}
+
+.root[data-active="true"]:before {
+  content: '';
+  background: var(--mantine-color-text);
+  width: 3px;
+  position: absolute;
+  left: -1px;
+  top: 0;
+  bottom: 0;
+}

@@ -1,7 +1,13 @@
-import Shell from '@/app/components/layout/Shell';
+import DocsView from '@/app/components/docs/DocsView';
+
+import { DATA } from './data';
+
+export const metadata = {
+  title: 'Inner Image Zoom | Docs | Vue',
+};
 
 const Vue = () => {
-  return <Shell activeLink="docs">Docs Vue Current</Shell>;
+  return <DocsView docs={DATA} />;
 };
 
 export default Vue;

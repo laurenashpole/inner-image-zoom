@@ -1,7 +1,13 @@
-import Shell from '@/app/components/layout/Shell';
+import DocsView from '@/app/components/docs/DocsView';
+
+import { DATA } from './data';
+
+export const metadata = {
+  title: 'Inner Image Zoom | Docs | VanillaJS',
+};
 
 const Vanilla = () => {
-  return <Shell activeLink="docs">Docs Vanilla Current</Shell>;
+  return <DocsView docs={DATA} />;
 };
 
 export default Vanilla;

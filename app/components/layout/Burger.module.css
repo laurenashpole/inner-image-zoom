@@ -1,3 +1,7 @@
 .root {
   --burger-color: var(--mantine-color-text);
 }
+
+.root:hover {
+  --burger-color: var(--mantine-color-accent);
+}

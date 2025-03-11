@@ -30,7 +30,7 @@ const Shell = ({ children, activeLink }) => {
         <Header opened={opened} toggle={toggle} activeLink={activeLink} />
       </AppShellHeader>
 
-      <AppShellNavbar p="md" bd="none" aria-label="Main mobile">
+      <AppShellNavbar p="lg" bd="none" aria-label="Main mobile">
         <Navbar activeLink={activeLink} />
       </AppShellNavbar>
 

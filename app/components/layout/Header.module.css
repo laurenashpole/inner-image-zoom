@@ -1,0 +1,10 @@
+.root a,
+.root button {
+  color: inherit;
+  transition: color 0.15s linear;
+}
+
+.root a:hover,
+.root button:hover {
+  color: var(--mantine-color-accent);
+}

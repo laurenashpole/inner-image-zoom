@@ -12,7 +12,6 @@ import {
   MenuTarget,
   Stack,
   Text,
-  Title,
   useComputedColorScheme,
   useMantineColorScheme,
 } from '@mantine/core';
@@ -24,6 +23,8 @@ import NextLink from '../shared/NextLink';
 import Burger from './Burger';
 import NavAnchor from './NavAnchor';
 
+import styles from './Header.module.css';
+
 const Header = ({ activeLink, ...burgerProps }) => {
   const { toggleColorScheme } = useMantineColorScheme();
 
@@ -32,28 +33,37 @@ const Header = ({ activeLink, ...burgerProps }) => {
   });
 
   return (
-    <Container py="md">
+    <Container
+      size="lg"
+      px={{ base: 'lg', sm: 'xl' }}
+      py="md"
+      className={styles.root}
+    >
       <Group>
         {activeLink !== 'home' && (
-          <Title order={1} size="xl" fs="italic">
-            <Link href="/">Inner Image Zoom</Link>
-          </Title>
+          <Link href="/">
+            <Text size="xl" fw="800" fs="italic">
+              Inner Image Zoom
+            </Text>
+          </Link>
         )}
 
-        <Group gap={4} ml="auto">
+        <Group
+          gap="xxs"
+          ml="auto"
+          mr={{
+            base: -4,
+            sm: 0,
+          }}
+        >
           <Group
-            gap="40"
+            gap={40}
             pr="lg"
             visibleFrom="sm"
             component="nav"
             aria-label="Main desktop"
           >
-            <Menu
-              width={200}
-              trigger="click-hover"
-              openDelay={100}
-              closeDelay={100}
-            >
+            <Menu>
               <MenuTarget>
                 <NavAnchor
                   label="Docs"
@@ -68,11 +78,12 @@ const Header = ({ activeLink, ...burgerProps }) => {
                   href="/docs/vanilla"
                   leftSection={<IoLogoJavascript size="1.5rem" />}
                 >
-                  <Stack gap={0} pl={4}>
-                    <Text size="md" lh="normal">
+                  <Stack gap={0} pl="xxs">
+                    <Text size="sm" lh="normal">
                       Vanilla
                     </Text>
-                    <Text size="sm" fw={700} lh="normal">
+
+                    <Text size="xs" fw={700} lh="normal">
                       1.0.0
                     </Text>
                   </Stack>
@@ -85,11 +96,12 @@ const Header = ({ activeLink, ...burgerProps }) => {
                   href="/docs/vue"
                   leftSection={<IoLogoVue size="1.5rem" />}
                 >
-                  <Stack gap={0} pl={4}>
-                    <Text size="md" lh="normal">
+                  <Stack gap={0} pl="xxs">
+                    <Text size="sm" lh="normal">
                       Vue
                     </Text>
-                    <Text size="sm" fw={700} lh="normal">
+
+                    <Text size="xs" fw={700} lh="normal">
                       3.0.0
                     </Text>
                   </Stack>
@@ -97,18 +109,19 @@ const Header = ({ activeLink, ...burgerProps }) => {
               </MenuDropdown>
             </Menu>
 
-            <NavAnchor label="Demos" href="/demos" activeLink={activeLink} />
+            {/* TODO: Create demos page 
+            <NavAnchor label="Demos" href="/demos" activeLink={activeLink} /> */}
+
+            {/* TODO: Create support page */}
             <NavAnchor
               label="Support"
-              href="/support"
-              activeLink={activeLink}
+              href="https://github.com/laurenashpole/inner-image-zoom/issues"
             />
           </Group>
 
           <ActionIcon
             variant="transparent"
             size="xl"
-            c="inherit"
             component="a"
             href="https://github.com/laurenashpole/inner-image-zoom"
             aria-label="Open GitHub"
@@ -120,7 +133,6 @@ const Header = ({ activeLink, ...burgerProps }) => {
             <ActionIcon
               variant="transparent"
               size="xl"
-              c="inherit"
               onClick={() => toggleColorScheme()}
               aria-label={`Switch to ${colorScheme === 'light' ? 'dark' : 'light'} mode`}
             >
