@@ -53,6 +53,18 @@ const Footer = () => {
 
           <ListItem>
             <Anchor
+              component={NextLink}
+              href="/demos"
+              c="light.1"
+              size="sm"
+              fw={600}
+            >
+              Demos
+            </Anchor>
+          </ListItem>
+
+          <ListItem>
+            <Anchor
               href="https://github.com/laurenashpole/inner-image-zoom/issues"
               c="light.1"
               size="sm"
@@ -63,7 +75,13 @@ const Footer = () => {
           </ListItem>
 
           <ListItem>
-            <Anchor href="" c="light.1" size="sm" fw={600}>
+            <Anchor
+              component={NextLink}
+              href="/about/photo-credits"
+              c="light.1"
+              size="sm"
+              fw={600}
+            >
               Photo Credits
             </Anchor>
           </ListItem>
