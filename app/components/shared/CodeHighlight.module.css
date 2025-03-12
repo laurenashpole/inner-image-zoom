@@ -1,5 +1,6 @@
 .root {
   border-radius: 0.5rem;
+  overflow: hidden;
 }
 
 :where([data-mantine-color-scheme='light']) .root {
@@ -14,4 +15,14 @@
 :where([data-mantine-color-scheme='dark']) .root button,
 :where([data-mantine-color-scheme='dark']) .root button:hover {
   color: var(--mantine-color-gray-4);
+}
+
+.root button:not([aria-label='Copy code']) {
+  font-family: inherit;
+  letter-spacing: 0.02em;
+  color: var(--mantine-color-text);
+}
+
+:where([data-mantine-color-scheme='light']) .root button:not([aria-label='Copy code']) {
+  border-color: var(--mantine-color-gray-3);
 }
