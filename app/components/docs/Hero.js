@@ -48,6 +48,11 @@ const Hero = ({ hero }) => (
                   pointerEvents: 'none',
                 }),
               }}
+              styles={{
+                label: {
+                  transform: 'translateY(-1px)',
+                },
+              }}
             >
               <Text size="xs" fw={700}>
                 {hero.versions[0].label}
@@ -74,7 +79,7 @@ const Hero = ({ hero }) => (
       </Stack>
 
       {!!hero.links.length && (
-        <List size="sm" listStyleType="none" fw={600}>
+        <List size="sm" fw={600}>
           {hero.links.map((link) => (
             <ListItem key={link.title} lh="xl">
               <Group>

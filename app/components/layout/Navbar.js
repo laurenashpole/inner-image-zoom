@@ -3,7 +3,7 @@ import { List, ListItem } from '@mantine/core';
 import NavAnchor from './NavAnchor';
 
 const Navbar = ({ activeLink }) => (
-  <List listStyleType="none" tt="uppercase" spacing="xs">
+  <List tt="uppercase" spacing="xs">
     <ListItem>
       <NavAnchor
         label="Docs"

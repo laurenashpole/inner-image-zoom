@@ -1,8 +1,4 @@
-import { FaCode } from 'react-icons/fa6';
 import { IoLogoJavascript, IoLogoVue } from 'react-icons/io5';
-import { LuFileCog } from 'react-icons/lu';
-import { SiNpm } from 'react-icons/si';
-import { InnerImageZoom } from 'react-inner-image-zoom';
 
 import Code from '@/app/components/shared/Code';
 import { Anchor } from '@mantine/core';

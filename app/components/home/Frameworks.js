@@ -1,5 +1,3 @@
-'use client';
-
 import { FaArrowDownLong, FaArrowRightLong } from 'react-icons/fa6';
 import { IoLogoJavascript } from 'react-icons/io';
 import { IoLogoVue } from 'react-icons/io5';

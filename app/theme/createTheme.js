@@ -94,7 +94,16 @@ export const theme = createTheme({
         tt: 'uppercase',
         fz: 'lg',
         lts: '0.02em',
-        pb: 2,
+        styles: {
+          label: {
+            transform: 'translateY(-2px)',
+          },
+        },
+      },
+    },
+    List: {
+      defaultProps: {
+        listStyleType: 'none',
       },
     },
     Menu: {

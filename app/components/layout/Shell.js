@@ -8,8 +8,10 @@ import {
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
+import Footer from './Footer';
 import Header from './Header';
 import Navbar from './Navbar';
+import Subfooter from './Subfooter';
 
 import styles from './Shell.module.css';
 
@@ -35,6 +37,8 @@ const Shell = ({ children, activeLink }) => {
       </AppShellNavbar>
 
       <AppShellMain>{children}</AppShellMain>
+      <Subfooter />
+      <Footer />
     </AppShell>
   );
 };
