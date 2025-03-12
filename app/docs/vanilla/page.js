@@ -6,8 +6,6 @@ export const metadata = {
   title: 'Inner Image Zoom | Docs | VanillaJS',
 };
 
-const Vanilla = () => {
-  return <DocsView docs={DATA} />;
-};
+const Vanilla = () => <DocsView docs={DATA} />;
 
 export default Vanilla;

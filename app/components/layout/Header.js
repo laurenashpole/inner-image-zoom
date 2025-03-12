@@ -109,8 +109,7 @@ const Header = ({ activeLink, ...burgerProps }) => {
               </MenuDropdown>
             </Menu>
 
-            {/* TODO: Create demos page 
-            <NavAnchor label="Demos" href="/demos" activeLink={activeLink} /> */}
+            <NavAnchor label="Demos" href="/demos" activeLink={activeLink} />
 
             {/* TODO: Create support page */}
             <NavAnchor

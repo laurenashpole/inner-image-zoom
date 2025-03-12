@@ -6,8 +6,6 @@ export const metadata = {
   title: 'Inner Image Zoom | Docs | Vue',
 };
 
-const Vue = () => {
-  return <DocsView docs={DATA} />;
-};
+const Vue = () => <DocsView docs={DATA} />;
 
 export default Vue;
