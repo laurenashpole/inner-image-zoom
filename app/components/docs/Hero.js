@@ -1,25 +1,17 @@
-'use client';
-
-import { FaCaretDown } from 'react-icons/fa';
-
 import {
   Anchor,
   Box,
-  Button,
   Group,
   List,
   ListItem,
-  Menu,
-  MenuItem,
-  MenuTarget,
   Stack,
   Text,
   Title,
 } from '@mantine/core';
 
 import Section from '../layout/Section';
-import MenuDropdown from '../shared/MenuDropdown';
-import NextLink from '../shared/NextLink';
+
+import Versions from './Versions';
 
 const Hero = ({ hero }) => (
   <Section
@@ -31,51 +23,7 @@ const Hero = ({ hero }) => (
       <Stack align="flex-start" gap="xs">
         <Title order={1}>{hero.title}</Title>
 
-        <Menu position="bottom-start">
-          <MenuTarget>
-            <Button
-              size="compact-sm"
-              w="auto"
-              px="sm"
-              radius="xl"
-              rightSection={
-                hero.versions.length > 1 ? <FaCaretDown size={14} /> : undefined
-              }
-              style={{
-                background: 'var(--mantine-color-accent)',
-                color: 'var(--mantine-color-body)',
-                ...(hero.versions.length === 1 && {
-                  pointerEvents: 'none',
-                }),
-              }}
-              styles={{
-                label: {
-                  transform: 'translateY(-1px)',
-                },
-              }}
-            >
-              <Text size="xs" fw={700}>
-                {hero.versions[0].label}
-              </Text>
-            </Button>
-          </MenuTarget>
-
-          {hero.versions.length > 1 && (
-            <MenuDropdown>
-              {hero.versions.slice(1).map((version) => (
-                <MenuItem
-                  key={version.path}
-                  component={NextLink}
-                  href={version.path}
-                >
-                  <Text size="xs" fw={700}>
-                    {version.label}
-                  </Text>
-                </MenuItem>
-              ))}
-            </MenuDropdown>
-          )}
-        </Menu>
+        <Versions versions={hero.versions} />
       </Stack>
 
       {!!hero.links.length && (

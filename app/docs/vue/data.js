@@ -12,15 +12,16 @@ export const DATA = {
       {
         label: '3.0.0',
         path: '/docs/vue',
+        current: true,
       },
-      //   {
-      //     label: '2.0.0',
-      //     path: '/docs/vue/v2',
-      //   },
-      //   {
-      //     label: '1.0.0',
-      //     path: '/docs/vue/v1',
-      //   },
+      {
+        label: '2.0.0',
+        path: '/docs/vue/v2',
+      },
+      {
+        label: '1.1.1',
+        path: '/docs/vue/v1',
+      },
     ],
     links: [
       {

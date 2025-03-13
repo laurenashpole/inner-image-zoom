@@ -7,57 +7,34 @@ import { Anchor } from '@mantine/core';
 
 export const DATA = {
   hero: {
-    title: 'Inner Image Zoom',
+    title: 'Vue Inner Image Zoom v2.0.0',
     versions: [
       {
-        label: '1.0.0',
-        path: 'docs/vanilla',
+        label: '3.0.0',
+        path: '/docs/vue',
+      },
+      {
+        label: '2.0.0',
+        path: '/docs/vue/v2',
         current: true,
+      },
+      {
+        label: '1.1.1',
+        path: '/docs/vue/v1',
       },
     ],
     links: [
       {
         title: 'Package',
-        label: 'inner-image-zoom',
+        label: 'vue-inner-image-zoom',
         icon: <SiNpm size="1rem" />,
-        href: 'https://www.npmjs.com/package/inner-image-zoom',
+        href: 'https://www.npmjs.com/package/vue-inner-image-zoom/v/2.0.0',
       },
       {
         title: 'Source code',
         label: 'Open repo on GitHub',
         icon: <FaCode size="1rem" />,
-        href: 'https://github.com/laurenashpole/inner-image-zoom/tree/main/packages/vanilla',
-      },
-      {
-        title: 'Changelog',
-        label: 'Open changelog on GitHub',
-        icon: <LuFileCog size="1rem" />,
-        href: 'https://github.com/laurenashpole/inner-image-zoom/blob/main/packages/vanilla/CHANGELOG.md',
-      },
-    ],
-  },
-  quickstart: {
-    title: 'Quickstart',
-    items: [
-      {
-        label: 'Install',
-        code: 'npm install inner-image-zoom',
-      },
-      {
-        label: 'Import',
-        code: `import InnerImageZoom from 'inner-image-zoom';`,
-      },
-      {
-        label: 'Style',
-        code: `import 'inner-image-zoom/lib/styles.min.css'`,
-      },
-      {
-        label: 'Initialize',
-        code: 'new InnerImageZoom()',
-      },
-      {
-        label: 'Template',
-        code: '<img class="iiz" src="/path/to/image.jpg" />',
+        href: 'https://github.com/laurenashpole/vue-inner-image-zoom',
       },
     ],
   },
@@ -65,12 +42,24 @@ export const DATA = {
     title: 'Installation',
     items: [
       {
+        type: 'text',
+        content: (
+          <>
+            <strong>Note:</strong> Version 2.0.0 upgrades the component to
+            support Vue 3. To use this package with older versions of Vue,
+            install using <Code>npm install vue-inner-image-zoom@1.1.1</Code> or{' '}
+            <Code>yarn add vue-inner-image-zoom@1.1.1</Code>
+            instead of the instructions below.
+          </>
+        ),
+      },
+      {
         type: 'heading',
         content: 'NPM',
       },
       {
         type: 'code',
-        content: 'npm install inner-image-zoom',
+        content: 'npm install vue-inner-image-zoom@2.0.0',
       },
       {
         type: 'heading',
@@ -78,25 +67,7 @@ export const DATA = {
       },
       {
         type: 'code',
-        content: 'yarn add inner-image-zoom',
-      },
-      {
-        type: 'heading',
-        content: 'TypeScript',
-      },
-      {
-        type: 'text',
-        content: (
-          <>
-            <Anchor
-              href="https://github.com/laurenashpole/inner-image-zoom/blob/main/packages/vanilla/src/index.d.ts"
-              underline="always"
-            >
-              Type declarations
-            </Anchor>{' '}
-            were added with version 1.0.0.
-          </>
-        ),
+        content: 'yarn add vue-inner-image-zoom@2.0.0',
       },
       {
         type: 'heading',
@@ -106,21 +77,13 @@ export const DATA = {
         type: 'text',
         content: (
           <>
-            You can download the raw{' '}
-            <Anchor
-              href="https://raw.githubusercontent.com/laurenashpole/inner-image-zoom/main/packages/vanilla/src/styles.css"
-              underline="always"
-            >
-              styles.css
-            </Anchor>{' '}
-            file or, if your build supports it, import the stylesheet directly
-            from <Code>node_modules</Code> using:
+            Import the CSS from your <Code>node_modules</Code> directory:
           </>
         ),
       },
       {
         type: 'code',
-        content: `import 'inner-image-zoom/lib/styles.min.css';`,
+        content: `import 'vue-inner-image-zoom/lib/vue-inner-image-zoom.css';`,
       },
     ],
   },
@@ -128,81 +91,67 @@ export const DATA = {
     title: 'Usage',
     items: [
       {
-        type: 'heading',
-        content: 'HTML',
-      },
-      {
         type: 'text',
-        content: (
-          <>
-            Initializing Inner Image Zoom requires an <Code>img</Code> tag and
-            selector (either custom or the default <Code>iiz</Code>). The{' '}
-            <Code>img</Code> tag can be standalone:
-          </>
-        ),
+        content: 'Import the component and include in your template:',
       },
       {
         type: 'code',
-        content: '<img class="iiz" src="/path/to/image-2x.jpg" />',
-      },
-      {
-        type: 'text',
-        content: 'Or in a container:',
-      },
-      {
-        type: 'code',
-        content:
-          '<div class="iiz">\n  <img src="/path/to/image.jpg" />\n</div>',
-      },
-      {
-        type: 'text',
-        content:
-          'Options may be applied to specific instances using data attributes:',
-      },
-      {
-        type: 'code',
-        content:
-          '<div class="iiz" data-move-type="drag">\n  <img src="/path/to/image.jpg" />\n</div>',
-      },
-      {
-        type: 'text',
-        content:
-          'Any content within the container will be preserved. This is useful for responsive images or adding custom image spacers or loading states:',
-      },
-      {
-        type: 'code',
-        content:
-          '<picture class="iiz" data-zoom-src="/path/to/zoom-image.jpg">\n  <source\n    srcset="/path/to/large-image.jpg, /path/to/large-image-2x.jpg 2x"\n    media="(min-width: 500px)"\n  />\n  <img\n    srcset="/path/to/small-image.jpg, /path/to/small-image-2x.jpg 2x"\n    src="/path/to/image.jpg"\n  />\n</picture>',
-      },
-      {
-        type: 'heading',
-        content: 'JavaScript',
-      },
-      {
-        type: 'text',
-        content: 'Start by importing and initializing:',
-      },
-      {
-        type: 'code',
-        content: `import InnerImageZoom from 'inner-image-zoom';\n\n...\n\nnew InnerImageZoom();`,
-      },
-      {
-        type: 'text',
-        content:
-          'You can also initialize with a custom selector or options object:',
-      },
-      {
-        type: 'code',
-        content: `new InnerImageZoom('.selector', {\n  zoomScale: 0.9,\n  moveType: 'drag',\n  hideCloseButton: true,\n  hideHint: true\n});`,
+        content: `import InnerImageZoom from 'vue-inner-image-zoom'\n\n...\n\nexport default {\n  components: {\n    'inner-image-zoom': InnerImageZoom\n  }\n}\n\n...\n\n<inner-image-zoom src="/path/to/image.jpg" zoomSrc="/path/to/zoom-image.jpg" />`,
       },
     ],
   },
   props: {
-    title: 'Options',
+    title: 'Props',
     items: [
       {
         type: 'table',
         content: [
+          {
+            name: 'src',
+            type: 'string',
+            default: '',
+            desc: (
+              <>
+                <strong>Required.</strong> URL for the original image.
+              </>
+            ),
+          },
+          {
+            name: 'srcSet',
+            type: 'string',
+            default: '',
+            desc: 'Default srcset attribute for a responsive original image.',
+          },
+          {
+            name: 'sizes',
+            type: 'string',
+            default: '',
+            desc: 'Default sizes attribute for use with srcset.',
+          },
+          {
+            name: 'sources',
+            type: 'array',
+            default: '',
+            desc: 'A list of image sources for using the picture tag to serve the appropriate original image (see below for more details).',
+          },
+          {
+            name: 'width',
+            type: 'number',
+            default: '',
+            desc: 'Width attribute for original image.',
+          },
+          {
+            name: 'height',
+            type: 'number',
+            default: '',
+            desc: 'Height attribute for original image.',
+          },
+          {
+            name: 'hasSpacer',
+            type: 'boolean',
+            default: 'false',
+            desc: "If true, gets the original image's aspect ratio based on the width and height props and creates a spacer to prevent cumulative layout shift.",
+          },
           {
             name: 'zoomSrc',
             type: 'string',
@@ -220,6 +169,12 @@ export const DATA = {
             type: 'boolean',
             default: 'false',
             desc: 'If set to true, preloads the zoom image instead of waiting for mouseenter and (unless on a touch device) persists the image on mouseleave.',
+          },
+          {
+            name: 'alt',
+            type: 'string',
+            default: '',
+            desc: 'Alternative text for the original image.',
           },
           {
             name: 'moveType',
@@ -304,18 +259,54 @@ export const DATA = {
       },
       {
         type: 'heading',
-        content: 'Methods',
+        content: 'Sources',
       },
       {
         type: 'text',
         content: (
           <>
-            <Code>reinit</Code> - Reinitialize an InnerImageZoom instance with
-            new options.
-            <br />
-            <Code>uninit</Code> - Unitialize an InnerImageZoom instance.
+            This prop accepts an array of objects which it uses to create a
+            picture tag and source elements. The component looks for the
+            following optional properties and you can find additional details on
+            responsive images{' '}
+            <Anchor
+              href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images"
+              underline="always"
+            >
+              here
+            </Anchor>
+            :
           </>
         ),
+      },
+      {
+        type: 'table',
+        content: [
+          {
+            name: 'srcSet',
+            type: 'string',
+            default: '',
+            desc: 'Srcset attribute for source tag.',
+          },
+          {
+            name: 'sizes',
+            type: 'string',
+            default: '',
+            desc: 'Sizes attribute for source tag.',
+          },
+          {
+            name: 'media',
+            type: 'string',
+            default: '',
+            desc: 'An attribute containing a media condition for use with the srcset.',
+          },
+          {
+            name: 'type',
+            type: 'string',
+            default: '',
+            desc: 'An image MIME type. This is useful for using newer formats like WebP.',
+          },
+        ],
       },
     ],
   },
