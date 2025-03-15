@@ -88,6 +88,14 @@ export const DATA = [
     url: 'https://unsplash.com/photos/white-and-pink-hair-brush-on-glass-table-B9EHePG56zA',
   },
   {
+    src: '/demo-8.jpg',
+    width: 80,
+    height: 54,
+    name: 'Louis Hansel',
+    username: 'louishansel',
+    url: 'https://unsplash.com/photos/three-clear-glass-goblet-with-assorted-martini-Kix0S25vJEo',
+  },
+  {
     src: '/demo-9-slide-1.jpg',
     width: 80,
     height: 54,
