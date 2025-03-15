@@ -22,7 +22,21 @@ module.exports = ({ framework = 'vanilla' }) => {
     module: {
       rules: [
         { test: /\.css$/, use: ['style-loader', 'css-loader'] },
-        ...(framework === 'vue' ? [{ test: /\.vue$/, loader: 'vue-loader' }] : [])
+        ...(framework === 'vue' ? [{ test: /\.vue$/, loader: 'vue-loader' }] : []),
+        ...(framework === 'react'
+          ? [
+              {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                  loader: 'babel-loader',
+                  options: {
+                    presets: ['@babel/preset-env', '@babel/preset-react']
+                  }
+                }
+              }
+            ]
+          : [])
       ]
     },
     plugins: [

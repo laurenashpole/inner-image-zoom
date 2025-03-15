@@ -8,7 +8,7 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module'
   },
-  extends: ['eslint:recommended', 'plugin:prettier/recommended'],
+  extends: ['eslint:recommended', 'plugin:prettier/recommended', 'plugin:react/recommended'],
   rules: {
     'prettier/prettier': [
       'error',
