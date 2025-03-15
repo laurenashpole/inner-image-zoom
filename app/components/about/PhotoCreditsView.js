@@ -52,7 +52,7 @@ const PhotoCreditsView = ({ credits }) => (
                 <Anchor
                   fz="inherit"
                   fw={600}
-                  href={`https://unsplash.com/${credit.username}?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash`}
+                  href={`https://unsplash.com/@${credit.username}?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash`}
                 >
                   {credit.name}
                 </Anchor>{' '}

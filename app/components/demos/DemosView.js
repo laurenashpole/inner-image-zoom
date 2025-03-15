@@ -1,13 +1,23 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { AiOutlineCodeSandbox } from 'react-icons/ai';
 import InnerImageZoom from 'react-inner-image-zoom';
 import { InView } from 'react-intersection-observer';
 import { A11y, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import LazyLoad from 'vanilla-lazyload';
 
-import { Box, Stack, Text, Title } from '@mantine/core';
+import {
+  Anchor,
+  Box,
+  Flex,
+  List,
+  ListItem,
+  Stack,
+  Text,
+  Title,
+} from '@mantine/core';
 import { useSessionStorage } from '@mantine/hooks';
 
 import CodeHighlightTabs from '../shared/CodeHighlightTabs';
@@ -65,7 +75,7 @@ const DemosView = ({ demos }) => {
               />
 
               <Stack
-                gap="xl"
+                gap="xxl"
                 pr={{
                   md: 'md',
                 }}
@@ -76,6 +86,40 @@ const DemosView = ({ demos }) => {
                   </Title>
 
                   <Text maw={560}>{demo.desc}</Text>
+
+                  {demo.links && (
+                    <List
+                      size="sm"
+                      fw={600}
+                      pt="0.125rem"
+                      style={{ display: 'flex' }}
+                    >
+                      <ListItem fw={700}>
+                        <Flex gap="xxs" align="center">
+                          <AiOutlineCodeSandbox fontSize="1.25rem" />
+                          CodeSandbox:
+                        </Flex>
+                      </ListItem>
+
+                      {Object.keys(demo.links).map((key) => (
+                        <ListItem key={key}>
+                          <Anchor
+                            href={demo.links[key]}
+                            display="inline-flex"
+                            opacity={0.6}
+                            style={{
+                              alignItems: 'center',
+                            }}
+                            target="_blank"
+                          >
+                            <Text size="sm" fw={600} ml="xs" tt="capitalize">
+                              {key}
+                            </Text>
+                          </Anchor>
+                        </ListItem>
+                      ))}
+                    </List>
+                  )}
                 </Stack>
 
                 <Box
@@ -100,8 +144,10 @@ const DemosView = ({ demos }) => {
                 {demo.code && (
                   <CodeHighlightTabs
                     code={demo.code}
-                    onTabChange={handleTabChange}
-                    activeTab={activeTab}
+                    onTabChange={
+                      demo.code.length === 1 ? undefined : handleTabChange
+                    }
+                    activeTab={demo.code.length === 1 ? 0 : activeTab}
                   />
                 )}
               </Stack>

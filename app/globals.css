@@ -29,3 +29,30 @@ a {
 figure {
   display: block !important;
 }
+
+main .swiper-button-next,
+main .swiper-button-prev {
+  background: rgba(255, 255, 255, 0.8);
+  width: 40px;
+  height: 40px;
+}
+
+main .swiper-button-next {
+  padding-left: 2px;
+  top: auto;
+  left: 60px;
+  bottom: 10px;
+}
+
+main .swiper-button-prev {
+  padding-right: 2px;
+  top: auto;
+  left: 10px;
+  bottom: 10px;
+}
+
+main .swiper-button-next:after,
+main .swiper-button-prev:after {
+  color: var(--mantine-color-dark-6);
+  font-size: 1.25rem;
+}
