@@ -158,7 +158,7 @@ describe('inner-image-zoom', () => {
 
       it('shows the zoomed image on mouse enter if zoomType hover is set', () => {
         app.innerHTML = createImg({ class: 'iiz' });
-        new InnerImageZoom('.iiz', { zoomType: 'hover' });
+        new InnerImageZoom('.iiz', { zoomType: 'hover', zoomPreload: true });
         fireEvent.mouseEnter(app.querySelector('.iiz'));
         const zoomImg = app.querySelector('.iiz__zoom-img');
         expect(zoomImg.classList.contains('iiz__zoom-img--visible')).to.be.true;

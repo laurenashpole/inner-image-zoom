@@ -130,7 +130,7 @@ describe('vue-inner-image-zoom', () => {
       });
 
       it('shows the zoomed image on mouse enter if zoomType hover is set', async () => {
-        innerImageZoom({ zoomType: 'hover' });
+        innerImageZoom({ zoomType: 'hover', zoomPreload: true });
         await fireEvent.mouseEnter(app.querySelector('.iiz'));
         const zoomImg = app.querySelector('.iiz__zoom-img');
         await fireEvent.load(zoomImg);
