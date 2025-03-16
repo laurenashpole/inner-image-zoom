@@ -29,5 +29,10 @@ module.exports = {
         mocha: true
       }
     }
-  ]
+  ],
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  }
 };
