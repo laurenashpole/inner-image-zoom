@@ -2,8 +2,6 @@ import React from 'react';
 import InnerImageZoom from '../../packages/react/src';
 import '../../packages/react/src/styles.css';
 
-console.log(InnerImageZoom);
-
 const App = () => (
   <>
     <h1>react-inner-image-zoom Sandbox</h1>
@@ -16,6 +14,8 @@ const App = () => (
         zoomSrc="https://images.unsplash.com/photo-1547894233-3b986939e29c?fit=crop&w=1500&q=80"
         fullscreenOnMobile={true}
         hideCloseButton={false}
+        zoomType="hover"
+        zoomPreload={true}
         imgAttributes={{
           src: 'test',
           'data-key': 'value',

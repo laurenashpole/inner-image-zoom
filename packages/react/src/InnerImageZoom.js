@@ -11,6 +11,13 @@ import {
   getRatios,
   getScaledDimensions
 } from 'inner-image-zoom/src/utils/images';
+import {
+  getDragMovePositions,
+  getEventCoords,
+  getInitialDragCoords,
+  getIsValidDrag,
+  getMouseMovePositions
+} from 'inner-image-zoom/src/utils/events';
 
 const InnerImageZoom = ({
   moveType = 'pan',
@@ -74,9 +81,9 @@ const InnerImageZoom = ({
 
     if (zoomImg.current) {
       handleLoad({ target: zoomImg.current });
-      zoomIn(e.pageX, e.pageY);
+      zoomIn(e);
     } else {
-      imgProps.current.onLoadCallback = zoomIn.bind(this, e.pageX, e.pageY);
+      imgProps.current.onLoadCallback = zoomIn.bind(this, e);
     }
   };
 
@@ -98,52 +105,39 @@ const InnerImageZoom = ({
   };
 
   const handleMouseMove = (e) => {
-    let left = e.pageX - imgProps.current.offsets.x;
-    let top = e.pageY - imgProps.current.offsets.y;
-
-    left = Math.max(Math.min(left, imgProps.current.bounds.width), 0);
-    top = Math.max(Math.min(top, imgProps.current.bounds.height), 0);
-
-    setLeft(left * -imgProps.current.ratios.x);
-    setTop(top * -imgProps.current.ratios.y);
+    const positions = getMouseMovePositions(e, imgProps.current);
+    setLeft(positions.left);
+    setTop(positions.top);
   };
 
   const handleDragStart = (e) => {
-    const pageX = typeof e.pageX === 'number' ? e.pageX : e.changedTouches[0].pageX;
-    const pageY = typeof e.pageY === 'number' ? e.pageY : e.changedTouches[0].pageY;
-    imgProps.current.offsets = getOffsets(pageX, pageY, zoomImg.current.offsetLeft, zoomImg.current.offsetTop);
+    const coords = getEventCoords(e);
+    imgProps.current.offsets = getOffsets(coords.x, coords.y, zoomImg.current.offsetLeft, zoomImg.current.offsetTop);
 
     setIsDragging(true);
 
     if (!isTouch) {
-      imgProps.current.eventPosition = {
-        x: pageX,
-        y: pageY
-      };
+      imgProps.current.eventPosition = coords;
     }
   };
 
   const handleDragMove = useCallback((e) => {
     e.stopPropagation();
-    const pageX = typeof e.pageX === 'number' ? e.pageX : e.changedTouches[0].pageX;
-    const pageY = typeof e.pageY === 'number' ? e.pageY : e.changedTouches[0].pageY;
-    let left = pageX - imgProps.current.offsets.x;
-    let top = pageY - imgProps.current.offsets.y;
+    const positions = getDragMovePositions(e, imgProps.current);
 
-    left = Math.max(Math.min(left, 0), (imgProps.current.scaledDimensions.width - imgProps.current.bounds.width) * -1);
-    top = Math.max(Math.min(top, 0), (imgProps.current.scaledDimensions.height - imgProps.current.bounds.height) * -1);
+    // See if this needs to be added to utility
+    // let left = pageX - imgProps.current.offsets.x;
+    // let top = pageY - imgProps.current.offsets.y;
 
-    setLeft(left);
-    setTop(top);
+    setLeft(positions.left);
+    setTop(positions.top);
   }, []);
 
   const handleDragEnd = (e) => {
     setIsDragging(false);
 
     if (!isTouch) {
-      const moveX = Math.abs(e.pageX - imgProps.current.eventPosition.x);
-      const moveY = Math.abs(e.pageY - imgProps.current.eventPosition.y);
-      setIsValidDrag(moveX > 5 || moveY > 5);
+      setIsValidDrag(getIsValidDrag(e, imgProps.current));
     }
   };
 
@@ -178,35 +172,30 @@ const InnerImageZoom = ({
     }
   };
 
-  const initialMove = (pageX, pageY) => {
+  const initialMove = (e) => {
     imgProps.current.offsets = getOffsets(
       window.pageXOffset,
       window.pageYOffset,
       -imgProps.current.bounds.left,
       -imgProps.current.bounds.top
     );
-    handleMouseMove({ pageX, pageY });
+    handleMouseMove(e);
   };
 
-  const initialDrag = (pageX, pageY) => {
-    let initialPageX = (pageX - (window.pageXOffset + imgProps.current.bounds.left)) * -imgProps.current.ratios.x;
-    let initialPageY = (pageY - (window.pageYOffset + imgProps.current.bounds.top)) * -imgProps.current.ratios.y;
-
-    initialPageX = initialPageX + (isFullscreen ? (window.innerWidth - imgProps.current.bounds.width) / 2 : 0);
-    initialPageY = initialPageY + (isFullscreen ? (window.innerHeight - imgProps.current.bounds.height) / 2 : 0);
+  const initialDrag = (e) => {
+    const initialDragCoords = getInitialDragCoords(e, imgProps.current, isFullscreen);
     imgProps.current.bounds = getBounds(img.current, isFullscreen);
     imgProps.current.offsets = getOffsets(0, 0, 0, 0);
 
     handleDragMove({
-      pageX: initialPageX,
-      pageY: initialPageY,
+      ...initialDragCoords,
       stopPropagation: () => {}
     });
   };
 
-  const zoomIn = (pageX, pageY) => {
+  const zoomIn = (e) => {
     setIsZoomed(true);
-    currentMoveType === 'drag' ? initialDrag(pageX, pageY) : initialMove(pageX, pageY);
+    currentMoveType === 'drag' ? initialDrag(e) : initialMove(e);
     afterZoomIn && afterZoomIn();
   };
 

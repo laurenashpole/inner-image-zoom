@@ -141,7 +141,7 @@ describe('react-inner-image-zoom', () => {
 
       it('shows the zoomed image on mouse enter if zoomType hover is set', async () => {
         innerImageZoom({ zoomType: 'hover', zoomPreload: true });
-        Simulate.mouseEnter(app.querySelector('.iiz'));
+        Simulate.mouseEnter(app.querySelector('.iiz'), { pageX: 100, pageY: 100 });
         const zoomImg = app.querySelector('.iiz__zoom-img');
         await fireEvent.load(zoomImg);
 
