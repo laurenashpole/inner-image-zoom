@@ -4,7 +4,7 @@
 
 A lightweight Vanilla JavaScript package for magnifying an image within its original container.
 
-Demos | [Changelog](https://github.com/laurenashpole/inner-image-zoom/blob/main/packages/vanilla/CHANGELOG.md)
+[Demos](https://innerimagezoom.com/) | [Changelog](https://github.com/laurenashpole/inner-image-zoom/blob/main/packages/vanilla/CHANGELOG.md)
 
 ## Installation
 
@@ -16,6 +16,11 @@ npm install inner-image-zoom
 ### Yarn
 ```javascript
 yarn add inner-image-zoom
+```
+
+### CDN
+```html
+<script src="https://cdn.jsdelivr.net/npm/inner-image-zoom@1.0.1/umd/index.min.js"></script>
 ```
 
 ### TypeScript
