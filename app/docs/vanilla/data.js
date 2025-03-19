@@ -10,7 +10,7 @@ export const DATA = {
     title: 'Inner Image Zoom',
     versions: [
       {
-        label: '1.0.0',
+        label: '1.0.1',
         path: 'docs/vanilla',
         current: true,
       },
@@ -79,6 +79,15 @@ export const DATA = {
       {
         type: 'code',
         content: 'yarn add inner-image-zoom',
+      },
+      {
+        type: 'heading',
+        content: 'CDN',
+      },
+      {
+        type: 'code',
+        content:
+          '<script src="https://cdn.jsdelivr.net/npm/inner-image-zoom@1.0.1/umd/index.min.js"></script>',
       },
       {
         type: 'heading',

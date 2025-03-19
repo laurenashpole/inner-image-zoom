@@ -10,7 +10,7 @@ export const DATA = {
     title: 'Vue Inner Image Zoom v2.0.0',
     versions: [
       {
-        label: '3.0.0',
+        label: '3.0.1',
         path: '/docs/vue',
       },
       {
