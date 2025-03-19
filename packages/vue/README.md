@@ -4,7 +4,7 @@
 
 A lightweight Vue component for magnifying an image within its original container.
 
-Demos | [Changelog](https://github.com/laurenashpole/inner-image-zoom/blob/main/packages/vue/CHANGELOG.md)
+[Demos](https://innerimagezoom.com/) | [Changelog](https://github.com/laurenashpole/inner-image-zoom/blob/main/packages/vue/CHANGELOG.md)
 
 ## Installation
 
