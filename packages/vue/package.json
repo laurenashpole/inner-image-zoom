@@ -1,6 +1,6 @@
 {
   "name": "vue-inner-image-zoom",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "main": "lib/index.js",
   "module": "src/index.js",
   "files": [
@@ -32,7 +32,7 @@
     "ecommerce"
   ],
   "dependencies": {
-    "inner-image-zoom": "1.0.0"
+    "inner-image-zoom": "1.0.1"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
