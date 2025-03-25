@@ -35,8 +35,7 @@
     "inner-image-zoom": "1.0.0"
   },
   "peerDependencies": {
-    "react": ">=16.8.0",
-    "prop-types": ">=15.6.2"
+    "react": ">=16.8.0"
   },
   "scripts": {
     "release": "release-it"

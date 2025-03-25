@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
 
 const Image = ({ src, sources, width, height, hasSpacer, imgAttributes, isZoomed, fadeDuration }) => {
   const createSpacer = width && height && hasSpacer;
@@ -45,17 +44,6 @@ const Image = ({ src, sources, width, height, hasSpacer, imgAttributes, isZoomed
       )}
     </div>
   );
-};
-
-Image.propTypes = {
-  src: PropTypes.string.isRequired,
-  sources: PropTypes.array,
-  width: PropTypes.number,
-  height: PropTypes.number,
-  hasSpacer: PropTypes.bool,
-  imgAttributes: PropTypes.object,
-  fadeDuration: PropTypes.number,
-  isZoomed: PropTypes.bool
 };
 
 export default Image;

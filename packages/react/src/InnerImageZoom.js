@@ -1,5 +1,4 @@
 import React, { Fragment, useCallback, useEffect, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
 import Image from './components/Image';
 import ZoomImage from './components/ZoomImage';
 import FullscreenPortal from './components/FullscreenPortal';
@@ -89,7 +88,6 @@ const InnerImageZoom = ({
 
   const handleLoad = (e) => {
     const scaledDimensions = getScaledDimensions(e.target, zoomScale);
-
     zoomImg.current = e.target;
     zoomImg.current.setAttribute('width', scaledDimensions.width);
     zoomImg.current.setAttribute('height', scaledDimensions.height);
@@ -276,28 +274,6 @@ const InnerImageZoom = ({
       {!hideHint && !isZoomed && <span className="iiz__btn iiz__hint"></span>}
     </figure>
   );
-};
-
-InnerImageZoom.propTypes = {
-  moveType: PropTypes.string,
-  zoomType: PropTypes.string,
-  src: PropTypes.string.isRequired,
-  sources: PropTypes.array,
-  width: PropTypes.number,
-  height: PropTypes.number,
-  hasSpacer: PropTypes.bool,
-  imgAttributes: PropTypes.object,
-  zoomSrc: PropTypes.string,
-  zoomScale: PropTypes.number,
-  zoomPreload: PropTypes.bool,
-  fadeDuration: PropTypes.number,
-  fullscreenOnMobile: PropTypes.bool,
-  mobileBreakpoint: PropTypes.number,
-  hideCloseButton: PropTypes.bool,
-  hideHint: PropTypes.bool,
-  className: PropTypes.string,
-  afterZoomIn: PropTypes.func,
-  afterZoomOut: PropTypes.func
 };
 
 export default InnerImageZoom;

@@ -19,7 +19,8 @@ module.exports = {
         printWidth: 120,
         endOfLine: 'auto'
       }
-    ]
+    ],
+    'react/prop-types': 'off'
   },
   ignorePatterns: ['**/lib/**', '**/umd/**'],
   overrides: [

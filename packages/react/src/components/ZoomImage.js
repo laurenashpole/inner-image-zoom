@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
 
 const ZoomImage = ({ src, fadeDuration, top, left, isZoomed, onLoad, onDragStart, onDragEnd, onClose, onFadeOut }) => {
   return (
@@ -34,19 +33,6 @@ const ZoomImage = ({ src, fadeDuration, top, left, isZoomed, onLoad, onDragStart
       )}
     </Fragment>
   );
-};
-
-ZoomImage.propTypes = {
-  src: PropTypes.string,
-  fadeDuration: PropTypes.number,
-  top: PropTypes.number,
-  left: PropTypes.number,
-  isZoomed: PropTypes.bool,
-  onLoad: PropTypes.func,
-  onDragStart: PropTypes.func,
-  onDragEnd: PropTypes.func,
-  onClose: PropTypes.func,
-  onFadeOut: PropTypes.func
 };
 
 export default ZoomImage;
