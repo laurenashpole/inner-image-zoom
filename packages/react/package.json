@@ -10,7 +10,7 @@
   ],
   "author": "Lauren Ashpole",
   "description": "A React component for magnifying an image within its parent container 🔎",
-  "homepage": "https://github.com/laurenashpole/inner-image-zoom/packages/vue#readme",
+  "homepage": "https://github.com/laurenashpole/inner-image-zoom/packages/react#readme",
   "license": "MIT",
   "repository": {
     "type": "git",

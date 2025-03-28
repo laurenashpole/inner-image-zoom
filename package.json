@@ -7,9 +7,10 @@
   ],
   "scripts": {
     "dev": "webpack serve --config ./webpack.config.dev.js",
-    "dev:react": "yarn run dev --env=framework=react",
-    "dev:vue": "yarn run dev --env=framework=vue",
     "build": "webpack --config ./webpack.config.prod.js",
+    "dev:react": "yarn run dev --env=framework=react",
+    "build:react": "yarn run build --env=framework=react",
+    "dev:vue": "yarn run dev --env=framework=vue",
     "build:vue": "yarn run build --env=framework=vue",
     "test": "eslint . && yarn run test:types && karma start karma.conf.js",
     "test:watch": "yarn run test --auto-watch --single-run false",

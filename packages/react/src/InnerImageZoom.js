@@ -91,7 +91,6 @@ const InnerImageZoom = ({
     zoomImg.current = e.target;
     zoomImg.current.setAttribute('width', scaledDimensions.width);
     zoomImg.current.setAttribute('height', scaledDimensions.height);
-
     imgProps.current.scaledDimensions = scaledDimensions;
     imgProps.current.bounds = getBounds(img.current, false);
     imgProps.current.ratios = getRatios(imgProps.current.bounds, scaledDimensions);
@@ -111,7 +110,6 @@ const InnerImageZoom = ({
   const handleDragStart = (e) => {
     const coords = getEventCoords(e);
     imgProps.current.offsets = getOffsets(coords.x, coords.y, zoomImg.current.offsetLeft, zoomImg.current.offsetTop);
-
     setIsDragging(true);
 
     if (!isTouch) {
@@ -122,11 +120,6 @@ const InnerImageZoom = ({
   const handleDragMove = useCallback((e) => {
     e.stopPropagation();
     const positions = getDragMovePositions(e, imgProps.current);
-
-    // See if this needs to be added to utility
-    // let left = pageX - imgProps.current.offsets.x;
-    // let top = pageY - imgProps.current.offsets.y;
-
     setLeft(positions.left);
     setTop(positions.top);
   }, []);
