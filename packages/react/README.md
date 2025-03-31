@@ -22,7 +22,7 @@ yarn add react-inner-image-zoom
 
 ### TypeScript
 
-[Type declarations](https://github.com/laurenashpole/inner-image-zoom/blob/main/packages/react/src/index.d.ts) were added with version 3.1.0. For older versions, type definitions are available through [DefinitelyTyped](https://definitelytyped.org/) and can be installed with:
+[Type declarations](https://github.com/laurenashpole/inner-image-zoom/blob/main/packages/react/src/index.d.ts) were added with version 3.1.0. For older installations, type definitions are available through [DefinitelyTyped](https://definitelytyped.org/) and can be installed with:
 
 ```
 npm install --save-dev @types/react-inner-image-zoom
@@ -74,6 +74,10 @@ hideHint | boolean | false | Hides the magnifying glass hint.
 className | string | | Custom classname for styling the component.
 afterZoomIn | () => void | | Function to be called after zoom in.
 afterZoomOut | () => void | | Function to be called after zoom out.
+
+### Ref
+
+The `ref` prop forwards an object with the `container` (the root `figure` element) and `portal` DOM nodes. `portal` grants access to the zoomed image on touch devices when `fullscreenOnMobile` is set and is only available while the image is zoomed. When using with TypeScript, `InnerImageZoomRef` can be imported to use as a type argument with `useRef`.
 
 ### Sources
 

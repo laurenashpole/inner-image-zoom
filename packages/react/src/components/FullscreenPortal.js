@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import React, { forwardRef, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-const FullscreenPortal = ({ children }) => {
+const FullscreenPortal = forwardRef(({ children }, ref) => {
   const [portal] = useState(() => {
     const el = document.createElement('div');
     el.classList.add('iiz__zoom-portal');
@@ -13,7 +13,9 @@ const FullscreenPortal = ({ children }) => {
     return () => document.body.removeChild(portal);
   }, [portal]);
 
-  return createPortal(children, portal);
-};
+  return createPortal(<div ref={ref}>{children}</div>, portal);
+});
+
+FullscreenPortal.displayName = 'FullscreenPortal';
 
 export default FullscreenPortal;

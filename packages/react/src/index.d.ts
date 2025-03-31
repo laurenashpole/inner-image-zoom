@@ -1,5 +1,10 @@
 import * as React from 'react';
 
+export interface InnerImageZoomRef {
+  container: HTMLElement | null;
+  portal: HTMLElement | null;
+}
+
 export interface InnerImageZoomProps {
   moveType?: 'pan' | 'drag' | undefined;
   zoomType?: 'click' | 'hover' | undefined;
@@ -13,7 +18,9 @@ export interface InnerImageZoomProps {
   width?: number | undefined;
   height?: number | undefined;
   hasSpacer?: boolean | undefined;
-  imgAttributes?: React.ImgHTMLAttributes<HTMLImageElement> | undefined;
+  imgAttributes?: React.ImgHTMLAttributes<HTMLImageElement> & {
+    [key: `data-${string}`]: unknown;
+  } | undefined;
   zoomSrc?: string | undefined;
   zoomScale?: number | undefined;
   zoomPreload?: boolean | undefined;
@@ -25,7 +32,8 @@ export interface InnerImageZoomProps {
   className?: string | undefined;
   afterZoomIn?: (() => void) | undefined;
   afterZoomOut?: (() => void) | undefined;
+  ref?: React.MutableRefObject<InnerImageZoomRef | undefined> | null;
 }
 
-export class InnerImageZoom extends React.Component<InnerImageZoomProps> {}
+declare const InnerImageZoom: (props: InnerImageZoomProps) => JSX.Element;
 export default InnerImageZoom;

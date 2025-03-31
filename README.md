@@ -4,7 +4,7 @@
 
 A collection of lightweight packages for magnifying an image within its original container. Available for:
 
-[Vanilla](https://github.com/laurenashpole/inner-image-zoom/tree/main/packages/vanilla) | [Vue](https://github.com/laurenashpole/inner-image-zoom/tree/main/packages/vue)
+[React](https://github.com/laurenashpole/inner-image-zoom/tree/main/packages/react) | [Vanilla](https://github.com/laurenashpole/inner-image-zoom/tree/main/packages/vanilla) | [Vue](https://github.com/laurenashpole/inner-image-zoom/tree/main/packages/vue)
 
 Features include:
 

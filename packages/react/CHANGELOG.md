@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.1.0] (2025-03-30)
+
+### Added
+
+- Type declaration file.
+- `ref` prop which forwards `container` and `portal` DOM nodes.
+
+### Changed
+
+- Moved from the [react-inner-image-zoom](https://github.com/laurenashpole/react-inner-image-zoom) repo to the [inner-image-zoom](https://github.com/laurenashpole/inner-image-zoom) repo.
+- Removed `prop-types` from peer dependencies.
+
 ## [3.0.2](https://github.com/laurenashpole/react-inner-image-zoom/compare/v3.0.1...v3.0.2) (2022-07-22)
 
 ### Fixed
