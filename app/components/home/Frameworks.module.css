@@ -8,10 +8,12 @@
 }
 
 .root a {
+  height: 100%;
   border: 1px solid var(--mantine-color-light-0);
   color: var(--mantine-color-light-0);
   border-radius: 0.5rem;
   transition: all 0.15s linear;
+  display: block;
 }
 
 .root a:hover {

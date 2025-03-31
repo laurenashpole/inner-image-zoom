@@ -30,6 +30,18 @@ const Footer = () => {
           <ListItem>
             <Anchor
               component={NextLink}
+              href="/docs/react"
+              c="light.1"
+              size="sm"
+              fw={600}
+            >
+              React Docs
+            </Anchor>
+          </ListItem>
+
+          <ListItem>
+            <Anchor
+              component={NextLink}
               href="/docs/vanilla"
               c="light.1"
               size="sm"

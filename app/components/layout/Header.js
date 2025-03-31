@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { FaGithub } from 'react-icons/fa';
 import { IoLogoJavascript, IoLogoVue } from 'react-icons/io5';
 import { PiMoonStarsFill, PiSunFill } from 'react-icons/pi';
+import { RiReactjsLine } from 'react-icons/ri';
 
 import {
   ActionIcon,
@@ -73,6 +74,24 @@ const Header = ({ activeLink, ...burgerProps }) => {
               </MenuTarget>
 
               <MenuDropdown>
+                <MenuItem
+                  component={NextLink}
+                  href="/docs/react"
+                  leftSection={<RiReactjsLine size="1.5rem" />}
+                >
+                  <Stack gap={0} pl="xxs">
+                    <Text size="sm" lh="normal">
+                      React
+                    </Text>
+
+                    <Text size="xs" fw={700} lh="normal">
+                      3.1.0
+                    </Text>
+                  </Stack>
+                </MenuItem>
+
+                <MenuDivider />
+
                 <MenuItem
                   component={NextLink}
                   href="/docs/vanilla"
