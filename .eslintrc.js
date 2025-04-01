@@ -8,7 +8,7 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module'
   },
-  extends: ['eslint:recommended', 'plugin:prettier/recommended'],
+  extends: ['eslint:recommended', 'plugin:prettier/recommended', 'plugin:react/recommended'],
   rules: {
     'prettier/prettier': [
       'error',
@@ -19,7 +19,8 @@ module.exports = {
         printWidth: 120,
         endOfLine: 'auto'
       }
-    ]
+    ],
+    'react/prop-types': 'off'
   },
   ignorePatterns: ['**/lib/**', '**/umd/**'],
   overrides: [
@@ -29,5 +30,10 @@ module.exports = {
         mocha: true
       }
     }
-  ]
+  ],
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  }
 };

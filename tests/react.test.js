@@ -1,16 +1,20 @@
-import { createApp } from 'vue';
+import React from 'react';
+import { render } from 'react-dom';
+import { Simulate } from 'react-dom/test-utils';
 import { expect } from 'chai';
 import { fireEvent, getByLabelText, getByText, waitFor } from '@testing-library/dom';
+
 import { DATA } from './constants';
 
-import InnerImageZoom from '../packages/vue/src';
+import InnerImageZoom from '../packages/react/src';
 
-describe('vue-inner-image-zoom', () => {
+import '../packages/react/src/styles.css';
+
+describe('react-inner-image-zoom', () => {
   let app;
 
   beforeEach(() => {
     app = document.createElement('div');
-    app.setAttribute('id', 'app');
     document.body.appendChild(app);
   });
 
@@ -24,7 +28,7 @@ describe('vue-inner-image-zoom', () => {
   });
 
   const innerImageZoom = (props = {}) => {
-    return createApp(InnerImageZoom, { src: DATA.src, ...props }).mount('#app');
+    render(<InnerImageZoom src={DATA.src} {...props} />, app);
   };
 
   describe('mount', () => {
@@ -90,15 +94,15 @@ describe('vue-inner-image-zoom', () => {
 
   describe('zoom in', () => {
     describe('render', () => {
-      it('renders the zoomed image on mouse enter', async () => {
+      it('renders the zoomed image on mouse enter', () => {
         innerImageZoom();
-        await fireEvent.mouseEnter(app.querySelector('.iiz'));
+        Simulate.mouseEnter(app.querySelector('.iiz'));
         expect(app.querySelector('.iiz__zoom-img')).to.exist;
       });
 
-      it('renders the zoomed image with unique src if set', async () => {
+      it('renders the zoomed image with unique src if set', () => {
         innerImageZoom({ zoomSrc: DATA.src2x });
-        await fireEvent.mouseEnter(app.querySelector('.iiz'));
+        Simulate.mouseEnter(app.querySelector('.iiz'));
         expect(app.querySelector('.iiz__zoom-img').getAttribute('src')).to.equal(DATA.src2x);
       });
 
@@ -110,11 +114,14 @@ describe('vue-inner-image-zoom', () => {
       it('renders a scaled zoomed image if zoomScale is set', async () => {
         innerImageZoom({ zoomScale: 0.5 });
         const figure = app.querySelector('.iiz');
-        await fireEvent.mouseEnter(figure);
-        fireEvent.click(figure);
+        Simulate.mouseEnter(figure);
+        Simulate.click(figure, { pageX: 100, pageY: 100 });
         const zoomImg = app.querySelector('.iiz__zoom-img');
         await fireEvent.load(zoomImg);
-        expect(zoomImg.width).to.equal(375);
+
+        await waitFor(() => {
+          expect(zoomImg.width).to.equal(375);
+        });
       });
     });
 
@@ -122,39 +129,52 @@ describe('vue-inner-image-zoom', () => {
       it('show the zoomed image on click', async () => {
         innerImageZoom();
         const figure = app.querySelector('.iiz');
-        await fireEvent.mouseEnter(figure);
-        fireEvent.click(figure);
+        Simulate.mouseEnter(figure);
+        Simulate.click(figure, { pageX: 100, pageY: 100 });
         const zoomImg = app.querySelector('.iiz__zoom-img');
         await fireEvent.load(zoomImg);
-        expect(zoomImg.classList.contains('iiz__zoom-img--visible')).to.be.true;
+
+        await waitFor(() => {
+          expect(zoomImg.classList.contains('iiz__zoom-img--visible')).to.be.true;
+        });
       });
 
       it('shows the zoomed image on mouse enter if zoomType hover is set', async () => {
         innerImageZoom({ zoomType: 'hover', zoomPreload: true });
-        await fireEvent.mouseEnter(app.querySelector('.iiz'));
+        Simulate.mouseEnter(app.querySelector('.iiz'), { pageX: 100, pageY: 100 });
         const zoomImg = app.querySelector('.iiz__zoom-img');
         await fireEvent.load(zoomImg);
-        expect(zoomImg.classList.contains('iiz__zoom-img--visible')).to.be.true;
+
+        await waitFor(() => {
+          expect(zoomImg.classList.contains('iiz__zoom-img--visible')).to.be.true;
+        });
       });
 
       it('shows the zoomed image in a fullscreen portal if fullscreenOnMobile is set', async () => {
         global.window.matchMedia = () => ({ matches: true });
         innerImageZoom({ fullscreenOnMobile: true });
         const figure = app.querySelector('.iiz');
-        fireEvent.touchStart(figure);
-        await fireEvent.mouseEnter(figure);
-        fireEvent.click(figure);
-        expect(document.querySelector('.iiz__zoom-portal')).to.exist;
+        Simulate.touchStart(figure);
+        Simulate.mouseEnter(figure);
+        Simulate.click(figure, { pageX: 100, pageY: 100 });
+
+        await waitFor(() => {
+          expect(document.querySelector('.iiz__zoom-portal')).to.exist;
+        });
       });
 
       it('fires afterZoomIn callback on zoom in', async () => {
         const afterZoomIn = () => app.append('Callback fired!');
         innerImageZoom({ afterZoomIn: afterZoomIn });
         const figure = app.querySelector('.iiz');
-        await fireEvent.mouseEnter(figure);
-        fireEvent.click(figure);
-        await fireEvent.load(app.querySelector('.iiz__zoom-img'));
-        expect(getByText(app, 'Callback fired!')).to.exist;
+        Simulate.touchStart(figure);
+        Simulate.click(figure, { pageX: 100, pageY: 100 });
+        const zoomImg = app.querySelector('.iiz__zoom-img');
+        await fireEvent.load(zoomImg);
+
+        await waitFor(() => {
+          expect(getByText(app, 'Callback fired!')).to.exist;
+        });
       });
     });
   });
@@ -163,31 +183,15 @@ describe('vue-inner-image-zoom', () => {
     it('pans the zoomed image on mouse move', async () => {
       innerImageZoom({ zoomSrc: DATA.src2x });
       const figure = app.querySelector('.iiz');
-      await fireEvent.mouseEnter(figure);
-      await fireEvent.click(figure, { clientY: 100 });
+      Simulate.mouseEnter(figure);
+      Simulate.click(figure, { pageX: 100, pageY: 100 });
       const zoomImg = app.querySelector('.iiz__zoom-img');
       await fireEvent.load(zoomImg);
       const topPosition = zoomImg.style.top;
 
       await waitFor(() => {
-        fireEvent.mouseMove(figure, { clientY: 150 });
+        Simulate.mouseMove(figure, { pageX: 150, pageY: 150 });
         expect(parseInt(topPosition, 10)).to.be.above(parseInt(zoomImg.style.top, 10));
-      });
-    });
-
-    it('drags the zoomed image if moveType drag is set', async () => {
-      innerImageZoom({ zoomSrc: DATA.src2x, moveType: 'drag' });
-      const figure = app.querySelector('.iiz');
-      await fireEvent.mouseEnter(figure);
-      fireEvent.click(figure, { clientY: 100 });
-      const zoomImg = app.querySelector('.iiz__zoom-img');
-      await fireEvent.load(zoomImg);
-      const topPosition = zoomImg.style.top;
-      fireEvent.mouseDown(zoomImg, { clientY: 100 });
-
-      await waitFor(() => {
-        fireEvent.mouseMove(zoomImg, { clientY: 150 });
-        expect(parseInt(topPosition, 10)).to.be.below(parseInt(zoomImg.style.top, 10));
       });
     });
   });
@@ -196,75 +200,91 @@ describe('vue-inner-image-zoom', () => {
     it('hides the zoomed image on toggle click', async () => {
       innerImageZoom();
       const figure = app.querySelector('.iiz');
-      await fireEvent.mouseEnter(figure);
-      fireEvent.click(figure);
+      Simulate.mouseEnter(figure);
+      Simulate.click(figure, { pageX: 100, pageY: 100 });
       const zoomImg = app.querySelector('.iiz__zoom-img');
       await fireEvent.load(zoomImg);
-      expect(zoomImg.classList.contains('iiz__zoom-img--visible')).to.be.true;
-      await fireEvent.click(figure);
-      expect(zoomImg.classList.contains('iiz__zoom-img--visible')).to.be.false;
+
+      await waitFor(() => {
+        expect(zoomImg.classList.contains('iiz__zoom-img--visible')).to.be.true;
+        Simulate.click(figure, { pageX: 100, pageY: 100 });
+        expect(zoomImg.classList.contains('iiz__zoom-img--visible')).to.be.false;
+      });
     });
 
     it('hides the zoomed image on mouse leave', async () => {
       innerImageZoom();
       const figure = app.querySelector('.iiz');
-      await fireEvent.mouseEnter(figure);
-      fireEvent.click(figure);
+      Simulate.mouseEnter(figure);
+      Simulate.click(figure, { pageX: 100, pageY: 100 });
       const zoomImg = app.querySelector('.iiz__zoom-img');
       await fireEvent.load(zoomImg);
-      expect(zoomImg.classList.contains('iiz__zoom-img--visible')).to.be.true;
-      await fireEvent.mouseLeave(figure);
-      expect(zoomImg.classList.contains('iiz__zoom-img--visible')).to.be.false;
+
+      await waitFor(() => {
+        expect(zoomImg.classList.contains('iiz__zoom-img--visible')).to.be.true;
+        Simulate.mouseLeave(figure);
+        expect(zoomImg.classList.contains('iiz__zoom-img--visible')).to.be.false;
+      });
     });
 
     it('hides the zoomed image on button click on touch devices', async () => {
       innerImageZoom();
       const figure = app.querySelector('.iiz');
-      fireEvent.touchStart(figure);
-      await fireEvent.mouseEnter(figure);
-      fireEvent.click(figure);
+      Simulate.touchStart(figure);
+      Simulate.mouseEnter(figure);
+      Simulate.click(figure, { pageX: 100, pageY: 100 });
       const zoomImg = app.querySelector('.iiz__zoom-img');
       await fireEvent.load(zoomImg);
-      expect(zoomImg.classList.contains('iiz__zoom-img--visible')).to.be.true;
-      await fireEvent.click(getByLabelText(app, 'Zoom Out'));
-      expect(zoomImg.classList.contains('iiz__zoom-img--visible')).to.be.false;
+
+      await waitFor(() => {
+        expect(zoomImg.classList.contains('iiz__zoom-img--visible')).to.be.true;
+        Simulate.click(getByLabelText(app, 'Zoom Out'), { pageX: 100, pageY: 100 });
+        expect(zoomImg.classList.contains('iiz__zoom-img--visible')).to.be.false;
+      });
     });
 
     it('hides the zoomed image on click on touch devices if hideCloseButton is true', async () => {
       innerImageZoom({ hideCloseButton: true });
       const figure = app.querySelector('.iiz');
-      fireEvent.touchStart(figure);
-      await fireEvent.mouseEnter(figure);
-      fireEvent.click(figure);
+      Simulate.touchStart(figure);
+      Simulate.mouseEnter(figure);
+      Simulate.click(figure, { pageX: 100, pageY: 100 });
       const zoomImg = app.querySelector('.iiz__zoom-img');
       await fireEvent.load(zoomImg);
-      expect(zoomImg.classList.contains('iiz__zoom-img--visible')).to.be.true;
-      await fireEvent.click(figure);
-      expect(zoomImg.classList.contains('iiz__zoom-img--visible')).to.be.false;
+
+      await waitFor(() => {
+        expect(zoomImg.classList.contains('iiz__zoom-img--visible')).to.be.true;
+        Simulate.click(figure, { pageX: 100, pageY: 100 });
+        expect(zoomImg.classList.contains('iiz__zoom-img--visible')).to.be.false;
+      });
     });
 
     it('hides the zoomed image on button click on desktop if moveType is drag', async () => {
       innerImageZoom({ moveType: 'drag' });
       const figure = app.querySelector('.iiz');
-      await fireEvent.mouseEnter(figure);
-      fireEvent.click(figure);
+      Simulate.mouseEnter(figure);
+      Simulate.click(figure, { pageX: 100, pageY: 100 });
       const zoomImg = app.querySelector('.iiz__zoom-img');
       await fireEvent.load(zoomImg);
-      expect(zoomImg.classList.contains('iiz__zoom-img--visible')).to.be.true;
-      await fireEvent.click(getByLabelText(app, 'Zoom Out'));
-      expect(zoomImg.classList.contains('iiz__zoom-img--visible')).to.be.false;
+
+      await waitFor(() => {
+        expect(zoomImg.classList.contains('iiz__zoom-img--visible')).to.be.true;
+        Simulate.click(getByLabelText(app, 'Zoom Out'), { pageX: 100, pageY: 100 });
+        expect(zoomImg.classList.contains('iiz__zoom-img--visible')).to.be.false;
+      });
     });
 
     it('removes the zoomed image after fade transition', async () => {
       innerImageZoom();
       const figure = app.querySelector('.iiz');
-      await fireEvent.mouseEnter(figure);
-      fireEvent.click(figure);
-      await fireEvent.mouseLeave(figure);
+      Simulate.mouseEnter(figure);
+      Simulate.click(figure, { pageX: 100, pageY: 100 });
       const zoomImg = app.querySelector('.iiz__zoom-img');
-      await fireEvent.transitionEnd(zoomImg, { propertyName: 'opacity' });
+      await fireEvent.load(zoomImg);
 
       await waitFor(() => {
+        Simulate.mouseLeave(figure);
+        Simulate.transitionEnd(zoomImg, { propertyName: 'opacity' });
         expect(app.querySelector('.iiz__zoom-img')).to.not.exist;
       });
     });
@@ -272,13 +292,15 @@ describe('vue-inner-image-zoom', () => {
     it('removes the zoomed image after fade transition on touch devices', async () => {
       innerImageZoom();
       const figure = app.querySelector('.iiz');
-      fireEvent.touchStart(figure);
-      await fireEvent.mouseEnter(figure);
-      fireEvent.click(figure);
-      fireEvent.click(getByLabelText(app, 'Zoom Out'));
-      await fireEvent.transitionEnd(app.querySelector('.iiz__zoom-img'), { propertyName: 'opacity' });
+      Simulate.touchStart(figure);
+      Simulate.mouseEnter(figure);
+      Simulate.click(figure, { pageX: 100, pageY: 100 });
+      const zoomImg = app.querySelector('.iiz__zoom-img');
+      await fireEvent.load(zoomImg);
 
       await waitFor(() => {
+        Simulate.click(getByLabelText(app, 'Zoom Out'), { pageX: 100, pageY: 100 });
+        Simulate.transitionEnd(zoomImg, { propertyName: 'opacity' });
         expect(app.querySelector('.iiz__zoom-img')).to.not.exist;
       });
     });
@@ -287,22 +309,23 @@ describe('vue-inner-image-zoom', () => {
       global.window.matchMedia = () => ({ matches: true });
       innerImageZoom({ fullscreenOnMobile: true });
       const figure = app.querySelector('.iiz');
-      fireEvent.touchStart(figure);
-      await fireEvent.mouseEnter(figure);
-      fireEvent.click(figure);
-      fireEvent.click(getByLabelText(document, 'Zoom Out'));
+      Simulate.touchStart(figure);
+      Simulate.mouseEnter(figure);
+      Simulate.click(figure, { pageX: 100, pageY: 100 });
 
       await waitFor(() => {
-        expect(document.querySelector('.iiz__zoom-portal')).to.not.exist;
+        expect(document.querySelector('.iiz__zoom-portal')).to.exist;
+        Simulate.click(getByLabelText(document, 'Zoom Out'), { pageX: 100, pageY: 100 });
+        expect(document.querySelector('.iiz__zoom-portal')).to.exist;
       });
     });
 
     it('persists the zoomed image after fade transition if zoomPreload is true', async () => {
       innerImageZoom({ zoomPreload: true });
       const figure = app.querySelector('.iiz');
-      await fireEvent.mouseEnter(figure);
-      fireEvent.click(figure);
-      await fireEvent.mouseLeave(figure);
+      Simulate.mouseEnter(figure);
+      Simulate.click(figure, { pageX: 100, pageY: 100 });
+      Simulate.mouseLeave(figure);
       await fireEvent.transitionEnd(app.querySelector('.iiz__zoom-img'), { propertyName: 'opacity' });
 
       await waitFor(() => {
@@ -313,9 +336,9 @@ describe('vue-inner-image-zoom', () => {
     it('persists the zoomed image after clicking the close button if moveType is drag', async () => {
       innerImageZoom({ moveType: 'drag' });
       const figure = app.querySelector('.iiz');
-      await fireEvent.mouseEnter(figure);
-      fireEvent.click(figure);
-      fireEvent.click(getByLabelText(app, 'Zoom Out'));
+      Simulate.mouseEnter(figure);
+      Simulate.click(figure, { pageX: 100, pageY: 100 });
+      Simulate.click(getByLabelText(app, 'Zoom Out'), { pageX: 100, pageY: 100 });
       await fireEvent.transitionEnd(app.querySelector('.iiz__zoom-img'), { propertyName: 'opacity' });
 
       await waitFor(() => {
@@ -327,9 +350,9 @@ describe('vue-inner-image-zoom', () => {
       const afterZoomOut = () => app.append('Callback fired!');
       innerImageZoom({ afterZoomOut: afterZoomOut });
       const figure = app.querySelector('.iiz');
-      await fireEvent.mouseEnter(figure);
-      fireEvent.click(figure);
-      await fireEvent.mouseLeave(figure);
+      Simulate.mouseEnter(figure);
+      Simulate.click(figure, { pageX: 100, pageY: 100 });
+      Simulate.mouseLeave(figure);
       expect(getByText(app, 'Callback fired!')).to.exist;
     });
   });

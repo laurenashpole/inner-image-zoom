@@ -25,14 +25,14 @@ module.exports = ({ framework = 'vanilla' }) => {
     module: {
       rules: [
         { test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader'] },
-        ...(framework === 'vue' ? [{ test: /\.vue$/, loader: 'vue-loader' }] : []),
+        ...(framework === 'vue' ? [{ test: /\.vue$/, use: 'vue-loader' }] : []),
         {
           test: /\.js$/,
           exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env']
+              presets: ['@babel/preset-env', ...(framework === 'react' ? ['@babel/preset-react'] : [])]
             }
           }
         }

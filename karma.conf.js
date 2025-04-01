@@ -9,21 +9,32 @@ module.exports = (config) => {
     files: ['*.test.js'],
     exclude: [],
     preprocessors: {
-      '*.test.js': ['webpack']
+      '**/*.js': ['webpack']
     },
     webpack: {
       module: {
         rules: [
-          ...[
-            { test: /\.css$/, use: ['style-loader', 'css-loader'] },
-            { test: /\.vue$/, loader: 'vue-loader' }
-          ],
+          { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+          { test: /\.vue$/, use: 'vue-loader' },
+          {
+            test: /(react\/src.*\.js)|(react\.test\.js)/,
+            exclude: /node_modules/,
+            use: [
+              ...(config.coverage ? ['@jsdevtools/coverage-istanbul-loader'] : []),
+              {
+                loader: 'babel-loader',
+                options: {
+                  presets: ['@babel/preset-env', '@babel/preset-react']
+                }
+              }
+            ]
+          },
           ...(config.coverage
             ? [
                 {
                   test: /\.js/,
                   include: /src/,
-                  exclude: /node_modules|tests/,
+                  exclude: /node_modules|tests|react/,
                   use: '@jsdevtools/coverage-istanbul-loader'
                 }
               ]
