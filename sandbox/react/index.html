@@ -4,6 +4,68 @@
     <meta charset="utf-8">
     <meta name="viewport" content= "width=device-width, initial-scale=1.0">
     <title>react-inner-image-zoom Sandbox</title>
+
+    <style>
+      body {
+        margin: 2rem;
+        font-family: 'Verdana', sans-serif;
+        letter-spacing: 0.025em;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin-top: 0;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      main {
+        max-width: 1200px;
+      }
+
+      .demo {
+        margin-bottom: 3rem;
+      }
+
+      .demo__props {
+        padding-top: 1rem;
+      }
+
+      .demo__props ul {
+        background: #f7f7f7;
+        margin: 0;
+        border: 1px solid #ededed;
+        border-radius: 8px;
+        padding: 1.5rem;
+        list-style: none;
+        font-size: 0.875rem;
+      }
+
+      .demo__props ul + ul {
+        margin-top: 1rem;
+      }
+
+      .demo__props li {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      @media (min-width: 640px) {
+        .demo {
+          display: flex;
+          align-items: flex-start;
+        }
+
+        .demo__props {
+          width: 33.333%;
+          padding: 0 0 0 2rem;
+        }
+      }
+    </style>
   </head>
 
   <body>

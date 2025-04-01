@@ -22,7 +22,7 @@ yarn add react-inner-image-zoom
 
 ### TypeScript
 
-[Type declarations](https://github.com/laurenashpole/inner-image-zoom/blob/main/packages/react/src/index.d.ts) were added with version 3.1.0. For older installations, type definitions are available through [DefinitelyTyped](https://definitelytyped.org/) and can be installed with:
+[Type declarations](https://github.com/laurenashpole/inner-image-zoom/blob/main/packages/react/src/index.d.ts) were added with version 4.0.0. For older installations, type definitions are available through [DefinitelyTyped](https://definitelytyped.org/) and can be installed with:
 
 ```
 npm install --save-dev @types/react-inner-image-zoom
