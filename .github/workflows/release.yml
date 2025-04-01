@@ -16,7 +16,7 @@ jobs:
         node-version: [16.x, 18.x, 20.x]
         include:
           - os: macos-latest
-            node-version: 18.x
+            node-version: 20.x
             publish: true
     steps:
       - name: Checkout repo
