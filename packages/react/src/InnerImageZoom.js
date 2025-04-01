@@ -43,7 +43,7 @@ const InnerImageZoom = forwardRef(
     },
     ref
   ) => {
-    const img = useRef(null);
+    const container = useRef(null);
     const zoomImg = useRef(null);
     const portal = useRef(null);
     const imgProps = useRef({});
@@ -97,7 +97,7 @@ const InnerImageZoom = forwardRef(
       zoomImg.current.setAttribute('width', scaledDimensions.width);
       zoomImg.current.setAttribute('height', scaledDimensions.height);
       imgProps.current.scaledDimensions = scaledDimensions;
-      imgProps.current.bounds = getBounds(img.current, false);
+      imgProps.current.bounds = getBounds(container.current, false);
       imgProps.current.ratios = getRatios(imgProps.current.bounds, scaledDimensions);
 
       if (imgProps.current.onLoadCallback) {
@@ -154,7 +154,7 @@ const InnerImageZoom = forwardRef(
     };
 
     const handleFadeOut = (e, noTransition) => {
-      if (noTransition || (e.propertyName === 'opacity' && img.current.contains(e.target))) {
+      if (noTransition || (e.propertyName === 'opacity' && container.current.contains(e.target))) {
         if ((zoomPreload && isTouch) || !zoomPreload) {
           zoomImg.current = null;
           imgProps.current = getImgPropsDefaults();
@@ -180,7 +180,7 @@ const InnerImageZoom = forwardRef(
 
     const initialDrag = (e) => {
       const initialDragCoords = getInitialDragCoords(e, imgProps.current, isFullscreen);
-      imgProps.current.bounds = getBounds(img.current, isFullscreen);
+      imgProps.current.bounds = getBounds(container.current, isFullscreen);
       imgProps.current.offsets = getOffsets(0, 0, 0, 0);
 
       handleDragMove({
@@ -236,7 +236,7 @@ const InnerImageZoom = forwardRef(
     }, [isDragging, isTouch, handleDragMove]);
 
     useImperativeHandle(ref, () => ({
-      container: img.current,
+      container: container.current,
       portal: portal.current
     }));
 
@@ -244,7 +244,7 @@ const InnerImageZoom = forwardRef(
       <figure
         className={`iiz ${currentMoveType === 'drag' ? 'iiz--drag' : ''} ${className ? className : ''}`}
         style={{ width: width }}
-        ref={img}
+        ref={container}
         onTouchStart={isZoomed ? null : handleTouchStart}
         onClick={handleClick}
         onMouseEnter={isTouch ? null : handleMouseEnter}
