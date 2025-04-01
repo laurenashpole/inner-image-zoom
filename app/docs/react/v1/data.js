@@ -10,8 +10,12 @@ export const DATA = {
     title: 'React Inner Image Zoom v1.3.0',
     versions: [
       {
-        label: '3.1.0',
+        label: '4.0.0',
         path: '/docs/react',
+      },
+      {
+        label: '3.0.2',
+        path: '/docs/react/v3',
       },
       {
         label: '2.1.0',

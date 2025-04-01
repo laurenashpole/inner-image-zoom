@@ -10,9 +10,13 @@ export const DATA = {
     title: 'React Inner Image Zoom',
     versions: [
       {
-        label: '3.1.0',
+        label: '4.0.0',
         path: '/docs/react',
         current: true,
+      },
+      {
+        label: '3.0.2',
+        path: '/docs/react/v3',
       },
       {
         label: '2.1.0',
@@ -111,7 +115,7 @@ export const DATA = {
             >
               Type declarations
             </Anchor>{' '}
-            were added with version 3.1.0. For older installations, type
+            were added with version 4.0.0. For older installations, type
             definitions are available through{' '}
             <Anchor href="https://definitelytyped.org/" underline="always">
               DefinitelyTyped
@@ -146,7 +150,7 @@ export const DATA = {
       },
       {
         type: 'code',
-        content: `import 'inner-image-zoom/lib/styles.min.css';`,
+        content: `import 'react-inner-image-zoom/lib/styles.min.css';`,
       },
     ],
   },

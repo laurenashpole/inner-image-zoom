@@ -3,6 +3,21 @@
     <loc>https://innerimagezoom.com</loc>
   </url>
   <url>
+    <loc>https://innerimagezoom.com/docs/react</loc>
+  </url>
+  <url>
+    <loc>https://innerimagezoom.com/docs/react/v3</loc>
+  </url>
+  <url>
+    <loc>https://innerimagezoom.com/docs/react/v2</loc>
+  </url>
+  <url>
+    <loc>https://innerimagezoom.com/docs/react/v1</loc>
+  </url>
+  <url>
+    <loc>https://innerimagezoom.com/docs/vanilla</loc>
+  </url>
+  <url>
     <loc>https://innerimagezoom.com/docs/vue</loc>
   </url>
   <url>
@@ -10,9 +25,6 @@
   </url>
   <url>
     <loc>https://innerimagezoom.com/docs/vue/v1</loc>
-  </url>
-  <url>
-    <loc>https://innerimagezoom.com/docs/vanilla</loc>
   </url>
   <url>
     <loc>https://innerimagezoom.com/demos</loc>

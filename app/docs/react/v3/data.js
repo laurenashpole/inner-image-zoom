@@ -7,7 +7,7 @@ import { Anchor } from '@mantine/core';
 
 export const DATA = {
   hero: {
-    title: 'React Inner Image Zoom v2.1.0',
+    title: 'React Inner Image Zoom v3.0.2',
     versions: [
       {
         label: '4.0.0',
@@ -16,11 +16,11 @@ export const DATA = {
       {
         label: '3.0.2',
         path: '/docs/react/v3',
+        current: true,
       },
       {
         label: '2.1.0',
         path: '/docs/react/v2',
-        current: true,
       },
       {
         label: '1.3.0',
@@ -32,7 +32,7 @@ export const DATA = {
         title: 'Package',
         label: 'react-inner-image-zoom',
         icon: <SiNpm size="1rem" />,
-        href: 'https://www.npmjs.com/package/react-inner-image-zoom/v/2.1.0',
+        href: 'https://www.npmjs.com/package/react-inner-image-zoom/v/3.0.2',
       },
       {
         title: 'Source code',
@@ -70,7 +70,7 @@ export const DATA = {
       },
       {
         type: 'code',
-        content: 'npm install react-inner-image-zoom@2.1.0',
+        content: 'npm install react-inner-image-zoom@3.0.2',
       },
       {
         type: 'heading',
@@ -78,7 +78,7 @@ export const DATA = {
       },
       {
         type: 'code',
-        content: 'yarn add react-inner-image-zoom@2.1.0',
+        content: 'yarn add react-inner-image-zoom@3.0.2',
       },
       {
         type: 'heading',
@@ -156,18 +156,6 @@ export const DATA = {
             ),
           },
           {
-            name: 'srcSet',
-            type: 'string',
-            default: '',
-            desc: 'Default srcset attribute for a responsive original image.',
-          },
-          {
-            name: 'sizes',
-            type: 'string',
-            default: '',
-            desc: 'Default sizes attribute for use with srcset.',
-          },
-          {
             name: 'sources',
             type: 'array',
             default: '',
@@ -192,6 +180,31 @@ export const DATA = {
             desc: "If true, gets the original image's aspect ratio based on the width and height props and creates a spacer to prevent cumulative layout shift.",
           },
           {
+            name: 'imgAttributes',
+            type: 'object',
+            default: '',
+            desc: (
+              <>
+                <Anchor
+                  href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attributes"
+                  underline="always"
+                >
+                  Img
+                </Anchor>{' '}
+                and{' '}
+                <Anchor
+                  href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes"
+                  underline="always"
+                >
+                  global
+                </Anchor>{' '}
+                attributes for the original image (excluding <Code>src</Code>,{' '}
+                <Code>width</Code>, <Code>height</Code>, and <Code>style</Code>{' '}
+                which are set elsewhere)
+              </>
+            ),
+          },
+          {
             name: 'zoomSrc',
             type: 'string',
             default: '',
@@ -208,18 +221,6 @@ export const DATA = {
             type: 'boolean',
             default: 'false',
             desc: 'If set to true, preloads the zoom image instead of waiting for mouseenter and (unless on a touch device) persists the image on mouseleave.',
-          },
-          {
-            name: 'alt',
-            type: 'string',
-            default: '',
-            desc: 'Alternative text for the original image.',
-          },
-          {
-            name: 'title',
-            type: 'string',
-            default: '',
-            desc: 'Title attribute for the original image.',
           },
           {
             name: 'moveType',
