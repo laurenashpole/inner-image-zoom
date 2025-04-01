@@ -22,11 +22,11 @@ module.exports = ({ framework = 'vanilla' }) => {
     module: {
       rules: [
         { test: /\.css$/, use: ['style-loader', 'css-loader'] },
-        ...(framework === 'vue' ? [{ test: /\.vue$/, loader: 'vue-loader' }] : []),
+        ...(framework === 'vue' ? [{ test: /\.vue$/, use: 'vue-loader' }] : []),
         ...(framework === 'react'
           ? [
               {
-                test: /\.(js|jsx|ts|tsx)$/,
+                test: /\.(js|ts|tsx)$/,
                 exclude: /node_modules/,
                 use: {
                   loader: 'babel-loader',

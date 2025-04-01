@@ -25,7 +25,7 @@ module.exports = ({ framework = 'vanilla' }) => {
     module: {
       rules: [
         { test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader'] },
-        ...(framework === 'vue' ? [{ test: /\.vue$/, loader: 'vue-loader' }] : []),
+        ...(framework === 'vue' ? [{ test: /\.vue$/, use: 'vue-loader' }] : []),
         {
           test: /\.js$/,
           exclude: /node_modules/,
