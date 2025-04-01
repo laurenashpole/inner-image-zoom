@@ -2,11 +2,11 @@
   "name": "react-inner-image-zoom",
   "version": "4.0.0",
   "main": "lib/index.js",
-  "module": "src/index.js",
+  "module": "es/index.js",
   "files": [
     "lib",
-    "umd",
-    "src"
+    "src",
+    "es"
   ],
   "author": "Lauren Ashpole",
   "description": "A React component for magnifying an image within its parent container 🔎",

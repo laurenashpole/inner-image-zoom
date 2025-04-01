@@ -9,17 +9,22 @@ const { VueLoaderPlugin } = require('vue-loader');
 module.exports = ({ framework = 'vanilla' }) => {
   const directory = path.resolve(__dirname, `packages/${framework}`);
 
-  return ['lib', 'umd'].map((target) => ({
+  return ['lib', ...(framework === 'react' ? ['es'] : ['umd'])].map((target) => ({
     mode: 'production',
-    entry: [...(framework !== 'vue' ? [`${directory}/src/styles.css`] : []), `${directory}/src`],
+    entry: [
+      ...(framework !== 'vue' ? [`${directory}/src/styles.css`] : []),
+      ...(framework !== 'react' ? [`${directory}/src`] : [])
+    ],
     output: {
       path: `${directory}/${target}`,
-      filename: 'index.js',
-      library: 'InnerImageZoom',
-      libraryTarget: target === 'lib' ? 'var' : target,
       clean: true,
-      ...(target === 'umd' && {
-        libraryExport: 'default'
+      ...(framework !== 'react' && {
+        filename: 'index.js',
+        library: 'InnerImageZoom',
+        libraryTarget: target === 'lib' ? 'var' : target,
+        ...(target === 'umd' && {
+          libraryExport: 'default'
+        })
       })
     },
     module: {
@@ -32,7 +37,7 @@ module.exports = ({ framework = 'vanilla' }) => {
           use: {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env', ...(framework === 'react' ? ['@babel/preset-react'] : [])]
+              presets: ['@babel/preset-env']
             }
           }
         }
