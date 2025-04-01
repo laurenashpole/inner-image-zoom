@@ -1,8 +1,8 @@
+es
 lib
 node_modules
 umd
 coverage
-es
 
 .DS_Store
 yarn-error.log
