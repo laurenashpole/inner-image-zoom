@@ -22,7 +22,7 @@ module.exports = {
     ],
     'react/prop-types': 'off'
   },
-  ignorePatterns: ['**/lib/**', '**/umd/**'],
+  ignorePatterns: ['**/lib/**', '**/umd/**', '**/es/**'],
   overrides: [
     {
       files: ['*.test.js'],
