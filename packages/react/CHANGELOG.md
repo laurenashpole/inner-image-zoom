@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.0.1](https://github.com/laurenashpole/inner-image-zoom/compare/react-inner-image-zoom%404.0.0...react-inner-image-zoom%404.0.1) (2025-03-31)
+
+### Fixed
+
+- A bug building the package for distribution.
+
 ## 4.0.0 (2025-03-31)
 
 ### Added
