@@ -85,7 +85,7 @@ const Header = ({ activeLink, ...burgerProps }) => {
                     </Text>
 
                     <Text size="xs" fw={700} lh="normal">
-                      4.0.0
+                      4.0.1
                     </Text>
                   </Stack>
                 </MenuItem>

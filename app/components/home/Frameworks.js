@@ -14,7 +14,6 @@ import {
 
 import NextLink from '../shared/NextLink';
 
-import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 import styles from './Frameworks.module.css';
 
 const Frameworks = () => {

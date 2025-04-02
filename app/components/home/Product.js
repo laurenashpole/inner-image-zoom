@@ -18,7 +18,7 @@ import {
 
 import Section from '../layout/Section';
 
-import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
+import 'react-inner-image-zoom/lib/styles.min.css';
 import styles from './Product.module.css';
 
 const Product = () => {

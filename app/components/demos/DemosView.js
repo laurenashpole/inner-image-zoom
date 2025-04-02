@@ -10,7 +10,7 @@ import SidebarSection from '../shared/SidebarSection';
 
 import DemosDemo from './DemosDemo';
 
-import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
+import 'react-inner-image-zoom/lib/styles.min.css';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
