@@ -7,40 +7,44 @@ import { Anchor } from '@mantine/core';
 
 export const DATA = {
   hero: {
-    title: 'Vue Inner Image Zoom v2.0.0',
+    title: 'React Inner Image Zoom v1.3.0',
     versions: [
       {
-        label: '3.0.1',
-        path: '/docs/vue',
+        label: '4.0.1',
+        path: '/docs/react',
       },
       {
-        label: '2.0.0',
-        path: '/docs/vue/v2',
+        label: '3.0.2',
+        path: '/docs/react/v3',
+      },
+      {
+        label: '2.1.0',
+        path: '/docs/react/v2',
+      },
+      {
+        label: '1.3.0',
+        path: '/docs/react/v1',
         current: true,
-      },
-      {
-        label: '1.1.1',
-        path: '/docs/vue/v1',
       },
     ],
     links: [
       {
         title: 'Package',
-        label: 'vue-inner-image-zoom',
+        label: 'react-inner-image-zoom',
         icon: <SiNpm size="1rem" />,
-        href: 'https://www.npmjs.com/package/vue-inner-image-zoom/v/2.0.0',
+        href: 'https://www.npmjs.com/package/react-inner-image-zoom/v/1.3.0',
       },
       {
         title: 'Source code',
         label: 'Open repo on GitHub',
         icon: <FaCode size="1rem" />,
-        href: 'https://github.com/laurenashpole/vue-inner-image-zoom',
+        href: 'https://github.com/laurenashpole/react-inner-image-zoom/',
       },
       {
         title: 'Changelog',
         label: 'Open changelog on GitHub',
         icon: <LuFileCog size="1rem" />,
-        href: 'https://github.com/laurenashpole/inner-image-zoom/blob/main/packages/vue/CHANGELOG.md',
+        href: 'https://github.com/laurenashpole/inner-image-zoom/blob/main/packages/react/CHANGELOG.md',
       },
     ],
   },
@@ -48,24 +52,12 @@ export const DATA = {
     title: 'Installation',
     items: [
       {
-        type: 'text',
-        content: (
-          <>
-            <strong>Note:</strong> Version 2.0.0 upgrades the component to
-            support Vue 3. To use this package with older versions of Vue,
-            install using <Code>npm install vue-inner-image-zoom@1.1.1</Code> or{' '}
-            <Code>yarn add vue-inner-image-zoom@1.1.1</Code>
-            instead of the instructions below.
-          </>
-        ),
-      },
-      {
         type: 'heading',
         content: 'NPM',
       },
       {
         type: 'code',
-        content: 'npm install vue-inner-image-zoom@2.0.0',
+        content: 'npm install react-inner-image-zoom@1.3.0',
       },
       {
         type: 'heading',
@@ -73,7 +65,11 @@ export const DATA = {
       },
       {
         type: 'code',
-        content: 'yarn add vue-inner-image-zoom@2.0.0',
+        content: 'yarn add react-inner-image-zoom@1.3.0',
+      },
+      {
+        type: 'heading',
+        content: 'TypeScript',
       },
       {
         type: 'heading',
@@ -83,13 +79,21 @@ export const DATA = {
         type: 'text',
         content: (
           <>
-            Import the CSS from your <Code>node_modules</Code> directory:
+            You can download the raw{' '}
+            <Anchor
+              href="https://raw.githubusercontent.com/laurenashpole/react-inner-image-zoom/master/src/InnerImageZoom/styles.css"
+              underline="always"
+            >
+              styles.css
+            </Anchor>{' '}
+            file or, if your build supports it, import the stylesheet directly
+            from <Code>node_modules</Code> using:
           </>
         ),
       },
       {
         type: 'code',
-        content: `import 'vue-inner-image-zoom/lib/vue-inner-image-zoom.css';`,
+        content: `import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';`,
       },
     ],
   },
@@ -98,11 +102,11 @@ export const DATA = {
     items: [
       {
         type: 'text',
-        content: 'Import the component and include in your template:',
+        content: 'Import and render the component:',
       },
       {
         type: 'code',
-        content: `import InnerImageZoom from 'vue-inner-image-zoom'\n\n...\n\nexport default {\n  components: {\n    'inner-image-zoom': InnerImageZoom\n  }\n}\n\n...\n\n<inner-image-zoom src="/path/to/image.jpg" zoomSrc="/path/to/zoom-image.jpg" />`,
+        content: `import InnerImageZoom from 'react-inner-image-zoom'\n\n...\n\n<InnerImageZoom src="/path/to/image.jpg" zoomSrc="/path/to/zoom-image.jpg" />`,
       },
     ],
   },
@@ -141,24 +145,6 @@ export const DATA = {
             desc: 'A list of image sources for using the picture tag to serve the appropriate original image (see below for more details).',
           },
           {
-            name: 'width',
-            type: 'number',
-            default: '',
-            desc: 'Width attribute for original image.',
-          },
-          {
-            name: 'height',
-            type: 'number',
-            default: '',
-            desc: 'Height attribute for original image.',
-          },
-          {
-            name: 'hasSpacer',
-            type: 'boolean',
-            default: 'false',
-            desc: "If true, gets the original image's aspect ratio based on the width and height props and creates a spacer to prevent cumulative layout shift.",
-          },
-          {
             name: 'zoomSrc',
             type: 'string',
             default: '',
@@ -171,7 +157,7 @@ export const DATA = {
             desc: 'Multiplied against the natural width and height of the zoomed image. This will generally be a decimal (example, 0.9 for 90%).',
           },
           {
-            name: 'zoomPreload',
+            name: 'startsActive',
             type: 'boolean',
             default: 'false',
             desc: 'If set to true, preloads the zoom image instead of waiting for mouseenter and (unless on a touch device) persists the image on mouseleave.',
@@ -230,18 +216,6 @@ export const DATA = {
             type: 'number',
             default: '640',
             desc: 'The maximum breakpoint for fullscreen zoom image when fullscreenOnMobile is true.',
-          },
-          {
-            name: 'hideCloseButton',
-            type: 'boolean',
-            default: 'false',
-            desc: 'Hides the close button on touch devices. If set to true, zoom out is triggered by tap.',
-          },
-          {
-            name: 'hideHint',
-            type: 'boolean',
-            default: 'false',
-            desc: 'Hides the magnifying glass hint.',
           },
           {
             name: 'className',

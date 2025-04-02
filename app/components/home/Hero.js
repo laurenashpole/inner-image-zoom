@@ -6,7 +6,7 @@ import { Box, Center, Container, Stack, Title } from '@mantine/core';
 
 import PlusIcon from '../shared/PlusIcon';
 
-import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
+import 'react-inner-image-zoom/lib/styles.min.css';
 
 const Hero = () => {
   return (

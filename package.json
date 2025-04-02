@@ -17,7 +17,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.3.0",
-    "react-inner-image-zoom": "^3.0.2",
+    "react-inner-image-zoom": "^4.0.1",
     "react-intersection-observer": "^9.13.1",
     "swiper": "^11.2.5",
     "vanilla-lazyload": "^19.1.3"

@@ -36,6 +36,12 @@ export const DATA = {
         icon: <FaCode size="1rem" />,
         href: 'https://github.com/laurenashpole/vue-inner-image-zoom',
       },
+      {
+        title: 'Changelog',
+        label: 'Open changelog on GitHub',
+        icon: <LuFileCog size="1rem" />,
+        href: 'https://github.com/laurenashpole/inner-image-zoom/blob/main/packages/vue/CHANGELOG.md',
+      },
     ],
   },
   installation: {

@@ -1,4 +1,5 @@
 import { IoLogoJavascript, IoLogoVue } from 'react-icons/io5';
+import { RiReactjsLine } from 'react-icons/ri';
 
 import Code from '@/app/components/shared/Code';
 import { Anchor } from '@mantine/core';
@@ -20,6 +21,12 @@ export const DATA = {
         },
       },
       code: [
+        {
+          fileName: 'React',
+          code: `<InnerImageZoom src="/path/to/image.jpg" />`,
+          language: 'js',
+          icon: <RiReactjsLine size="1rem" />,
+        },
         {
           fileName: 'Vanilla',
           code: `new InnerImageZoom();\n\n...\n\n<img class="iiz" src="/path/to/image.jpg" />`,
@@ -53,6 +60,12 @@ export const DATA = {
       },
       code: [
         {
+          fileName: 'React',
+          code: `<InnerImageZoom\n  src="/path/to/image.jpg"\n  zoomSrc="/path/to/zoom-image.jpg"\n  width={750}\n  height={500}\n  hasSpacer={true}\n/>`,
+          language: 'js',
+          icon: <RiReactjsLine size="1rem" />,
+        },
+        {
           fileName: 'Vue',
           code: `<inner-image-zoom\n  src="/path/to/image.jpg"\n  zoomSrc="/path/to/zoom-image.jpg"\n  :width="750"\n  :height="500"\n  :hasSpacer="true"\n/>`,
           language: 'js',
@@ -77,6 +90,12 @@ export const DATA = {
         },
       },
       code: [
+        {
+          fileName: 'React',
+          code: `<InnerImageZoom\n  src="/path/to/image.jpg"\n  zoomSrc="/path/to/zoom-image.jpg"\n  moveType="drag"\n/>`,
+          language: 'js',
+          icon: <RiReactjsLine size="1rem" />,
+        },
         {
           fileName: 'Vanilla',
           code: `new InnerImageZoom('.iiz', {\n  moveType: 'drag'\n});\n\n...\n\n<img class="iiz" src="/path/to/image.jpg" data-zoom-src="/path/to/zoom-image.jpg" />`,
@@ -109,6 +128,12 @@ export const DATA = {
       },
       code: [
         {
+          fileName: 'React',
+          code: `<InnerImageZoom\n  src="/path/to/image.jpg"\n  zoomSrc="/path/to/zoom-image.jpg"\n  zoomType="hover"\n/>`,
+          language: 'js',
+          icon: <RiReactjsLine size="1rem" />,
+        },
+        {
           fileName: 'Vanilla',
           code: `new InnerImageZoom('.iiz', {\n  zoomType: 'hover'\n});\n\n...\n\n<img class="iiz" src="/path/to/image.jpg" data-zoom-src="/path/to/zoom-image.jpg" />`,
           language: 'js',
@@ -139,6 +164,12 @@ export const DATA = {
         },
       },
       code: [
+        {
+          fileName: 'React',
+          code: `<InnerImageZoom\n  src="/path/to/image.jpg"\n  zoomSrc="/path/to/zoom-image.jpg"\n  fullscreenOnMobile={true}\n/>`,
+          language: 'js',
+          icon: <RiReactjsLine size="1rem" />,
+        },
         {
           fileName: 'Vanilla',
           code: `new InnerImageZoom('.iiz', {\n  fullscreenOnMobile: true\n});\n\n...\n\n<img class="iiz" src="/path/to/image.jpg" data-zoom-src="/path/to/zoom-image.jpg" />`,
@@ -171,6 +202,12 @@ export const DATA = {
         },
       },
       code: [
+        {
+          fileName: 'React',
+          code: `<InnerImageZoom\n  src="/path/to/image.jpg"\n  zoomSrc="/path/to/zoom-image.jpg"\n  hideCloseButton={true}\n/>`,
+          language: 'js',
+          icon: <RiReactjsLine size="1rem" />,
+        },
         {
           fileName: 'Vanilla',
           code: `new InnerImageZoom('.iiz', {\n  hideCloseButton: true\n});\n\n...\n\n<img class="iiz" src="/path/to/image.jpg" data-zoom-src="/path/to/zoom-image.jpg" />`,
@@ -208,6 +245,12 @@ export const DATA = {
         ],
       },
       code: [
+        {
+          fileName: 'React',
+          code: `<InnerImageZoom\n  src="/path/to/image.jpg"\n  zoomSrc="/path/to/zoom-image.jpg"\n  imgAttributes={{\n    srcSet: '/path/to/small-image.jpg, /path/to/small-image-2x.jpg 2x'\n  }}\n  sources={[{\n    srcSet: '/path/to/large-image.jpg, /path/to/large-image-2x.jpg 2x',\n    media: '(min-width: 768px)'\n  }]}\n/>`,
+          language: 'js',
+          icon: <RiReactjsLine size="1rem" />,
+        },
         {
           fileName: 'Vanilla',
           code: `new InnerImageZoom();\n\n...\n\n<picture class="iiz" data-zoom-src="/path/to/zoom-image.jpg">\n  <source\n    srcset="/path/to/large-image.jpg, /path/to/large-image-2x.jpg 2x"\n    media="(min-width: 500px)"\n  />\n  <img\n    srcset="/path/to/small-image.jpg, /path/to/small-image-2x.jpg 2x"\n    src="/path/to/image.jpg"\n  />\n</picture>`,
@@ -257,6 +300,12 @@ export const DATA = {
         },
       },
       code: [
+        {
+          fileName: 'React',
+          code: `import { useEffect } from 'react';\nimport LazyLoad from 'vanilla-lazyload';\n\n...\n\nuseEffect(() => {\n  new LazyLoad({ elements_selector: '.iiz__img' });\n}, []);\n\n...\n\n<InnerImageZoom\n  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="\n  zoomSrc="/path/to/zoom-image.jpg"\n  imgAttributes={{\n    'data-src': '/path/to/image.jpg'\n  }}\n/>`,
+          language: 'js',
+          icon: <RiReactjsLine size="1rem" />,
+        },
         {
           fileName: 'Vanilla',
           code: `new InnerImageZoom();\nnew LazyLoad();\n\n...\n\n<img\n  class="iiz lazy"\n  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="\n  data-src="/path/to/image.jpg"\n/>`,
@@ -312,6 +361,12 @@ export const DATA = {
         },
       ],
       code: [
+        {
+          fileName: 'React',
+          code: `<Swiper>\n  <SwiperSlide>\n    <InnerImageZoom\n      src="/path/to/image-1.jpg"\n      zoomSrc="/path/to/zoom-image-1.jpg"\n      fullscreenOnMobile={true}\n    \>\n  </SwiperSlide>\n  <SwiperSlide>\n    <InnerImageZoom\n      src="/path/to/image-2.jpg"\n      zoomSrc="/path/to/zoom-image-2.jpg"\n      fullscreenOnMobile={true}\n    \>\n  </SwiperSlide>\n  <SwiperSlide>\n    <InnerImageZoom\n      src="/path/to/image-3.jpg"\n      zoomSrc="/path/to/zoom-image-3.jpg"\n      fullscreenOnMobile={true}\n    \>\n  </SwiperSlide>\n</Swiper>`,
+          language: 'js',
+          icon: <RiReactjsLine size="1rem" />,
+        },
         {
           fileName: 'Vanilla',
           code: `new InnerImageZoom('.iiz', {\n  fullscreenOnMobile: true\n});\n\n...\n\n<div class="swiper">\n  <div class="swiper-wrapper">\n    <div class="swiper-slide">\n      <img class="iiz" src="/path/to/image-1.jpg" data-zoom-src="/path/to/zoom-image-1.jpg" />\n    </div>\n    <div class="swiper-slide">\n      <img class="iiz" src="/path/to/image-2.jpg" data-zoom-src="/path/to/zoom-image-2.jpg" />\n    </div>\n    <div class="swiper-slide">\n      <img class="iiz" src="/path/to/image-3.jpg" data-zoom-src="/path/to/zoom-image-3.jpg" />\n    </div>\n  </div>\n</div>`,

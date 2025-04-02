@@ -7,40 +7,65 @@ import { Anchor } from '@mantine/core';
 
 export const DATA = {
   hero: {
-    title: 'Vue Inner Image Zoom v2.0.0',
+    title: 'React Inner Image Zoom',
     versions: [
       {
-        label: '3.0.1',
-        path: '/docs/vue',
-      },
-      {
-        label: '2.0.0',
-        path: '/docs/vue/v2',
+        label: '4.0.1',
+        path: '/docs/react',
         current: true,
       },
       {
-        label: '1.1.1',
-        path: '/docs/vue/v1',
+        label: '3.0.2',
+        path: '/docs/react/v3',
+      },
+      {
+        label: '2.1.0',
+        path: '/docs/react/v2',
+      },
+      {
+        label: '1.3.0',
+        path: '/docs/react/v1',
       },
     ],
     links: [
       {
         title: 'Package',
-        label: 'vue-inner-image-zoom',
+        label: 'react-inner-image-zoom',
         icon: <SiNpm size="1rem" />,
-        href: 'https://www.npmjs.com/package/vue-inner-image-zoom/v/2.0.0',
+        href: 'https://www.npmjs.com/package/react-inner-image-zoom',
       },
       {
         title: 'Source code',
         label: 'Open repo on GitHub',
         icon: <FaCode size="1rem" />,
-        href: 'https://github.com/laurenashpole/vue-inner-image-zoom',
+        href: 'https://github.com/laurenashpole/inner-image-zoom/tree/main/packages/react',
       },
       {
         title: 'Changelog',
         label: 'Open changelog on GitHub',
         icon: <LuFileCog size="1rem" />,
-        href: 'https://github.com/laurenashpole/inner-image-zoom/blob/main/packages/vue/CHANGELOG.md',
+        href: 'https://github.com/laurenashpole/inner-image-zoom/blob/main/packages/react/CHANGELOG.md',
+      },
+    ],
+  },
+  quickstart: {
+    title: 'Quickstart',
+    items: [
+      {
+        label: 'Install',
+        code: 'react install react-inner-image-zoom',
+      },
+      {
+        label: 'Import',
+        code: `import InnerImageZoom from 'react-inner-image-zoom'`,
+      },
+      {
+        label: 'Style',
+        code: `import 'react-inner-image-zoom/lib/styles.min.css'`,
+      },
+      {
+        label: 'Template',
+        code: '<InnerImageZoom src="/path/to/image.jpg" />',
       },
     ],
   },
@@ -51,11 +76,12 @@ export const DATA = {
         type: 'text',
         content: (
           <>
-            <strong>Note:</strong> Version 2.0.0 upgrades the component to
-            support Vue 3. To use this package with older versions of Vue,
-            install using <Code>npm install vue-inner-image-zoom@1.1.1</Code> or{' '}
-            <Code>yarn add vue-inner-image-zoom@1.1.1</Code>
-            instead of the instructions below.
+            <strong>Note:</strong> Version 2.0.0 introduces React hooks and
+            requires React v16.8.0 or above. To use this package with older
+            versions of React, install with{' '}
+            <Code>npm install react-inner-image-zoom@1.3.0</Code> or{' '}
+            <Code>yarn add react-inner-image-zoom@1.3.0</Code> instead of the
+            instructions below.
           </>
         ),
       },
@@ -65,7 +91,7 @@ export const DATA = {
       },
       {
         type: 'code',
-        content: 'npm install vue-inner-image-zoom@2.0.0',
+        content: 'npm install react-inner-image-zoom',
       },
       {
         type: 'heading',
@@ -73,7 +99,34 @@ export const DATA = {
       },
       {
         type: 'code',
-        content: 'yarn add vue-inner-image-zoom@2.0.0',
+        content: 'yarn add react-inner-image-zoom',
+      },
+      {
+        type: 'heading',
+        content: 'TypeScript',
+      },
+      {
+        type: 'text',
+        content: (
+          <>
+            <Anchor
+              href="https://github.com/laurenashpole/inner-image-zoom/blob/main/packages/react/src/index.d.ts"
+              underline="always"
+            >
+              Type declarations
+            </Anchor>{' '}
+            were added with version 4.0.0. For older installations, type
+            definitions are available through{' '}
+            <Anchor href="https://definitelytyped.org/" underline="always">
+              DefinitelyTyped
+            </Anchor>{' '}
+            and can be installed with:
+          </>
+        ),
+      },
+      {
+        type: 'code',
+        content: 'npm install --save-dev @types/react-inner-image-zoom',
       },
       {
         type: 'heading',
@@ -83,13 +136,21 @@ export const DATA = {
         type: 'text',
         content: (
           <>
-            Import the CSS from your <Code>node_modules</Code> directory:
+            You can download the raw{' '}
+            <Anchor
+              href="https://raw.githubusercontent.com/laurenashpole/inner-image-zoom/main/packages/react/src/styles.css"
+              underline="always"
+            >
+              styles.css
+            </Anchor>{' '}
+            file or, if your build supports it, import the stylesheet directly
+            from <Code>node_modules</Code> using:
           </>
         ),
       },
       {
         type: 'code',
-        content: `import 'vue-inner-image-zoom/lib/vue-inner-image-zoom.css';`,
+        content: `import 'react-inner-image-zoom/lib/styles.min.css';`,
       },
     ],
   },
@@ -98,11 +159,11 @@ export const DATA = {
     items: [
       {
         type: 'text',
-        content: 'Import the component and include in your template:',
+        content: 'Import and render the component:',
       },
       {
         type: 'code',
-        content: `import InnerImageZoom from 'vue-inner-image-zoom'\n\n...\n\nexport default {\n  components: {\n    'inner-image-zoom': InnerImageZoom\n  }\n}\n\n...\n\n<inner-image-zoom src="/path/to/image.jpg" zoomSrc="/path/to/zoom-image.jpg" />`,
+        content: `import InnerImageZoom from 'react-inner-image-zoom'\n\n...\n\n<InnerImageZoom src="/path/to/image.jpg" zoomSrc="/path/to/zoom-image.jpg" />`,
       },
     ],
   },
@@ -121,18 +182,6 @@ export const DATA = {
                 <strong>Required.</strong> URL for the original image.
               </>
             ),
-          },
-          {
-            name: 'srcSet',
-            type: 'string',
-            default: '',
-            desc: 'Default srcset attribute for a responsive original image.',
-          },
-          {
-            name: 'sizes',
-            type: 'string',
-            default: '',
-            desc: 'Default sizes attribute for use with srcset.',
           },
           {
             name: 'sources',
@@ -159,6 +208,31 @@ export const DATA = {
             desc: "If true, gets the original image's aspect ratio based on the width and height props and creates a spacer to prevent cumulative layout shift.",
           },
           {
+            name: 'imgAttributes',
+            type: 'object',
+            default: '',
+            desc: (
+              <>
+                <Anchor
+                  href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attributes"
+                  underline="always"
+                >
+                  Img
+                </Anchor>{' '}
+                and{' '}
+                <Anchor
+                  href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes"
+                  underline="always"
+                >
+                  global
+                </Anchor>{' '}
+                attributes for the original image (excluding <Code>src</Code>,{' '}
+                <Code>width</Code>, <Code>height</Code>, and <Code>style</Code>{' '}
+                which are set elsewhere)
+              </>
+            ),
+          },
+          {
             name: 'zoomSrc',
             type: 'string',
             default: '',
@@ -175,12 +249,6 @@ export const DATA = {
             type: 'boolean',
             default: 'false',
             desc: 'If set to true, preloads the zoom image instead of waiting for mouseenter and (unless on a touch device) persists the image on mouseleave.',
-          },
-          {
-            name: 'alt',
-            type: 'string',
-            default: '',
-            desc: 'Alternative text for the original image.',
           },
           {
             name: 'moveType',
@@ -262,6 +330,25 @@ export const DATA = {
             desc: 'Function to be called after zoom out.',
           },
         ],
+      },
+      {
+        type: 'heading',
+        content: 'Ref',
+      },
+      {
+        type: 'text',
+        content: (
+          <>
+            The <Code>ref</Code> prop forwards an object with the{' '}
+            <Code>container</Code> (the root <Code>figure</Code> element) and{' '}
+            <Code>portal</Code> DOM nodes. <Code>portal</Code> grants access to
+            the zoomed image on touch devices when{' '}
+            <Code>fullscreenOnMobile</Code> is set and is only available while
+            the image is zoomed. When using with TypeScript,{' '}
+            <Code>InnerImageZoomRef</Code> can be imported to use as a type
+            argument with <Code>useRef</Code>.
+          </>
+        ),
       },
       {
         type: 'heading',
