@@ -15,6 +15,15 @@ const Navbar = ({ activeLink }) => (
 
     <ListItem>
       <NavAnchor
+        label={<>&ndash;&nbsp;&nbsp;&nbsp;React</>}
+        href="/docs/react"
+        activeLink={activeLink}
+        iconPosition="after"
+      />
+    </ListItem>
+
+    <ListItem>
+      <NavAnchor
         label={<>&ndash;&nbsp;&nbsp;&nbsp;Vanilla</>}
         href="/docs/vanilla"
         activeLink={activeLink}
