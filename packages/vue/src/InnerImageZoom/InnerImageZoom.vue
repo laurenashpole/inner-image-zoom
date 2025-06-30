@@ -188,7 +188,7 @@ export default defineComponent({
     },
     imgAttributes: {
       type: Object,
-      default: {}
+      default: () => ({})
     },
     sources: Array,
     width: Number,
