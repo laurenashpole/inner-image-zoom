@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.0.2](https://github.com/laurenashpole/inner-image-zoom/compare/vue-inner-image-zoom@3.0.1...vue-inner-image-zoom@3.0.2) (2025-06-30)
+
+### Fixed
+
+- Default value for `imgAttributes` object.
+
+## [3.0.1](https://github.com/laurenashpole/inner-image-zoom/compare/vue-inner-image-zoom@3.0.0...vue-inner-image-zoom@3.0.1) (2025-03-19)
+
+### Changed
+
+- Updated README.
+
 ## 3.0.0 (2025-03-06)
 
 ### Added
