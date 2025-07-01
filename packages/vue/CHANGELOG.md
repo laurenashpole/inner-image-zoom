@@ -10,7 +10,7 @@
 
 ### Changed
 
-- Updated README.
+- Updated `inner-image-zoom` dependency and README.
 
 ## 3.0.0 (2025-03-06)
 
