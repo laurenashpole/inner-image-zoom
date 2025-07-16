@@ -1,8 +1,8 @@
-import Link from 'next/link';
-import { FaGithub } from 'react-icons/fa';
-import { IoLogoJavascript, IoLogoVue } from 'react-icons/io5';
-import { PiMoonStarsFill, PiSunFill } from 'react-icons/pi';
-import { RiReactjsLine } from 'react-icons/ri';
+import Link from "next/link";
+import { FaGithub } from "react-icons/fa";
+import { IoLogoJavascript, IoLogoVue } from "react-icons/io5";
+import { PiMoonStarsFill, PiSunFill } from "react-icons/pi";
+import { RiReactjsLine } from "react-icons/ri";
 
 import {
   ActionIcon,
@@ -15,33 +15,33 @@ import {
   Text,
   useComputedColorScheme,
   useMantineColorScheme,
-} from '@mantine/core';
+} from "@mantine/core";
 
-import MenuDivider from '../shared/MenuDivider';
-import MenuDropdown from '../shared/MenuDropdown';
-import NextLink from '../shared/NextLink';
+import MenuDivider from "../shared/MenuDivider";
+import MenuDropdown from "../shared/MenuDropdown";
+import NextLink from "../shared/NextLink";
 
-import Burger from './Burger';
-import NavAnchor from './NavAnchor';
+import Burger from "./Burger";
+import NavAnchor from "./NavAnchor";
 
-import styles from './Header.module.css';
+import styles from "./Header.module.css";
 
 const Header = ({ activeLink, ...burgerProps }) => {
   const { toggleColorScheme } = useMantineColorScheme();
 
-  const colorScheme = useComputedColorScheme('light', {
+  const colorScheme = useComputedColorScheme("light", {
     getInitialValueInEffect: true,
   });
 
   return (
     <Container
       size="lg"
-      px={{ base: 'lg', sm: 'xl' }}
+      px={{ base: "lg", sm: "xl" }}
       py="md"
       className={styles.root}
     >
       <Group>
-        {activeLink !== 'home' && (
+        {activeLink !== "home" && (
           <Link href="/">
             <Text size="xl" fw="800" fs="italic">
               Inner Image Zoom
@@ -121,7 +121,7 @@ const Header = ({ activeLink, ...burgerProps }) => {
                     </Text>
 
                     <Text size="xs" fw={700} lh="normal">
-                      3.0.1
+                      3.0.2
                     </Text>
                   </Stack>
                 </MenuItem>
@@ -152,9 +152,9 @@ const Header = ({ activeLink, ...burgerProps }) => {
               variant="transparent"
               size="xl"
               onClick={() => toggleColorScheme()}
-              aria-label={`Switch to ${colorScheme === 'light' ? 'dark' : 'light'} mode`}
+              aria-label={`Switch to ${colorScheme === "light" ? "dark" : "light"} mode`}
             >
-              {colorScheme === 'light' ? (
+              {colorScheme === "light" ? (
                 <PiMoonStarsFill size="1.5rem" />
               ) : (
                 <PiSunFill size="1.5rem" />
