@@ -37,6 +37,7 @@ img {
   width: 100%;
   max-width: 100%;
   height: auto;
+  display: block;
 }
 
 .demo {
@@ -74,6 +75,29 @@ img {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.button {
+  background: #222;
+  margin-top: 1rem;
+  border: 2px solid transparent;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  color: #f7f7f7;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  appearance: none;
+}
+
+.button:hover {
+  background: transparent;
+  border-color: #222;
+  color: #222;
+}
+
+.button + .button {
+  margin-left: 0.25rem;
 }
 
 @media (min-width: 40rem) {

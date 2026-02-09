@@ -1,5 +1,6 @@
 import InnerImageZoom from '../../packages/vanilla/src';
 import '../../packages/vanilla/src/styles.css';
+import '../shared/styles.css';
 
 new InnerImageZoom('.iiz');
 
@@ -26,18 +27,12 @@ new InnerImageZoom('.iiz-hide', {
   hideHint: true
 });
 
-const callbackHeading = document.querySelector('.callbackHeading');
-
 new InnerImageZoom('.iiz-callbacks', {
   afterZoomIn: function () {
-    if (callbackHeading && callbackHeading['style']) {
-      callbackHeading['style'].color = 'green';
-    }
+    console.log("Zoom In");
   },
   afterZoomOut: function () {
-    if (callbackHeading && callbackHeading['style']) {
-      callbackHeading['style'].color = 'black';
-    }
+    console.log("Zoom Out");
   }
 });
 
