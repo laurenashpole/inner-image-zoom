@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
-import '../../packages/react/src/styles.css';
 import Demo from './Demo';
+import '../../packages/react/src/styles.css';
+import '../shared/styles.css';
 
 const App = () => {
   const ref = useRef();
@@ -13,7 +14,7 @@ const App = () => {
     <main>
       <h1>react-inner-image-zoom Sandbox</h1>
 
-      <div>
+      <section>
         <h2>Pan Demo</h2>
 
         <Demo
@@ -29,9 +30,9 @@ const App = () => {
           ref={ref}
           afterZoomIn={handleZoom}
         />
-      </div>
+      </section>
 
-      <div>
+      <section>
         <h2>Drag Demo</h2>
 
         <Demo
@@ -44,9 +45,9 @@ const App = () => {
             alt: 'Alt text'
           }}
         />
-      </div>
+      </section>
 
-      <div>
+      <section>
         <h2>Zoom on Hover Demo</h2>
 
         <Demo
@@ -60,7 +61,7 @@ const App = () => {
             alt: 'Alt text'
           }}
         />
-      </div>
+      </section>
     </main>
   );
 };

@@ -8,33 +8,33 @@ const Demo = forwardRef(({ ...props }, ref) => {
       <InnerImageZoom ref={ref} {...props} />
 
       <div className="demo__props">
-        <ul>
-          <li>
-            <h3>Props</h3>
-          </li>
+        <div className="demo__card">
+          <h3>Props</h3>
 
-          {Object.keys(props).map(
-            (key) =>
-              key !== 'imgAttributes' && (
-                <li key={key}>
-                  <strong>{key}:</strong> {props[key].toString()}
-                </li>
-              )
-          )}
-        </ul>
+          <ul>
+            {Object.keys(props).map(
+              (key) =>
+                key !== 'imgAttributes' && (
+                  <li key={key}>
+                    <strong>{key}:</strong> {props[key].toString()}
+                  </li>
+                )
+            )}
+          </ul>
+        </div>
 
         {props.imgAttributes && (
-          <ul>
-            <li>
-              <h3>Img Attributes</h3>
-            </li>
+          <div className="demo__card">
+            <h3>Img Attributes</h3>
 
-            {Object.keys(props.imgAttributes).map((key) => (
-              <li key={key}>
-                <strong>{key}:</strong> {props.imgAttributes[key].toString()}
-              </li>
-            ))}
-          </ul>
+            <ul>
+              {Object.keys(props.imgAttributes).map((key) => (
+                <li key={key}>
+                  <strong>{key}:</strong> {props.imgAttributes[key].toString()}
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
       </div>
     </div>

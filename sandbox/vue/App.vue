@@ -2,8 +2,10 @@
   <div id="app">
     <h1>vue-inner-image-zoom Sandbox</h1>
 
-    <div style="margin-bottom: 30px;">
-      <inner-image-zoom
+    <section>
+      <h2>Pan Demo</h2>
+
+      <demo
         src="https://images.unsplash.com/photo-1525253086316-d0c936c814f8?fit=crop&w=750&q=80"
         zoomSrc="https://images.unsplash.com/photo-1525253086316-d0c936c814f8?fit=crop&w=1500&q=80"
         :sources="[
@@ -25,10 +27,12 @@
           }
         }"
       />
-    </div>
+    </section>
 
-    <div style="margin-bottom: 30px;">      
-      <inner-image-zoom
+    <section>
+      <h2>Drag Demo</h2>
+
+      <demo
         src="https://images.unsplash.com/photo-1546527868-ccb7ee7dfa6a?fit=crop&w=1500&q=80"
         moveType="drag"
         :fullscreenOnMobile="false"
@@ -36,9 +40,12 @@
         :height="500"
         :hasSpacer="true"
       />
-    </div>
-    <div style="margin-bottom: 30px;">
-      <inner-image-zoom
+    </section>
+
+    <section>
+      <h2>Zoom on Hover Demo</h2>
+
+      <demo
         src="https://images.unsplash.com/photo-1519150268069-c094cfc0b3c8?fit=crop&w=750&q=80"
         zoomSrc="https://images.unsplash.com/photo-1519150268069-c094cfc0b3c8?fit=crop&w=1500&q=80"
         zoomType="hover"
@@ -46,17 +53,18 @@
         :zoomScale="0.9"
         :zoomPreload="true"
       />
-    </div>
+    </section>
   </div>
 </template>
 
 <script>
-import InnerImageZoom from '../../packages/vue/src/InnerImageZoom';
+import Demo from './Demo.vue';
+import '../shared/styles.css';
 
 export default {
   name: 'App',
   components: {
-    InnerImageZoom
+    Demo
   },
 };
 </script>
