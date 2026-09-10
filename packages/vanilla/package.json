@@ -12,7 +12,7 @@
   ],
   "author": "Lauren Ashpole",
   "description": "A lightweight Vanilla JS package for magnifying an image within its parent container 🔎",
-  "homepage": "https://github.com/laurenashpole/inner-image-zoom/packages/vanilla#readme",
+  "homepage": "https://github.com/laurenashpole/inner-image-zoom/tree/main/packages/vanilla#readme",
   "license": "MIT",
   "repository": {
     "type": "git",
