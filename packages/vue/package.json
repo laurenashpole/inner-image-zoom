@@ -22,7 +22,7 @@
   ],
   "author": "Lauren Ashpole",
   "description": "A Vue.js component for magnifying an image within its parent container 🔎",
-  "homepage": "https://github.com/laurenashpole/inner-image-zoom/packages/vue#readme",
+  "homepage": "https://github.com/laurenashpole/inner-image-zoom/tree/main/packages/vue#readme",
   "license": "MIT",
   "repository": {
     "type": "git",
