@@ -43,7 +43,7 @@
     "pdp",
     "ecommerce"
   ],
-  "dependencies": {
+  "devDependencies": {
     "inner-image-zoom": "1.0.1"
   },
   "peerDependencies": {

@@ -18,13 +18,26 @@ const getTargets = (framework) => {
   return ['lib', 'umd'];
 };
 
-const getVueConfig = (target, config) => {
+const getExtendedConfig = (framework, target, config) => {
+  if (framework !== 'vue' && framework !== 'react') {
+    return {
+      ...config,
+      output: {
+        ...config.output,
+        library: 'InnerImageZoom',
+        libraryTarget: target === 'lib' ? 'var' : target,
+        ...(target === 'umd' && {
+          libraryExport: 'default'
+        })
+      }
+    };
+  }
+
   if (target === 'umd') {
     return {
       ...config,
       output: {
         ...config.output,
-        filename: 'index.js',
         library: {
           name: 'InnerImageZoom',
           type: 'umd',
@@ -39,13 +52,12 @@ const getVueConfig = (target, config) => {
       ...config,
       output: {
         ...config.output,
-        filename: 'index.js',
         library: {
           type: 'commonjs2',
           export: 'default'
         }
       },
-      externals: ['vue']
+      externals: framework === 'react' ? ['react', 'react-dom'] : ['vue']
     };
   }
 
@@ -54,28 +66,14 @@ const getVueConfig = (target, config) => {
     experiments: { outputModule: true },
     output: {
       ...config.output,
-      filename: 'index.js',
       library: { type: 'module' },
       chunkFormat: 'module',
       environment: { module: true }
     },
-    externals: ['vue'],
+    externals: framework === 'react' ? ['react', 'react-dom'] : ['vue'],
     externalsType: 'module-import'
   };
 };
-
-const getVanillaConfig = (target, config) => ({
-  ...config,
-  output: {
-    ...config.output,
-    filename: 'index.js',
-    library: 'InnerImageZoom',
-    libraryTarget: target === 'lib' ? 'var' : target,
-    ...(target === 'umd' && {
-      libraryExport: 'default'
-    })
-  }
-});
 
 module.exports = ({ framework = 'vanilla' }) => {
   const directory = path.resolve(__dirname, `packages/${framework}`);
@@ -86,12 +84,10 @@ module.exports = ({ framework = 'vanilla' }) => {
 
     const config = {
       mode: 'production',
-      entry: [
-        ...(isReact ? [] : [`${directory}/src/styles.css`]),
-        ...(!isReact ? [`${directory}/src`] : [`${directory}/src/styles.css`])
-      ],
+      entry: [`${directory}/src/styles.css`, `${directory}/src`],
       output: {
         path: `${directory}/${target}`,
+        filename: 'index.js',
         clean: true
       },
       module: {
@@ -104,7 +100,7 @@ module.exports = ({ framework = 'vanilla' }) => {
             use: {
               loader: 'babel-loader',
               options: {
-                presets: ['@babel/preset-env']
+                presets: ['@babel/preset-env', ...(isReact ? ['@babel/preset-react'] : [])]
               }
             }
           }
@@ -137,14 +133,6 @@ module.exports = ({ framework = 'vanilla' }) => {
       }
     };
 
-    if (!isVue && !isReact) {
-      return getVanillaConfig(target, config);
-    }
-
-    if (isVue) {
-      return getVueConfig(target, config);
-    }
-
-    return config;
+    return getExtendedConfig(framework, target, config);
   });
 };
