@@ -44,7 +44,7 @@
     "ecommerce"
   ],
   "devDependencies": {
-    "inner-image-zoom": "1.0.1"
+    "inner-image-zoom": "1.1.0"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
