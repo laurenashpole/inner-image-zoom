@@ -2,15 +2,27 @@
   "name": "vue-inner-image-zoom",
   "version": "3.0.2",
   "main": "lib/index.js",
-  "module": "src/index.js",
+  "module": "es/index.js",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    },
+    "./styles.css": "./lib/styles.min.css"
+  },
+  "sideEffects": [
+    "*.css"
+  ],
   "files": [
     "lib",
+    "es",
     "umd",
-    "src"
+    "src/index.d.ts"
   ],
   "author": "Lauren Ashpole",
   "description": "A Vue.js component for magnifying an image within its parent container 🔎",
-  "homepage": "https://github.com/laurenashpole/inner-image-zoom/packages/vue#readme",
+  "homepage": "https://github.com/laurenashpole/inner-image-zoom/tree/main/packages/vue#readme",
   "license": "MIT",
   "repository": {
     "type": "git",
