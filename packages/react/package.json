@@ -3,6 +3,18 @@
   "version": "4.0.1",
   "main": "lib/index.js",
   "module": "es/index.js",
+  "types": "lib/index.d.ts",
+  "sideEffects": [
+    "*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    },
+    "./lib/styles.min.css": "./lib/styles.min.css"
+  },
   "files": [
     "lib",
     "src",
