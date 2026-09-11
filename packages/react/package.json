@@ -3,6 +3,18 @@
   "version": "4.0.1",
   "main": "lib/index.js",
   "module": "es/index.js",
+  "types": "lib/index.d.ts",
+  "sideEffects": [
+    "*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    },
+    "./lib/styles.min.css": "./lib/styles.min.css"
+  },
   "files": [
     "lib",
     "src",
@@ -10,7 +22,7 @@
   ],
   "author": "Lauren Ashpole",
   "description": "A React component for magnifying an image within its parent container 🔎",
-  "homepage": "https://github.com/laurenashpole/inner-image-zoom/packages/react#readme",
+  "homepage": "https://github.com/laurenashpole/inner-image-zoom/tree/main/packages/react#readme",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -31,11 +43,12 @@
     "pdp",
     "ecommerce"
   ],
-  "dependencies": {
-    "inner-image-zoom": "1.0.1"
+  "devDependencies": {
+    "inner-image-zoom": "1.1.0"
   },
   "peerDependencies": {
-    "react": ">=16.8.0"
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "scripts": {
     "release": "release-it"

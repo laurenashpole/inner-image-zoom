@@ -32,8 +32,11 @@ export interface InnerImageZoomProps {
   className?: string | undefined;
   afterZoomIn?: (() => void) | undefined;
   afterZoomOut?: (() => void) | undefined;
-  ref?: React.MutableRefObject<InnerImageZoomRef | undefined> | null;
 }
 
-declare const InnerImageZoom: (props: InnerImageZoomProps) => JSX.Element;
+declare const InnerImageZoom: React.ForwardRefExoticComponent<
+  InnerImageZoomProps & React.RefAttributes<InnerImageZoomRef>
+>;
+
+export { InnerImageZoom };
 export default InnerImageZoom;

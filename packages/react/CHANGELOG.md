@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.0.2](https://github.com/laurenashpole/inner-image-zoom/compare/react-inner-image-zoom%404.0.1...react-inner-image-zoom%404.0.2) (2026-09-10)
+
+### Fixed
+
+- Bundle shared utilities and ship a real ESM build to fix Next.js, Vitest, and React 19 compatibility issues.
+- Update type declarations to use `ForwardRefExoticComponent` and correct ref typing.
+
+### Changed
+
+- Move `inner-image-zoom` to a devDependencies and add `react-dom` to peerDependencies.
+
 ## [4.0.1](https://github.com/laurenashpole/inner-image-zoom/compare/react-inner-image-zoom%404.0.0...react-inner-image-zoom%404.0.1) (2025-03-31)
 
 ### Fixed

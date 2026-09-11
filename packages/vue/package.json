@@ -43,8 +43,8 @@
     "pdp",
     "ecommerce"
   ],
-  "dependencies": {
-    "inner-image-zoom": "1.0.1"
+  "devDependencies": {
+    "inner-image-zoom": "1.1.0"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
