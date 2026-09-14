@@ -17,12 +17,7 @@ interface InnerImageZoomOptions {
   afterZoomOut?: () => void;
 }
 
-declare class InnerImageZoom {
-  constructor(
-    selector?: string,
-    options?: InnerImageZoomOptions
-  )
-
+interface InnerImageZoom {
   $closeButton: HTMLElement | null;
   $container: HTMLElement;
   $el: HTMLElement;
@@ -33,3 +28,13 @@ declare class InnerImageZoom {
   reinit(options?: InnerImageZoomOptions): void;
   uninit(): void;
 }
+
+interface InnerImageZoomConstructor {
+  new (
+    selector?: string,
+    options?: InnerImageZoomOptions
+  ): InnerImageZoom | InnerImageZoom[];
+  prototype: InnerImageZoom;
+}
+
+declare const InnerImageZoom: InnerImageZoomConstructor;

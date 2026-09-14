@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.0.3](https://github.com/laurenashpole/inner-image-zoom/compare/vue-inner-image-zoom@3.0.2...vue-inner-image-zoom@3.0.3) (2026-09-10)
+
+### Fixed
+
+- Build `es` and `lib` targets with `vue-loader` instead of shipping `.vue` files
+
 ## [3.0.2](https://github.com/laurenashpole/inner-image-zoom/compare/vue-inner-image-zoom@3.0.1...vue-inner-image-zoom@3.0.2) (2025-06-30)
 
 ### Fixed
@@ -45,7 +51,7 @@
 
 - `hideCloseButton` prop to hide the close button on touch devices.
 - `hideHint` prop to hide the magnifying glass icon.
-- `width`, `height`, and `hasSpacer` props to set the original image's width and height attributes and optionally generate a spacer based on those values to avoid cumulative layout shift. 
+- `width`, `height`, and `hasSpacer` props to set the original image's width and height attributes and optionally generate a spacer based on those values to avoid cumulative layout shift.
 - `zoomPreload` prop to load the zoomed image on render.
 - `zoomScale` prop to set the size of the zoomed image.
 - `zoomType` prop with "hover" option to trigger zoom on hover.
