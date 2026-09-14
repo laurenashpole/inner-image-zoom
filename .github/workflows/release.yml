@@ -2,6 +2,8 @@ name: Release
 
 on:
   pull_request:
+    branches-ignore:
+      - pages
   push:
     branches:
       - main
@@ -9,15 +11,10 @@ on:
 jobs:
   release:
     name: Release
-    runs-on: ${{ matrix.os }}
+    runs-on: macos-latest
     strategy:
       matrix:
-        os: [macos-latest]
-        node-version: [18.x, 20.x, 22.x]
-        include:
-          - os: macos-latest
-            node-version: 22.x
-            publish: true
+        node-version: [20.x, 22.x, 24.x]
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
