@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.27.0",
-    "@babel/core": "^7.22.9",
+    "@babel/core": "^7.29.6",
     "@babel/preset-env": "^7.22.9",
     "@babel/preset-react": "^7.26.3",
     "@jsdevtools/coverage-istanbul-loader": "^3.0.5",
