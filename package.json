@@ -56,7 +56,7 @@
     "vue-loader": "^17.0.0",
     "webpack": "^5.104.1",
     "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.4",
+    "webpack-dev-server": "^5.2.6",
     "webpack-remove-empty-scripts": "^1.0.1"
   },
   "release-it": {
