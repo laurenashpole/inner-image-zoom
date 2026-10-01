@@ -15,7 +15,7 @@ import {
 import Section from '../layout/Section';
 
 const PhotoCreditsView = ({ credits }) => (
-  <Section type="secondary" py="xxxxl">
+  <Section type="secondary" py={{ base: 'xxxl', md: 'xxxxl' }}>
     <Stack gap="xxl" maw="50rem">
       <Title order={1}>Photo Credits</Title>
 

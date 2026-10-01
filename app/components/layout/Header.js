@@ -43,7 +43,7 @@ const Header = ({ activeLink, ...burgerProps }) => {
       <Group>
         {activeLink !== 'home' && (
           <Link href="/">
-            <Text size="xl" fw="800" fs="italic">
+            <Text size="lg" fw="800" fs="italic">
               Inner Image Zoom
             </Text>
           </Link>

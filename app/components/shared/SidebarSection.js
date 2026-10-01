@@ -16,7 +16,7 @@ const SidebarSection = ({ children, navLinks, visibleFrom = 'md' }) => {
   };
 
   return (
-    <Section type="secondary" py="xxxxl">
+    <Section type="secondary" py={{ base: 'xxxl', md: 'xxxxl' }}>
       <Group wrap="nowrap" align="flex-start" gap="xxl">
         <Stack gap="xxxl" w="100%" miw="0">
           {children({
