@@ -34,7 +34,7 @@ const Frameworks = () => {
           }}
           columns={14}
         >
-          <GridCol span="auto">
+          <GridCol span={{ base: 14, sm: 7, md: 'auto' }}>
             <Stack
               justify="space-between"
               p="24"
@@ -63,7 +63,7 @@ const Frameworks = () => {
             </Stack>
           </GridCol>
 
-          <GridCol span={3}>
+          <GridCol span={{ base: 14, sm: 7, md: 3 }}>
             <NextLink href="/docs/react">
               <Center p="24" h="100%">
                 <FaReact size="4.5rem" aria-label="React" />
@@ -71,7 +71,7 @@ const Frameworks = () => {
             </NextLink>
           </GridCol>
 
-          <GridCol span={3}>
+          <GridCol span={{ base: 14, sm: 7, md: 3 }}>
             <NextLink href="/docs/vanilla">
               <Center p="24" h="100%">
                 <IoLogoJavascript
@@ -82,7 +82,7 @@ const Frameworks = () => {
             </NextLink>
           </GridCol>
 
-          <GridCol span={3}>
+          <GridCol span={{ base: 14, sm: 7, md: 3 }}>
             <NextLink href="/docs/vue">
               <Center p="24" h="100%">
                 <IoLogoVue size="4.5rem" aria-label="Vue" />

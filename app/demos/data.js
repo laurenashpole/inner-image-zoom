@@ -163,7 +163,7 @@ export const DATA = {
       props: {
         src: 'demo-5.jpg',
         zoomSrc: 'demo-5-large.jpg',
-        fullScreenOnMobile: true,
+        fullscreenOnMobile: true,
         imgAttributes: {
           alt: 'Demo photo of shower products',
         },
@@ -202,6 +202,7 @@ export const DATA = {
       props: {
         src: 'demo-6.jpg',
         zoomSrc: 'demo-6-large.jpg',
+        fullscreenOnMobile: true,
         hideCloseButton: true,
         imgAttributes: {
           alt: 'Demo photo of a Le Creuset pot and carrots',

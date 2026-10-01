@@ -1,3 +1,7 @@
 :root[data-mantine-color-scheme='light'] .root {
   --app-shell-border-color: var(--mantine-color-light-2);
 }
+
+.root {
+  overflow: hidden;
+}
